@@ -8,6 +8,7 @@ import MyselfFocus from '@/allPages/myself/myself-pages/myself-focus/MyselfFocus
 import MyselfCollections from '@/allPages/myself/myself-pages/myself-collections/MyselfCollections'
 import MyselfInformation from '@/allPages/myself/myself-pages/myself-information/MyselfInformation'
 import NickName from '@/allPages/myself/myself-pages/myself-information/myself-information-components/NickName'
+import MyseflAbout from '@/allPages/myself/myself-pages/myself-information/myself-information-components/About'
 
 Vue.use(Router)
 
@@ -45,8 +46,13 @@ export default new Router({
       path: '/nickname',
       name: 'NickName',
       component: NickName
-    }
+    },{
+      path: '/about',
+      name: 'MyseflAbout',
+      component: MyseflAbout
+  }
 
 
   ]
+    
 })

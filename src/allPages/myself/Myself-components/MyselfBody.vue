@@ -19,7 +19,6 @@ export default {
 <style lang='stylus' scoped>
   .body
     height: 3rem
-    background: gray
     .top
       height 1.2rem
       padding-left: .4rem 
@@ -55,5 +54,6 @@ export default {
         padding-right: .4rem
         font-size: .4rem
         border-radius: .22rem
+        background: #eee
       
 </style>

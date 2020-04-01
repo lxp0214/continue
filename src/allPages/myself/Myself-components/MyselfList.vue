@@ -57,35 +57,32 @@ export default {
 
 <style lang='stylus' scoped>
   .item
-    height: 3rem 
-    background: red  
+    height: 3rem  
     margin-left: .4rem
     margin-right: .4rem
     border-radius: .22rem
     padding-left: .28rem
     padding-right: .28rem
+    margin-bottom: .2rem
+    border: solid .01rem
     .item-title
-      background: blue
       height: .72rem
       line-height: .8rem
       font-size: .4rem
     .item-content
       height: 1.5rem
-      background: yellow
       font-size: .37rem
       color: #707070
     .item-name
       display: flex
       justify-content: space-between
       height: .58rem
-      background: orange
       padding-bottom: .2rem
       .item-name-right 
         height: .58rem
         line-height: .58rem
       .item-name-left
         height: .58rem
-        background: blue
         .item-name-img
           border-radius: 100%
           width: .54rem

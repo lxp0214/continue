@@ -3,7 +3,7 @@
         <div class='header'>
             <span class='iconfont left'>&#xe65e;</span>
             所有消息
-            <span class='iconfont right'>&#xe65e;</span>
+            <span @click='changeShow()' class='iconfont right' ref='change'>&#xe65e;</span>
         </div>
         <div class='list' v-show='messageShow'>
             <ul class='wrapper'>
@@ -54,6 +54,12 @@
             </ul>
             <div class='foot'>没有了呢</div>
         </div>
+        <div class='reverse' v-show='!messageShow'>
+            <div class='reverse-item'>收藏创作更新</div>
+            <div class='reverse-item'>关注的用户</div>
+            <div class='reverse-item'>收藏的续作</div>
+            <div class='reverse-item'>收藏的原创</div>
+        </div>
     </div>
 </template>
 
@@ -63,6 +69,16 @@ export default {
     data () {
         return {
             messageShow: true
+        }
+    },
+    methods: {
+        changeShow () {
+            this.messageShow = !this.messageShow 
+            if(!this.messageShow) {
+                this.$refs.change.innerHTML = '&#xe607;'
+            } else {
+                this.$refs.change.innerHTML = '&#xe65e;'
+            }
         }
     }
 }
@@ -132,4 +148,18 @@ export default {
               height: .58rem
               line-height: .58rem
               margin-left: .1rem
+  .reverse
+    position: absolute 
+    top: 1.5rem
+    right: 0
+    width: 3.6rem
+    .reverse-item
+      height: 1.2rem
+      line-height: 1.2rem
+      font-size: .36rem
+      width: 3.6rem
+      padding-left: .26rem
+      margin-top: .12rem
+      margin-bottom: .12rem
+      border: solid .02rem #707070
 </style>

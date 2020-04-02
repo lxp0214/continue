@@ -20,6 +20,8 @@ import HotCreate from '@/allPages/explore/explore-pages/hot-create/HotCreate'
 import CreateEdit from '@/allPages/create/create-pages/CreateEdit'
 import CreateAllMessages from '@/allPages/create/create-pages/CreateAllMessages'
 import CreateReady from '@/allPages/create/create-pages/create-ready/CreateReady'
+import ArticalDetails from '@/allPages/artical-details/ArticalDetails'
+import Comments from '@/allPages/comments/Comments'
 
 Vue.use(Router)
 
@@ -104,8 +106,44 @@ export default new Router({
             path: '/createready',
             name: 'CreateReady',
             component: CreateReady
+        }, {
+            path: '/myself-focus',
+            name: 'MyselfFocus',
+            component: MyselfFocus
+        }, {
+            path: '/collections',
+            name: 'MyselfCollections',
+            component: MyselfCollections
+        }, {
+            path: '/myselfinformation',
+            name: 'MyselfInformation',
+            component: MyselfInformation
+        }, {
+            path: '/hotcontinue',
+            name: 'HotContinue',
+            component: HotContinue
+        }, {
+            path: '/hotcreate',
+            name: 'HotCreate',
+            component: HotCreate
+        }, {
+            path: '/createedit',
+            name: 'CreateEdit',
+            component: CreateEdit
+        }, {
+            path: '/createmessages',
+            name: 'CreateAllMessages',
+            component: CreateAllMessages
+        }, {
+            path: '/articaldetails',
+            name: 'ArticalDetails',
+            component: ArticalDetails
+        }, {
+            path: '/comments',
+            name: 'Comments',
+            component: Comments
         }
 
-    ]
+    ],
 
 })

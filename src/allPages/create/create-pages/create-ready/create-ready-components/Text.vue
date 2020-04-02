@@ -1,74 +1,69 @@
 <template>
-    <div class="text">
-        <div class="title">1 雨停了</div>
-        <div class="content">
-        </div>
-        <div class="foot">
-            <div class="foot-left">
-                <div class="circle"></div>
-                <div class="desc">由xxx用户</div>
-                <div class="date">3月10日 16:30</div>
-            </div>
-            <div class="foot-right">
-                <div class="iconfont icon-right">&#xe628;</div>
-                <div class="iconfont icon-right">&#xe617;</div>
-            </div>
-        </div>
+    <div>
+        <ul>
+            <li class='item'>
+                <div class='item-title'>1 || 雨停了</div>
+                <div class='content'>日本。东京市。练马区。天空中的云层倾轧而下，镇子里逐渐阴下来，寒风萧瑟，这样的天气恐怕不再适宜户外运动。大雄迷迷糊糊地睁开眼睛，他看了看周边的环境，发觉自己就站在小时候经常玩耍的空地上。那边的三根钢管仍旧横着，堆叠在一起，仿佛会一直持续下去。</div>
+                <div class='foot'>
+                    <div class='left'>
+                        <div class='img'></div>
+                        <span class='desc'>xxx用户</span>
+                        <span class='desc'>3月10日16:30</span>
+                    </div>
+                    <div class='right'>
+                        <span class='iconfont icon'>&#xe65e;</span>
+                        <span class='iconfont icon'>&#xe607;</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'CreateText'
+    name: 'ArticalDetailsChapter'
 }
 </script>
 
 <style lang='stylus' scoped>
-    .text {
-        margin-top 1.6rem
-        padding-top 0.2rem
-        background-color lightgray
-        .title {
-            margin-left 0.28rem
-            font-size 0.36rem
-            color #000000
-            font-weight 600
-        }
-        .foot {
-            margin-top 0.42rem
-            margin-left 0.28rem
-            margin-right 0.3rem
-            display flex
-            line-height 0.4rem
-            .foot-left {
-                flex 1
-                display flex
-                .circle {
-                    width 0.36rem
-                    height 0.36rem
-                    border-radius 50%
-                    border 1px solid
-                }
-                .desc {
-                    margin-left 0.1rem
-                    font-size 0.21rem
-                    color #000000
-                }
-                .date {
-                    margin-left 0.1rem
-                    font-size 0.17rem
-                    color #000000
-                    text-align bottom 
-                }
-            }
-            .foot-right {
-                display flex
-                margin-bottom  0.3rem
-                .icon-right {
-                    margin-left 0.35rem
-                    font-size 0.48rem
-                }
-            }
-        }
-    }
+  .item 
+    background: #eee
+    box-sizing:border-box
+    -moz-box-sizing:border-box
+    -webkit-box-sizing:border-box
+    width: 100%
+    margin-top:1.4rem
+    padding-left: .28rem
+    padding-right: .28rem
+    padding-bottom: .2rem
+    .item-title 
+      line-height: .96rem
+      font-size: .36rem
+    .content 
+      font-size: .32rem
+      line-height: .42rem
+    .foot 
+      height: .36rem
+      margin-top: .4rem
+      background: blue
+      overflow: hidden
+      .left 
+        float: left 
+        height: .36rem
+        line-height: .36rem
+        .img 
+          border-radius: 100%
+          background: red 
+          width: .36rem
+          height: .36rem
+          display: inline-block
+        .desc 
+          line-height: .36rem
+      .right 
+        float: right
+        .icon
+          margin-left: .5rem
+          line-height: .36rem
+
 </style>

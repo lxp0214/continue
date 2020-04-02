@@ -10,6 +10,7 @@
 import CreateHeader from './create-ready-components/Header'
 import CreateBody from './create-ready-components/Body'
 import CreateText from './create-ready-components/Text'
+//import CreateText from '../../../artical-details/artical-details-components/ArticalDetailsChapter'
 export default {
     name: 'CreateReady',
     components: {

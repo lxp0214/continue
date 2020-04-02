@@ -78,14 +78,18 @@ export default new Router({
     name: 'MyselfAbout',
     component: List
     },{
-  path: '/hot',
-  name: 'HotContinue',
-  component: HotContinue
-   }, {
-  path: '/create',
-  name: 'HotContinue',
-  component: HotCreate
-   }
+    path: '/hotcontinue',
+    name: 'HotContinue',
+    component: HotContinue
+    },{
+    path: '/hotcreate',
+    name: 'HotCreate',
+    component: HotCreate
+    },{
+      path: '/create',
+      name: 'HotContinue',
+      component: HotCreate
+    }
    
   ]
 

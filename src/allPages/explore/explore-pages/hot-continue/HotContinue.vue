@@ -12,7 +12,7 @@ export default {
   name: 'HotContinue',
   components: {
       HotContinueHeader:HotContinueHeader,
-      ContentList:ContentList
+      ContentList:ContentList,
   }
 }
 </script>

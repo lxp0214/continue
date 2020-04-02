@@ -34,6 +34,8 @@ export default {
 <style lang='stylus' scoped>
   .header
     margin-top: .4rem
+    padding-left: .4rem
+    padding-right: .4rem
     height: 1.1rem
     line-height: 1.1rem
     text-align: center
@@ -42,7 +44,6 @@ export default {
     border-top: solid .01rem
     .left
       float: left
-      margin-left: .4rem
       font-size: .7rem
   .basic-information
     height: 6.04rem

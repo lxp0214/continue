@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Login from '@/allPages/Login'
 import Register from '@/allPages/Register'
 import Explore from '@/allPages/explore/Explore'
+import Create from '@/allPages/create/Create'
 import Myself from '@/allPages/myself/Myself'
 import MyselfFocus from '@/allPages/myself/myself-pages/myself-focus/MyselfFocus'
 import MyselfCollections from '@/allPages/myself/myself-pages/myself-collections/MyselfCollections'
@@ -16,6 +17,8 @@ import Search from '@/allPages/Search'
 import List from '@/allPages/commonList/contentList'
 import HotContinue from '@/allPages/explore/explore-pages/hot-continue/HotContinue'
 import HotCreate from '@/allPages/explore/explore-pages/hot-create/HotCreate'
+import CreateEdit from '@/allPages/create/create-pages/CreateEdit'
+import CreateAllMessages from '@/allPages/create/create-pages/CreateAllMessages'
 
 Vue.use(Router)
 
@@ -33,6 +36,10 @@ export default new Router({
       path: '/explore',
       name: 'Explore',
       component: Explore
+    },{
+      path: '/create',
+      name: 'Create',
+      component: Create
     },{
       path: '/myself',
       name: 'Myself',
@@ -86,9 +93,13 @@ export default new Router({
     name: 'HotCreate',
     component: HotCreate
     },{
-      path: '/create',
-      name: 'HotContinue',
-      component: HotCreate
+      path: '/createedit',
+      name: 'CreateEdit',
+      component: CreateEdit
+    },{
+      path: '/createmessages',
+      name: 'CreateAllMessages',
+      component: CreateAllMessages
     }
    
   ]

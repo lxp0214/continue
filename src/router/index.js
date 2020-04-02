@@ -9,6 +9,11 @@ import MyselfCollections from '@/allPages/myself/myself-pages/myself-collections
 import MyselfInformation from '@/allPages/myself/myself-pages/myself-information/MyselfInformation'
 import NickName from '@/allPages/myself/myself-pages/myself-information/myself-information-components/NickName'
 import MyseflAbout from '@/allPages/myself/myself-pages/myself-information/myself-information-components/About'
+import HotContinue from '@/allPages/explore/explore-pages/hot-continue/HotContinue'
+import HotCreate from '@/allPages/explore/explore-pages/hot-create/HotCreate'
+import UserDetails from '@/allPages/user-details/UserDetails'
+import NewestCreate from '@/allPages/explore/explore-pages/newest-create/NewestCreate'
+import NewestContinue from '@/allPages/explore/explore-pages/newest-continue/NewestContinue'
 
 Vue.use(Router)
 
@@ -50,7 +55,27 @@ export default new Router({
       path: '/about',
       name: 'MyseflAbout',
       component: MyseflAbout
-  }
+    },{
+      path: '/hotcontinue',
+      name: 'HotContinue',
+      component: HotContinue
+    },{
+      path: '/hotcreate',
+      name: 'HotCreate',
+      component: HotCreate
+    },{
+      path: '/userdetails',
+      name: 'UserDetails',
+      component: UserDetails
+    },{
+      path: '/newestcontinue',
+      name: 'NewestContinue',
+      component: NewestContinue
+    },{
+      path: '/newestcreate',
+      name: 'NewestCreate',
+      component: NewestCreate
+    }
 
 
   ]

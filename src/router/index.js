@@ -9,11 +9,13 @@ import MyselfCollections from '@/allPages/myself/myself-pages/myself-collections
 import MyselfInformation from '@/allPages/myself/myself-pages/myself-information/MyselfInformation'
 import NickName from '@/allPages/myself/myself-pages/myself-information/myself-information-components/NickName'
 import MyseflAbout from '@/allPages/myself/myself-pages/myself-information/myself-information-components/About'
-import HotContinue from '@/allPages/explore/explore-pages/hot-continue/HotContinue'
-import HotCreate from '@/allPages/explore/explore-pages/hot-create/HotCreate'
 import UserDetails from '@/allPages/user-details/UserDetails'
 import NewestCreate from '@/allPages/explore/explore-pages/newest-create/NewestCreate'
 import NewestContinue from '@/allPages/explore/explore-pages/newest-continue/NewestContinue'
+import Search from '@/allPages/Search'
+import List from '@/allPages/commonList/contentList'
+import HotContinue from '@/allPages/explore/explore-pages/hot-continue/HotContinue'
+import HotCreate from '@/allPages/explore/explore-pages/hot-create/HotCreate'
 
 Vue.use(Router)
 
@@ -56,14 +58,6 @@ export default new Router({
       name: 'MyseflAbout',
       component: MyseflAbout
     },{
-      path: '/hotcontinue',
-      name: 'HotContinue',
-      component: HotContinue
-    },{
-      path: '/hotcreate',
-      name: 'HotCreate',
-      component: HotCreate
-    },{
       path: '/userdetails',
       name: 'UserDetails',
       component: UserDetails
@@ -75,9 +69,24 @@ export default new Router({
       path: '/newestcreate',
       name: 'NewestCreate',
       component: NewestCreate
-    }
-
-
+    },{
+      path: '/search',
+      name: 'MyselfAbout',
+      component: Search
+    },{
+    path: '/list',
+    name: 'MyselfAbout',
+    component: List
+    },{
+  path: '/hot',
+  name: 'HotContinue',
+  component: HotContinue
+   }, {
+  path: '/create',
+  name: 'HotContinue',
+  component: HotCreate
+   }
+   
   ]
-    
+
 })

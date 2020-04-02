@@ -7,10 +7,10 @@
     <div class="info">
         <div class="infoName border">
             <span class="iconfont infoName-icon">&#xe608;</span>
-            <input type="text" class="infoName-text border" placeholder="请输入手机号码">
+            <input type="number" class="infoName-text border" placeholder="请输入手机号码">
         </div>
         <div class="infoPass border">
-            <input type="password" class="infoPass-text border" placeholder="请输入验证码">
+            <input type="number" class="infoPass-text border" placeholder="请输入验证码">
         </div>
         <button class="loginItem border">注册</button>
     </div>

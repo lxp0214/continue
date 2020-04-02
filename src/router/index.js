@@ -19,6 +19,7 @@ import HotContinue from '@/allPages/explore/explore-pages/hot-continue/HotContin
 import HotCreate from '@/allPages/explore/explore-pages/hot-create/HotCreate'
 import CreateEdit from '@/allPages/create/create-pages/CreateEdit'
 import CreateAllMessages from '@/allPages/create/create-pages/CreateAllMessages'
+import ArticalDetails from '@/allPages/artical-details/ArticalDetails'
 
 Vue.use(Router)
 
@@ -100,6 +101,10 @@ export default new Router({
       path: '/createmessages',
       name: 'CreateAllMessages',
       component: CreateAllMessages
+    },{
+      path: '/articaldetails',
+      name: 'ArticalDetails',
+      component: ArticalDetails
     }
    
   ]

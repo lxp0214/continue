@@ -1,9 +1,9 @@
 <template>
     <div>
         <div class='header'>
-            <span class='iconfont left'>&#xe65e;</span>
+            <span class='iconfont left'>&#xe611;</span>
             创作
-            <span class='iconfont right'>&#xe65e;</span>
+            <span class='iconfont right'>&#xe607;</span>
         </div>
         <div class='wrapper'>
             <div class='body'>

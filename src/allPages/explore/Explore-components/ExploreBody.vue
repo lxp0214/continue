@@ -23,17 +23,23 @@ export default {
     }
     .body {
         height :1.2rem
-        padding-left:0.4rem;
+        margin-left:0.4rem
+        margin-right:0.4rem
+        margin-bottom:0.4rem
+        .button-left {
+            float left
+        }
+        .button-right {
+            float right
+        }
         .button-left,.button-right {
             width:3.14rem
             height:1.2rem;
             border-radius:0.2rem
-        }
-        .button-left {
-            margin-bottom:0.2rem
-        }
-        .button-left {
-            float:left
+            .text {
+                padding-top:34px
+                padding-left :16px
+            }
         }
     }
 </style>

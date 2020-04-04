@@ -1,8 +1,10 @@
 <template>
     <div class="header">
-        <div class="back-arrow">
-          <span class="iconfont">&#xe65e;</span>
-        </div>
+        <router-link to='/myself'>
+            <div class="back-arrow">
+            <span class="iconfont">&#xe65e;</span>
+            </div>
+        </router-link>
         <div class="title">我的收藏</div>
         <div class="search border">
             <span class="search-desc">搜索我收藏的创作</span>

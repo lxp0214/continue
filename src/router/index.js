@@ -14,7 +14,6 @@ import UserDetails from '@/allPages/user-details/UserDetails'
 import NewestCreate from '@/allPages/explore/explore-pages/newest-create/NewestCreate'
 import NewestContinue from '@/allPages/explore/explore-pages/newest-continue/NewestContinue'
 import Search from '@/allPages/Search'
-import List from '@/allPages/commonList/contentList'
 import HotContinue from '@/allPages/explore/explore-pages/hot-continue/HotContinue'
 import HotCreate from '@/allPages/explore/explore-pages/hot-create/HotCreate'
 import CreateEdit from '@/allPages/create/create-pages/CreateEdit'
@@ -22,128 +21,79 @@ import CreateAllMessages from '@/allPages/create/create-pages/CreateAllMessages'
 import CreateReady from '@/allPages/create/create-pages/create-ready/CreateReady'
 import ArticalDetails from '@/allPages/artical-details/ArticalDetails'
 import Comments from '@/allPages/comments/Comments'
+import Found from '@/allPages/Found'
 
 Vue.use(Router)
 
 export default new Router({
     routes: [{
-            path: '/',
-            name: 'Login',
-            component: Login
-        }, {
-            path: '/register',
-            name: 'Register',
-            component: Register
-        }, {
-            path: '/explore',
-            name: 'Explore',
-            component: Explore
-        }, {
-            path: '/create',
-            name: 'Create',
-            component: Create
-        }, {
-            path: '/myself',
-            name: 'Myself',
-            component: Myself
-        }, {
-            path: '/myself-focus',
-            name: 'MyselfFocus',
-            component: MyselfFocus
-        }, {
-            path: '/collections',
-            name: 'MyselfCollections',
-            component: MyselfCollections
-        }, {
-            path: '/myselfinformation',
-            name: 'MyselfInformation',
-            component: MyselfInformation
-        }, {
-            path: '/nickname',
-            name: 'NickName',
-            component: NickName
-        }, {
-            path: '/about',
-            name: 'MyseflAbout',
-            component: MyseflAbout
-        }, {
-            path: '/userdetails',
-            name: 'UserDetails',
-            component: UserDetails
-        }, {
-            path: '/newestcontinue',
-            name: 'NewestContinue',
-            component: NewestContinue
-        }, {
-            path: '/newestcreate',
-            name: 'NewestCreate',
-            component: NewestCreate
-        }, {
-            path: '/search',
-            name: 'MyselfAbout',
-            component: Search
-        }, {
-            path: '/list',
-            name: 'MyselfAbout',
-            component: List
-        }, {
-            path: '/hotcontinue',
-            name: 'HotContinue',
-            component: HotContinue
-        }, {
-            path: '/hotcreate',
-            name: 'HotCreate',
-            component: HotCreate
-        }, {
-            path: '/createedit',
-            name: 'CreateEdit',
-            component: CreateEdit
-        }, {
-            path: '/createmessages',
-            name: 'CreateAllMessages',
-            component: CreateAllMessages
-        }, {
-            path: '/createready',
-            name: 'CreateReady',
-            component: CreateReady
-        }, {
-            path: '/myself-focus',
-            name: 'MyselfFocus',
-            component: MyselfFocus
-        }, {
-            path: '/collections',
-            name: 'MyselfCollections',
-            component: MyselfCollections
-        }, {
-            path: '/myselfinformation',
-            name: 'MyselfInformation',
-            component: MyselfInformation
-        }, {
-            path: '/hotcontinue',
-            name: 'HotContinue',
-            component: HotContinue
-        }, {
-            path: '/hotcreate',
-            name: 'HotCreate',
-            component: HotCreate
-        }, {
-            path: '/createedit',
-            name: 'CreateEdit',
-            component: CreateEdit
-        }, {
-            path: '/createmessages',
-            name: 'CreateAllMessages',
-            component: CreateAllMessages
-        }, {
-            path: '/articaldetails',
-            name: 'ArticalDetails',
-            component: ArticalDetails
-        }, {
-            path: '/comments',
-            name: 'Comments',
-            component: Comments
-        }
-
-    ],
+        path: '/',
+        name: 'Login',
+        component: Login
+    }, {
+        path: '/create',
+        name: 'Create',
+        component: Create
+    }, {
+        path: '/forget',
+        name: 'Found',
+        component: Found
+    }, {
+        path: '/register',
+        name: 'Register',
+        component: Register
+    }, {
+        path: '/myself',
+        name: 'Myself',
+        component: Myself
+    }, {
+        path: '/myselfInformation',
+        name: 'MyselfInformation',
+        component: MyselfInformation
+    }, {
+        path: '/myselfCollection',
+        name: 'MyselfCollections',
+        component: MyselfCollections
+    }, {
+        path: '/myselfFocus',
+        name: 'MyselfFocus',
+        component: MyselfFocus
+    }, {
+        path: '/search',
+        name: 'Search',
+        component: Search
+    }, {
+        path: '/explore',
+        name: 'Explore',
+        component: Explore
+    }, {
+        path: '/newContinue',
+        name: 'NewestContinue',
+        component: NewestContinue
+    }, {
+        path: '/newCreate',
+        name: 'NewestCreate',
+        component: NewestCreate
+    }, {
+        path: '/hotCreate',
+        name: 'HotCreate',
+        component: HotCreate
+    }, {
+        path: '/hotContinue',
+        name: 'HotContinue',
+        component: HotContinue
+    }, {
+        path: '/createEdit',
+        name: 'CreateEdit',
+        component: CreateEdit
+    }, {
+        path: '/createAllMessages',
+        name: 'CreateAllMessages',
+        component: CreateAllMessages
+    }, {
+        path: '/readyEdit',
+        name: 'CreateReady',
+        component: CreateReady
+    }],
 
 })

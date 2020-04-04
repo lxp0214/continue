@@ -13,10 +13,16 @@
             <span class="iconfont infoPass-icon">&#xe6e9;</span>
             <input type="password" class="infoPass-text border" placeholder="请输入密码">
         </div>
-        <div class="forget">忘记密码？</div>
+        <router-link to='/forget'>
+            <div class="forget">忘记密码？</div>
+        </router-link>
     </div>
-    <div class="loginItem border">登录</div>
-    <div class="registerEnter">注册账户</div>
+    <router-link to="/create">
+        <div class="loginItem border">登录</div>
+    </router-link>
+    <router-link to='/register'>
+        <div class="registerEnter">注册账户</div>
+    </router-link>
   </div>
 </template>
 
@@ -51,45 +57,49 @@ export default {
     .border {
         border: solid 1px #707070
     }
-    .infoName,.infoPass {
-        width :5.78rem
-        height :1.04rem
-        line-height :1.04rem
-        border-radius 0.52rem
-        //background-color red
-        margin:0 auto
-        display:flex
-        .iconfont{
-            text-align :center
-            margin-left :0.48rem
-            font-size:0.48rem
-            color :#000
-        }
-        .infoPass-icon {
-            font-size:0.52rem !important 
-        }
-        .infoName-text,.infoPass-text {
+    .info {
+        position relative
+        margin-bottom 1.78rem
+        .infoName,.infoPass {
+            width :5.78rem
             height :1.04rem
-            line-height :1.0rem
-            padding-left:0.4rem
-            font-family :Microsoft YaHei;
-            border :none
+            line-height :1.04rem
+            border-radius 0.52rem
+            //background-color red
+            margin:0 auto
+            display:flex
+            .iconfont{
+                text-align :center
+                margin-left :0.48rem
+                font-size:0.48rem
+                color :#000
+            }
+            .infoPass-icon {
+                font-size:0.52rem !important 
+            }
+            .infoName-text,.infoPass-text {
+                height :1.04rem
+                line-height :1.0rem
+                padding-left:0.4rem
+                font-family :Microsoft YaHei;
+                border :none
+            }
         }
-    }
-    .infoPass {
-        margin-top :0.26rem
-    }
-    .forget {
-        font-family: Microsoft
-        font-size: 12px;
-        color: #6c6a6a;
-        width: 60px;
-	    height: 16px;
-        line-height: 16px;
-        text-align :center
-        margin-left :5.44rem
-        margin-top:0.1rem
-        margin-bottom:2.28rem
+        .infoPass {
+            margin-top :0.26rem
+        }
+        .forget {
+            font-family: Microsoft
+            font-size: 12px;
+            color: #6c6a6a;
+            width: 60px;
+            height: 16px;
+            line-height: 16px;
+            text-align :center
+            position absolute
+            right 0.86rem
+            bottom -0.41rem
+        }
     }
     .loginItem {
         width :5.78rem

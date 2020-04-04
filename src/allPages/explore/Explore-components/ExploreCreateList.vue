@@ -2,7 +2,9 @@
     <div class="list">
         <div class="title">
             <div class="title-left">热门原创 |</div>
-            <div class="title-right">更多</div>
+            <router-link to='/hotCreate'>
+                <div class="title-right">更多</div>
+            </router-link>
         </div>
         <ul class="list-item">
             <li class="item-content" v-for="(item,index) in 3" :key="index">

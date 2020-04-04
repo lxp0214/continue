@@ -1,8 +1,10 @@
 <template>
     <div class="header">
-        <div class="header-icon">
-            <span class="iconfont arrow">&#xe65e;</span>
-        </div>
+        <router-link to='/explore'>
+            <div class="header-icon">
+                <span class="iconfont arrow">&#xe65e;</span>
+            </div>
+        </router-link>
         <div class="header-content">
             <div class="content-desc">
                 <span class="desc-f">||</span>

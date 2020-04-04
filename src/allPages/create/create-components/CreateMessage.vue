@@ -2,7 +2,9 @@
     <div>
         <div class='head'>
             <div class='head-left'>消息</div>
-            <div class='head-right'>更多</div>
+            <router-link to='/createAllMessages'>
+                <div class='head-right'>更多</div>
+            </router-link>
         </div>
         <ul class='wrapper'>
             <li class='item'>

@@ -1,6 +1,8 @@
 <template>
     <div class='header'>
-        <span class='iconfont left'>&#xe611;</span>
+        <router-link to='/createEdit'>
+            <span class='iconfont left'>&#xe611;</span>
+        </router-link>
         创作
         <span class='iconfont right'>&#xe607;</span>
     </div>

@@ -1,12 +1,16 @@
 <template>
     <div class='body'>
         <div class='button'>
-            <div class="button-left border">
-                <div class="left-desc text">最新续作 ||</div>
-            </div>
-            <div class="button-right border">
-                <div class="right-desc text">最新原创 |</div>
-            </div>
+            <router-link to='/newContinue'>
+                <div class="button-left border">
+                    <div class="left-desc text">最新续作 ||</div>
+                </div>
+            </router-link>
+            <router-link to='/newCreate'>
+                <div class="button-right border">
+                    <div class="right-desc text">最新原创 |</div>
+                </div>
+            </router-link>
         </div>
     </div>
 </template>

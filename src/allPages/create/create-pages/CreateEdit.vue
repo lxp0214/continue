@@ -1,9 +1,13 @@
 <template>
     <div>
         <div class='header'>
-            <span class='iconfont left'>&#xe611;</span>
+            <router-link to='/create'>
+                <span class='iconfont left'>&#xe611;</span>
+            </router-link>
             创作
-            <span class='iconfont right'>&#xe607;</span>
+            <router-link to='/readyEdit'>
+                <span class='iconfont right'>&#xe607;</span>
+            </router-link>
         </div>
         <div class='wrapper'>
             <div class='body'>

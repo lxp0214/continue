@@ -1,10 +1,14 @@
 <template>
     <div class='header'>
         <div class='left'>
-            <div class='left-top'>黑凤梨</div>
-            <div class='left-bottom'>213天，15个原创，36条续写，79次评论……</div>
+            <router-link to='/myselfInformation'>
+                <div class='left-top'>黑凤梨</div>
+                <div class='left-bottom'>213天,5个原创,36条续写,79次评论……</div>
+            </router-link>
         </div>
-          <div class='right'></div>
+        <router-link to='/myselfInformation'>
+            <div class='right'></div>
+        </router-link>
     </div>
 </template>
 

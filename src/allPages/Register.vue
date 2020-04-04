@@ -12,7 +12,9 @@
         <div class="infoPass border">
             <input type="number" class="infoPass-text border" placeholder="请输入验证码">
         </div>
-        <button class="loginItem border">注册</button>
+        <router-link to='/create'>
+            <button class="loginItem border">注册</button>
+        </router-link>
     </div>
     
   </div>

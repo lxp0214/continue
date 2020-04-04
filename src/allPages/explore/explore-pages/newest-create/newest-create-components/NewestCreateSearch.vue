@@ -1,6 +1,6 @@
 <template>
     <div class='search'>
-        | 热门原创
+        | 最新原创
         <span class='iconfont icon'>&#xe60a;</span>
     </div>
 </template>

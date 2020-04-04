@@ -3,7 +3,9 @@
         <div class='left'>
             <div class='left-top'>探索</div>
             <div class='left-bottom'>多少人的思维，一笔笔勾勒出来的华章...</div>
-            <span class="iconfont search">&#xe60a;</span>
+            <router-link to='/search'>
+                <span class="iconfont search">&#xe60a;</span>
+            </router-link>
         </div>
     </div>
 </template>

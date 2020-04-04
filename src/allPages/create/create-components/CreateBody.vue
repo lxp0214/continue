@@ -2,7 +2,9 @@
     <div class='body'>
         <div class='header'>
             <div class='header-left'>创作</div>
-            <div class='header-right'>+</div>
+            <router-link to='/createEdit'>
+                <div class='header-right'>+</div>
+            </router-link>
         </div>
         <div class='small'>滴滴答答打开连接心灵的.....</div>
     </div>

@@ -1,12 +1,18 @@
 <template>
     <div class='body'>
         <div class='top'>
-            <button class='top-left'>个人收藏</button>
-            <button class='top-right'>我的关注</button>
+            <router-link to='/myselfCollection'>
+                <button class='top-left'>个人收藏</button>
+            </router-link>
+            <router-link to='/myselfFocus'>
+                <button class='top-right'>我的关注</button>
+            </router-link>
         </div>
-        <div class='bottom'>
-            <input class='input' type='text' placeholder='搜索我收藏的创作'>
-        </div>
+        <router-link to='/search'>
+            <div class='bottom'>
+                <input class='input' type='text' placeholder='搜索我收藏的创作'>
+            </div>
+        </router-link>
     </div>
 </template>
 

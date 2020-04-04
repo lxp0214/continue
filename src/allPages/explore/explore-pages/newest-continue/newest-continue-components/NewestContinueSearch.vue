@@ -1,6 +1,6 @@
 <template>
     <div class='search'>
-        || 热门续作
+        || 最新续作
         <span class='iconfont icon'>&#xe60a;</span>
     </div>
 </template>

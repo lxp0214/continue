@@ -1,8 +1,10 @@
 <template>
     <div class="header">
-        <div class="back-arrow">
-          <span class="iconfont">&#xe65e;</span>
-        </div>
+        <router-link to='/myself'>
+            <div class="back-arrow">
+            <span class="iconfont">&#xe65e;</span>
+            </div>
+        </router-link>
         <div class="title">我的关注</div>
         <div class="search border">
             <span class="search-desc">搜索我关注得用户</span>

@@ -1,7 +1,9 @@
 <template>
-    <div>
+    <div class="information">
         <div class='header'>
-            <span class='iconfont left'>&#xe65e;</span>
+            <router-link to='/myself'>
+                <span class='iconfont left'>&#xe65e;</span>
+            </router-link>
             个人资料
         </div>
         <div class='basic-information'>

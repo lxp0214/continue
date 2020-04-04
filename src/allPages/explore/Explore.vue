@@ -5,6 +5,7 @@
         <explore-body></explore-body>
         <explore-continue-list></explore-continue-list>
         <explore-create-list></explore-create-list>
+        <navigation></navigation>
     </div>
 </template>
 
@@ -14,6 +15,7 @@ import ExploreBody from './Explore-components/ExploreBody'
 import ExploreContinueList from './Explore-components/ExploreContinueList'
 import ExploreCreateList from './Explore-components/ExploreCreateList'
 import ExploreSwiper from './Explore-components/ExploreSwiper'
+import Navigation from '../Navigation'
 export default {
     name: 'Explore',
     components: {
@@ -21,7 +23,8 @@ export default {
         ExploreBody:ExploreBody,
         ExploreContinueList:ExploreContinueList,
         ExploreCreateList:ExploreCreateList,
-        ExploreSwiper:ExploreSwiper
+        ExploreSwiper:ExploreSwiper,
+        Navigation:Navigation
     }
 }
 </script>

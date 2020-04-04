@@ -1,7 +1,9 @@
 <template>
     <div>
         <div class='header'>
-            <span class='iconfont left'>&#xe65e;</span>
+            <router-link to='/create'>
+                <span class='iconfont left'>&#xe65e;</span>
+            </router-link>
             所有消息
             <span @click='changeShow()' class='iconfont right' ref='change'>&#xe65e;</span>
         </div>

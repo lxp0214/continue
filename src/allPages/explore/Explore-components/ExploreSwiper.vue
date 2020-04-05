@@ -44,8 +44,8 @@ export default {
            margin-right 0.4rem
            margin-bottom 0.4rem
            .slider-img {
-               width 100%
-               height 100%
+               width: 100%
+               height: 100%
            }
            .item {
                position absolute

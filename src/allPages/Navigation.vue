@@ -1,19 +1,13 @@
 <template>
     <div class='navigation'>
-        <div class='item'>
-            <router-link to='/create'>
-                <img :src="'static/icons/tab/create'+ tab1 +'.png'" class="create-on" @click="handleClick(1)">
-            </router-link>
+        <div class='item' @click="handleClick('/create')">
+            <img :src='this.imgUrl.createIcon' class="create-on" >
         </div>
-        <div class='item'>
-            <router-link to='/explore'>
-                <img :src="'static/icons/tab/explore'+ tab2 +'.png'" class="explore-on" @click="handleClick(2)">
-            </router-link>
-        </div>
-        <div class='item'>
-            <router-link to='/myself'>
-                <img :src="'static/icons/tab/myself'+ tab3 +'.png'" class="myself-on" @click="handleClick(3)">
-            </router-link>
+        <div class='item' @click="handleClick('/explore')">
+            <img :src="this.imgUrl.exploreIcon" class="explore-on">
+            </div>
+        <div class='item' @click="handleClick('/myself')">
+            <img :src="this.imgUrl.myselfIcon" class="myself-on" >
         </div>
     </div>
 </template>
@@ -23,30 +17,60 @@ export default {
     name: 'Navigation',
     data: function() {
         return {
-            tab1:'Off',
-            tab2:'On',
-            tab3:'Off'
+            imgUrl: {
+                createIcon: 'static/icons/tab/createOff.png',
+                exploreIcon: 'static/icons/tab/exploreOn.png',
+                myselfIcon: 'static/icons/tab/myselfOff.png'
+            }
+        }
+    },
+    created () {
+            let val = this.$route.path
+            switch (val) {
+                case '/create': 
+                    this.imgUrl.createIcon = 'static/icons/tab/createOn.png'
+                    this.imgUrl.exploreIcon = 'static/icons/tab/exploreOff.png'
+                    this.imgUrl.myselfIcon = 'static/icons/tab/myselfOff.png'
+                    break
+                case '/explore':
+                    this.imgUrl.createIcon = 'static/icons/tab/createOff.png'
+                    this.imgUrl.exploreIcon = 'static/icons/tab/exploreOn.png'
+                    this.imgUrl.myselfIcon = 'static/icons/tab/myselfOff.png'
+                    break
+                case '/myself': 
+                    this.imgUrl.createIcon = 'static/icons/tab/createOff.png'
+                    this.imgUrl.exploreIcon = 'static/icons/tab/exploreOff.png'
+                    this.imgUrl.myselfIcon = 'static/icons/tab/myselfOn.png'
+                    break
+
         }
     },
     methods: {
-        handleClick(num) {
-            if(num === 1) {
-                this.tab1 = 'On';
-                this.tab2 = 'Off';
-                this.tab3 = 'Off';
-            }
-            if(num === 2) {
-                this.tab1 = 'Off';
-                this.tab2 = 'On';
-                this.tab3 = 'Off';
-            }
-            if(num === 3) {
-                this.tab1 = 'Off';
-                this.tab2 = 'Off';
-                this.tab3 = 'On';
-            }
+        handleClick(val) {
+            switch (val) {
+                case '/create': 
+                    this.imgUrl.createIcon = 'static/icons/tab/createOn.png'
+                    this.imgUrl.exploreIcon = 'static/icons/tab/exploreOff.png'
+                    this.imgUrl.myselfIcon = 'static/icons/tab/myselfOff.png'
+                    this.$router.push({ path: '/create' })
+                    break
+                case '/explore':
+                    this.imgUrl.createIcon = 'static/icons/tab/createOff.png'
+                    this.imgUrl.exploreIcon = 'static/icons/tab/exploreOn.png'
+                    this.imgUrl.myselfIcon = 'static/icons/tab/myselfOff.png'
+                    this.$router.push({ path: '/explore' })
+                    break
+                case '/myself': 
+                    this.imgUrl.createIcon = 'static/icons/tab/createOff.png'
+                    this.imgUrl.exploreIcon = 'static/icons/tab/exploreOff.png'
+                    this.imgUrl.myselfIcon = 'static/icons/tab/myselfOn.png'
+                    this.$router.push({ path: '/myself' })
+                    break
+            
         }
     }
+        
+}
 }
 </script>
 
@@ -64,7 +88,8 @@ export default {
       text-align center
       width: 33.33%
       //float: left
-      img {
-          width 1.0rem
-      }
+      img 
+        width 1.0rem
+        touch-action: none
+      
 </style>

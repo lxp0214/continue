@@ -23,6 +23,11 @@ import ArticalDetails from '@/allPages/artical-details/ArticalDetails'
 import Comments from '@/allPages/comments/Comments'
 import Found from '@/allPages/Found'
 
+const routerPush = Router.prototype.push
+Router.prototype.push = function push (location) {
+    return routerPush.call(this,location).catch(error => error)
+}
+
 Vue.use(Router)
 
 export default new Router({

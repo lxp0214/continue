@@ -7,7 +7,7 @@
     <div class="info">
         <div class="infoName border">
             <span class="iconfont infoName-icon">&#xe608;</span>
-            <input type="text" class="infoName-text border" placeholder="请输入手机号" v-model="name">
+            <input type="text" class="infoName-text border" placeholder="请输入手机号" v-model="phone">
         </div>
         <div class="infoPass border">
             <span class="iconfont infoPass-icon">&#xe6e9;</span>
@@ -32,16 +32,16 @@ export default {
   name: 'Login',
   data: function() {
       return {
-          name:'',
+          phone:'',
           password:'',
-          url:'http://sim.gxy.ink/auth/login',
+          url:'http://api.gxy.ink/auth/login',
       }
   },
   methods: {
       handleLogin() {
-          console.log(this.name + ' '+ this.password)
+          console.log(this.phone + ' '+ this.password)
           let data = {
-              login:this.name,
+              phone:this.phone,
               password:this.password
           }
           fetch(this.url,{
@@ -53,25 +53,25 @@ export default {
                       'Content-Type':'application/json'
                   })
           }).then(res => res.json().then(body => {
-              if(body.code == 400) {
+              console.log(body)
+              if(body.code === 2) {
+                  console.log(body.message)
                   MessageBox.alert("用户名或密码错误，请重试！", '提示');
                   return ;
               }
-              if(body.code == 200) {
-                  console.log(body)
-                  if(body.data.token!=='') {
-                      var _this = this;
-                      Indicator.open({
-                            text: '加载中...',
-                            spinnerType: 'fading-circle'
-                      });
-                      this.timer = setTimeout(function(){
-                         //console.log(this); // 这里的this指向window对象
-                          _this.$router.push('/explore');
-                         Indicator.close();
-                     }, 500) 
+              if(body.code === 0) {
+                console.log(body.message)
+                var _this = this;
+                Indicator.open({
+                    text: '加载中...',
+                    spinnerType: 'fading-circle'
+                });
+                this.timer = setTimeout(function(){
+                    //console.log(this); // 这里的this指向window对象
+                    _this.$router.push('/explore');
+                    Indicator.close();
+                }, 500) 
                       
-                  }
               }
           })).catch(error => console.log("error: ", error))
       }

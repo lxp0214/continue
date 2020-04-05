@@ -7,19 +7,17 @@
     <div class="info">
         <div class="infoName border">
             <span class="iconfont infoName-icon">&#xe608;</span>
-            <input type="text" class="infoName-text border" placeholder="请输入用户名">
+            <input type="text" class="infoName-text border" placeholder="请输入手机号" v-model="name">
         </div>
         <div class="infoPass border">
             <span class="iconfont infoPass-icon">&#xe6e9;</span>
-            <input type="password" class="infoPass-text border" placeholder="请输入密码">
+            <input type="password" class="infoPass-text border" placeholder="请输入密码" v-model="password">
         </div>
         <router-link to='/forget'>
             <div class="forget">忘记密码？</div>
         </router-link>
     </div>
-    <router-link to="/create">
-        <div class="loginItem border">登录</div>
-    </router-link>
+    <div class="loginItem border" @click="handleLogin">登录</div>
     <router-link to='/register'>
         <div class="registerEnter">注册账户</div>
     </router-link>
@@ -28,8 +26,56 @@
 
 <script>
 import axios from 'axios'
+import { MessageBox } from 'mint-ui'
+import { Indicator } from 'mint-ui'
 export default {
   name: 'Login',
+  data: function() {
+      return {
+          name:'',
+          password:'',
+          url:'http://sim.gxy.ink/auth/login',
+      }
+  },
+  methods: {
+      handleLogin() {
+          console.log(this.name + ' '+ this.password)
+          let data = {
+              login:this.name,
+              password:this.password
+          }
+          fetch(this.url,{
+              mode:'cors',
+              method:'POST',
+              body: JSON.stringify(data),
+              headers:
+                  new Headers({
+                      'Content-Type':'application/json'
+                  })
+          }).then(res => res.json().then(body => {
+              if(body.code == 400) {
+                  MessageBox.alert("用户名或密码错误，请重试！", '提示');
+                  return ;
+              }
+              if(body.code == 200) {
+                  console.log(body)
+                  if(body.data.token!=='') {
+                      var _this = this;
+                      Indicator.open({
+                            text: '加载中...',
+                            spinnerType: 'fading-circle'
+                      });
+                      this.timer = setTimeout(function(){
+                         //console.log(this); // 这里的this指向window对象
+                          _this.$router.push('/explore');
+                         Indicator.close();
+                     }, 500) 
+                      
+                  }
+              }
+          })).catch(error => console.log("error: ", error))
+      }
+  }
 }
 </script>
 

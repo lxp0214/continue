@@ -7,8 +7,8 @@
                 <div class='desc'>由xxx用户发起</div>
             </div>
             <div class='right'>
-                <span class='iconfont item'>&#xe628;</span>
-                <span class='iconfont item'>&#xe61a;</span>
+                <img src='static\icons\middle\组件 53 – 1.png'>
+                <img :src=iconUrl @click='changeIcon()' ref='icon'>
             </div>
         </div>
     </div>
@@ -16,7 +16,23 @@
 
 <script>
 export default {
-    name: 'ArticalDetailsTitle'
+    name: 'CommentsBody',
+    data () {
+      return {
+        iconUrl: 'static/icons/middle/组件 51 – 1.png',
+        red: false
+      }
+    },
+    methods: {
+      changeIcon () {
+        this.red = !this.red
+        if (this.red) {
+          this.$refs.icon.src = 'static'+'/'+'icons'+'/'+'middle'+'/'+'组件 49 – 1.png'
+        } else {
+          this.$refs.icon.src = 'static/icons/middle/组件 51 – 1.png'
+        }
+      }
+    }
 }
 </script>
 
@@ -24,27 +40,31 @@ export default {
   .top 
     line-height: .86rem
     font-size: .64rem
+    font-weight: 600
     margin-left: .4rem
   .bottom
-    height: .5rem
-    line-height: .5rem
+    height: .92rem
+    line-height: .92rem
     margin-left: .4rem
+    margin-right: .4rem
     .left
       float: left 
-      height: .5rem
-      min-width: 2.4rem
+      line-height: .92rem
+      min-width: 2.6rem
       .img 
-        float: left
-        width: .5rem
-        height: .5rem
+        display: inline-block
+        vertical-align: middle
+        width: .6rem
+        height: .6rem
         border-radius: 100%
         background: red
       .desc 
         float: right
     .right
       float: right 
-      height: .5rem
-      .item 
-        margin: 0 .33rem
-        font-size: .6rem
+      height: .92rem
+      img 
+        margin-left: .3rem
+        height: .6rem
+        width: .6rem
 </style>

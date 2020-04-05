@@ -1,7 +1,7 @@
 <template>
     <div class='header'>
-        <span class='iconfont left'>&#xe65e;</span>
-        <span class='iconfont right'>&#xe607;</span>
+        <img src='static\icons\middle\组件 39 – 1.png'>
+        <img src='static\icons\middle\组件 56 – 1.png'>
     </div>
 </template>
 
@@ -13,18 +13,17 @@ export default {
 
 <style lang='stylus' scoped>
   .header
+    padding: 0 .3rem
     margin-top: .4rem
     height: 1.1rem
     line-height: 1.1rem
     text-align: center
     font-size: .5rem
     border-top: solid .01rem
-    .left
-      float: left
-      margin-left: .4rem
-      font-size: .7rem
-    .right
-      float: right
-      margin-right: .4rem
-      font-size: .7rem
+    display: flex 
+    justify-content: space-between 
+    align-items: center
+    img 
+      height: .6rem
+      width: .6rem
 </style>

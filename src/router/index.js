@@ -97,6 +97,11 @@ export default new Router({
         path: '/readyEdit',
         name: 'CreateReady',
         component: CreateReady
-    }],
+    }, {
+        path: '/comments',
+        name: 'Comments',
+        component: Comments
+    }
+],
 
 })

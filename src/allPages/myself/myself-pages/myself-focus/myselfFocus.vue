@@ -1,6 +1,6 @@
 <template>
      <div class="myselfFocus">
-         <focus-header></focus-header>
+         <focus-header :persons="persons"></focus-header>
          <focus-list></focus-list>
      </div>
 </template>
@@ -11,9 +11,30 @@ import FocusHeader from './myself-focus-components/Header'
 import FocusList from './myself-focus-components/List'
 export default {
   name: 'MyselfFocus',
+  data: function() {
+      return {
+          persons:[],
+      }
+  },
   components: {
       FocusHeader : FocusHeader,
       FocusList : FocusList
+  },
+  methods: {
+      getInfoFocus() {
+          axios.get('static/mock/focus.json').then(this.handleGetFocus);
+      },
+      handleGetFocus(res) {
+          res = res.data;
+          if(res.ret && res.data) {
+              var data = res.data;
+              this.persons = data.persons
+             // console.log(this.persons);
+          }
+      }
+  },
+  mounted() {
+      this.getInfoFocus()
   }
 }
 </script>

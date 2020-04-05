@@ -5,7 +5,9 @@
                 <div class="item-header">
                     <div class="header-desc">|| 谁偷走了我的昨天</div>
                     <div class="header-icon">
-                        <span class="iconfont">&#xe617;</span>
+                        <span class="iconfont">
+                            <img src="static/icons/small/组件 61 – 1.png" alt="">
+                        </span>
                     </div>
                 </div>
                 <div class="item-content">日本。东京市。练马区。天空中的云层倾轧而下，镇子里逐渐阴下来，寒风萧瑟哈哈哈哈哈哈哈</div>
@@ -75,7 +77,7 @@ export default {
                     font-family: PingFang SC;
                 }
                 .header-icon {
-                    line-height:0.42rem
+                    line-height:0.12rem
                     margin-right:0.22rem
                     .iconfont {
                         text-align:center
@@ -100,8 +102,9 @@ export default {
             }
             .item-last {
                 display:flex
+                align-items center;
                 .circle {
-                    text-align :center
+                 //   text-align :center
                     width :.4rem
                     height : .4rem
                     background-color: red
@@ -109,14 +112,15 @@ export default {
                     border-radius:50%
                 }
                 .username {
-                    text-align:center
+                 //   text-align:center
+                    padding-left 0.08rem
                     flex 1
                     font-size:0.24rem
                     color: #000000
                     line-height: .4rem
                 }
                 .date {
-                    text-align:center
+                 //   text-align:center
                     font-size:0.24rem;
                     color: #000000;
                     margin-right:0.3rem

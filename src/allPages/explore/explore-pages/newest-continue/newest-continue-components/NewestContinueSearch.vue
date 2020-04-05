@@ -1,7 +1,9 @@
 <template>
     <div class='search'>
         || 最新续作
-        <span class='iconfont icon'>&#xe60a;</span>
+        <router-link :to="'/search'+'?name='+'newcontinue'">
+            <span class='iconfont icon'>&#xe60a;</span>
+        </router-link>
     </div>
 </template>
 

@@ -10,9 +10,11 @@
                 <span class="desc-f">||</span>
                 <span class="desc-l">热门原创</span>
             </div>
-            <div class="content-icon">
-                <span class="iconfont search">&#xe60a;</span>
-            </div>
+            <router-link :to="'/search'+'?name='+'hotcreate'">
+                <div class="content-icon">
+                    <span class="iconfont search">&#xe60a;</span>
+                </div>
+            </router-link>
         </div>
     </div>
 </template>

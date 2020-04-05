@@ -1,7 +1,9 @@
 <template>
     <div class='search'>
         | 最新原创
-        <span class='iconfont icon'>&#xe60a;</span>
+        <router-link :to="'/search'+'?name='+'newcreate'">
+            <span class='iconfont icon'>&#xe60a;</span>
+        </router-link>
     </div>
 </template>
 

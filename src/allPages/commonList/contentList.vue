@@ -1,58 +1,38 @@
 <template>
     <div class='list'>
         <ul class='wrapper'>
-            <li class='item'>
-                <div class='item-title'>|| 谁偷走了我的昨天</div>
-                <div class='item-content'>日本。东京市。练马区。天空中的云层倾轧而下，镇子里逐渐阴下来，寒风萧瑟……</div>
+            <li class='item' v-for="(item,index) in datas" :key="index">
+                <div class='item-title'>|| {{item.name}}</div>
+                <div class='item-content'>{{item.desc}}</div>
                 <div class='item-name'>
                     <div class='item-name-left'>
                         <div class='item-name-img'></div>
-                        <div class='item-name-name'>用户名称</div>
-                    </div>
-                    <div class='item-name-right'>3月10日</div>
-                </div>
-            </li>
-            <li class='item'>
-                <div class='item-title'>|| 谁偷走了我的昨天</div>
-                <div class='item-content'>日本。东京市。练马区。天空中的云层倾轧而下，镇子里逐渐阴下来，寒风萧瑟……</div>
-                <div class='item-name'>
-                    <div class='item-name-left'>
-                        <div class='item-name-img'></div>
-                        <div class='item-name-name'>用户名称</div>
-                    </div>
-                    <div class='item-name-right'>3月10日</div>
-                </div>
-            </li>
-            <li class='item'>
-                <div class='item-title'>|| 谁偷走了我的昨天</div>
-                <div class='item-content'>日本。东京市。练马区。天空中的云层倾轧而下，镇子里逐渐阴下来，寒风萧瑟……</div>
-                <div class='item-name'>
-                    <div class='item-name-left'>
-                        <div class='item-name-img'></div>
-                        <div class='item-name-name'>用户名称</div>
-                    </div>
-                    <div class='item-name-right'>3月10日</div>
-                </div>
-            </li>
-            <li class='item'>
-                <div class='item-title'>|| 谁偷走了我的昨天</div>
-                <div class='item-content'>日本。东京市。练马区。天空中的云层倾轧而下，镇子里逐渐阴下来，寒风萧瑟……</div>
-                <div class='item-name'>
-                    <div class='item-name-left'>
-                        <div class='item-name-img'></div>
-                        <div class='item-name-name'>用户名称</div>
+                        <div class='item-name-name'>{{item.user}}</div>
                     </div>
                     <div class='item-name-right'>3月10日</div>
                 </div>
             </li>
         </ul>
-        <div class='foot'>没有了呢</div>
+        <!-- <div class='foot' v-show="display">没有了呢</div> -->
     </div>
 </template>
 
 <script>
 export default {
-    name: 'MyselfList'
+    name: 'MyselfList',
+    props: {
+        datas:Array
+    },
+    computed: {
+        display() {
+            if(this.datas) {
+                return true
+            }
+            else {
+                return false
+            }
+        }
+    }
 }
 </script>
 

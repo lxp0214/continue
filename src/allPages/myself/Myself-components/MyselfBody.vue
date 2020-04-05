@@ -8,9 +8,9 @@
                 <button class='top-right'>我的关注</button>
             </router-link>
         </div>
-        <router-link to='/search'>
+        <router-link :to="'/search'+'?name='+'mycreate'">
             <div class='bottom'>
-                <input class='input' type='text' placeholder='搜索我收藏的创作'>
+                <input class='input' type='text' placeholder='搜索我的创作'>
             </div>
         </router-link>
     </div>

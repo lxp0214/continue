@@ -6,8 +6,8 @@
             </div>
         </router-link>
         <div class="title">我的关注</div>
-        <div class="search border">
-            <span class="search-desc">搜索我关注得用户</span>
+        <div class="search">
+            <input class='input border' type='text' placeholder='搜索我关注的用户'>
             <span class="iconfont search-icon">&#xe60a;</span>
         </div>
     </div>
@@ -36,34 +36,38 @@ export default {
             }
         }
         .title {
-            width: 128px;
-            height: 43px;
+            line-height: .86rem
             font-family: PingFang SC;
-            font-size: 32px;
+            font-size: .64rem
             font-weight: normal
-            line-height: 43px;
             color: #000000;
             margin-left:0.52rem
             margin-top:0.32rem
         }
         .search {
-            width: 6.72rem;
-            height: 1rem;
-            border-radius:0.22rem
-            line-height : 1rem;
-            margin :0 auto;
+            height: 1rem
+            line-height : 1rem
+            margin-left: .52rem
+            margin-right: .52rem
             margin-top:0.28rem
-            display:flex
-            .search-desc {
-                font-family: Microsoft Yahei;
-                font-size: 16px;
-                color: #000000;
-                padding-left 14px;
-                font-weight:500;
+            position: relative
+            .input {
+              box-sizing:border-box
+              -moz-box-sizing:border-box
+              -webkit-box-sizing:border-box
+              width: 100% 
+              border-radius:0.22rem
+              height: 1rem
+              line-height: 1rem
+              font-size: .36rem
+              padding-left: .3rem
+              padding-right: 1.1rem
             }
             .search-icon {
-                font-size:24px;
-                margin-left:3.06rem
+                position: absolute 
+                right: .4rem
+                top: .05rem
+                font-size: .6rem
             }
         }
     }

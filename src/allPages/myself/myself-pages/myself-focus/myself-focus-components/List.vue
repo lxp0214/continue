@@ -47,10 +47,12 @@ export default {
     .list {
         overflow:hidden
         position:absolute
-        top:4.22rem;
-        left :0.4rem;
+        top:4.22rem
+        left :0.52rem
+        right: .52rem
         bottom :0
         .list-item {
+            width: 100%
             line-height:0.74rem
             display :flex
             margin-bottom:0.4rem

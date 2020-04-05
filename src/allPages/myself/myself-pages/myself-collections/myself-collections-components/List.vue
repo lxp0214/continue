@@ -54,12 +54,13 @@ export default {
     .list {
         overflow:hidden
         position:absolute
-        left :0.4rem;
+        left :0.52rem
+        right: .52rem
         top:4.02rem
         bottom :0
         .list-item {
-            width: 6.72rem;
-            height: 2.28rem;       
+            height: 2.28rem
+            width: 100%     
             margin-bottom:0.4rem
             .item-header {
                 display:flex
@@ -101,23 +102,25 @@ export default {
                 display:flex
                 .circle {
                     text-align :center
-                    width :20px;
-                    height 20px;
-                    background-color red
+                    width :.4rem
+                    height : .4rem
+                    background-color: red
                     margin-left:0.28rem
                     border-radius:50%
                 }
                 .username {
                     text-align:center
                     flex 1
-                    font-size:0.24rem;
-                    color: #000000;
+                    font-size:0.24rem
+                    color: #000000
+                    line-height: .4rem
                 }
                 .date {
                     text-align:center
                     font-size:0.24rem;
                     color: #000000;
                     margin-right:0.3rem
+                    line-height: .4rem
                 }
             }
         }

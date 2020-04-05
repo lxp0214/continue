@@ -36,24 +36,22 @@ export default {
             }
         }
         .title {
-            width: 128px;
-            height: 43px;
+            line-height: .86rem
             font-family: PingFang SC;
-            font-size: 32px;
+            font-size: .64rem
             font-weight: normal
-            line-height: 43px;
             color: #000000;
             margin-left:0.52rem
             margin-top:0.32rem
         }
         .search {
-            width: 6.72rem;
             height: 1rem;
             border-radius:0.22rem
             line-height : 1rem;
-            margin :0 auto;
+            margin :0 .52rem;
             margin-top:0.28rem
             display:flex
+            position: relative
             .search-desc {
                 font-family: Microsoft Yahei;
                 font-size: 16px;
@@ -63,7 +61,8 @@ export default {
             }
             .search-icon {
                 font-size:24px;
-                margin-left:3.06rem
+                position: absolute 
+                right: .4rem
             }
         }
     }

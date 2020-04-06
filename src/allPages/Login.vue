@@ -26,6 +26,7 @@
 
 <script>
 import axios from 'axios'
+import md5 from 'blueimp-md5'
 import { MessageBox } from 'mint-ui'
 import { Indicator } from 'mint-ui'
 export default {
@@ -56,14 +57,21 @@ export default {
               console.log(body)
               if(body.code === 2) {
                   console.log(body.message)
-                  MessageBox.alert("用户名或密码错误，请重试！", '提示');
+                  MessageBox.alert("用户名不存在，请输入正确的手机号", '提示');
+                  return ;
+              }
+              if(body.code === 3) {
+                  console.log(body.message)
+                  MessageBox.alert("密码错误，请重试", '提示');
                   return ;
               }
               if(body.code === 0) {
                 console.log(body.message)
+                localStorage.phone = md5(this.phone);
+                localStorage.password = md5(this.password)
                 var _this = this;
                 Indicator.open({
-                    text: '加载中...',
+                    text: '登陆成功...',
                     spinnerType: 'fading-circle'
                 });
                 this.timer = setTimeout(function(){

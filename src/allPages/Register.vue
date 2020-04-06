@@ -15,12 +15,12 @@
     <div class="info">
         <div class="infoPhone border">
             <span class="iconfont infoPhone-icon">&#xe608;</span>
-            <input type="text" class="infoPhone-text border" placeholder="请输入手机号" v-model="name">
+            <input type="text" class="infoPhone-text border" placeholder="请输入手机号" v-model="phone">
         </div>
         <div class="infoCode border">
             <span class="iconfont infoCode-icon">&#xe6e9;</span>
             <input type="password" class="infoCode-text border" placeholder="请输入验证码" v-model="code">
-            <span class="send-code" @click="handleGetCode">发送验证码</span>
+            <span class="send-code" @click="handleGetCode">{{isRun?`${this.runTime}s后重获取`:`获取验证码`}}</span>
         </div>
         <div class="infoNewPass border">
             <span class="iconfont infoNewPass-icon">&#xe6e9;</span>
@@ -49,43 +49,72 @@ export default {
   },
   data: function() {
       return {
-          name:'',
+          phone:'',
           password:'',
           code:'',
           token:'',
           authenticate:'',
+          isRun:false,
+          runTime:30,
           url:'http://sim.gxy.ink/auth/login',   //待定URL！！！
       } 
   },
   methods: {
-      handleGetCode() {
-          if(localStorage.token && localStorage.authenticate) {
-              this.token = localStorage.token;
-              this.authenticate = localStorage.authenticate;
-          }
-          if(!this.token && !this.authenticate) {
-              MessageBox.alert("请先点击下方蓝色按钮进行行为验证", '提示');
-          }
-          
-      },
-      handleRegister() {
-          let data = {
-              login:this.name,
-              password:this.password
-          }
-          fetch(this.url,{
-              mode:'cors',
-              method:'POST',  //method方式待商议！！！
-              body:JSON.stringify(data),
-              headers:
-                  new Headers({
-                      'Content-Type':'application/json'
-              })
-          }).then(
-              //逻辑处理语句
-          ).catch(error => console.log("error: "+error))
-      }
-  }
+        handleGetCode() {
+            if(localStorage.token && localStorage.authenticate) {
+                this.token = localStorage.token;
+                this.authenticate = localStorage.authenticate;
+            }
+            if(!this.token && !this.authenticate) {
+                MessageBox.alert("请先点击下方蓝色按钮进行行为验证", '提示');
+                return
+            }
+            if(this.isRun) {
+                return
+            }
+            if(!/^1\d{10}$/.test(this.phone)) {
+                MessageBox.alert("请输入正确的手机号", '提示');
+                return 
+            }
+            //获取验证码的跨域请求操作
+            this.isRun = true
+            var autoTime = setInterval(() => {
+                this.runTime--;
+                if(this.runTime === 0) {
+                    this.runTime = 30;
+                    this.isRun = false;
+                    clearInterval(autoTime)
+                    return
+                }
+            },1000)  
+            
+        },
+        handleRegister() {
+            let data = {
+                login:this.name,
+                password:this.password
+            }
+            fetch(this.url,{
+                mode:'cors',
+                method:'POST',  //method方式待商议！！！
+                body:JSON.stringify(data),
+                headers:
+                    new Headers({
+                        'Content-Type':'application/json'
+                })
+            }).then(
+                //逻辑处理语句
+                //1.注册成功之后清除token；
+                //2.注册成功后push进入explore页面，去掉原来的router-link路由
+            ).catch(error => console.log("error: "+error))
+        }
+    },
+    activated() {
+        window.addEventListener("beforeunload", function (e) {
+            localStorage.removeItem('token');
+            localStorage.removeItem('authenticate');
+        })
+    }
 }
 </script>
 

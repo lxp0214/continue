@@ -11,12 +11,14 @@ import './assets/styles/reset.css'
 import './assets/styles/border.css'
 import './assets/styles/iconfont.css'
 import 'swiper/css/swiper.css'
+import animated from 'animate.css'
 
 
 Vue.config.productionTip = false
 fastClick.attach(document.body)
 Vue.use(VueAwesomeSwiper)
 Vue.use(MintUI)
+Vue.use(animated)
 
 /* eslint-disable no-new */
 new Vue({

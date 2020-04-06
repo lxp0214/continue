@@ -18,29 +18,29 @@ export default {
     data: function() {
         return {
             imgUrl: {
-                createIcon: 'static/icons/tab/createOff.png',
-                exploreIcon: 'static/icons/tab/exploreOn.png',
-                myselfIcon: 'static/icons/tab/myselfOff.png'
+                createIcon: 'static'+'/'+'icons'+'/'+'tab'+'/'+'createOff.png',
+                exploreIcon: 'static'+'/'+'icons'+'/'+'tab'+'/'+'exploreOn.png',
+                myselfIcon: 'static'+'/'+'icons'+'/'+'tab'+'/'+'myselfOff.png'
             }
         }
     },
-    created () {
+    activated () {
             let val = this.$route.path
             switch (val) {
                 case '/create': 
-                    this.imgUrl.createIcon = 'static/icons/tab/createOn.png'
-                    this.imgUrl.exploreIcon = 'static/icons/tab/exploreOff.png'
-                    this.imgUrl.myselfIcon = 'static/icons/tab/myselfOff.png'
+                    this.imgUrl.createIcon = 'static'+'/'+'icons'+'/'+'tab'+'/'+'createOn.png'
+                    this.imgUrl.exploreIcon = 'static'+'/'+'icons'+'/'+'tab'+'/'+'exploreOff.png'
+                    this.imgUrl.myselfIcon = 'static'+'/'+'icons'+'/'+'tab'+'/'+'myselfOff.png'
                     break
                 case '/explore':
-                    this.imgUrl.createIcon = 'static/icons/tab/createOff.png'
-                    this.imgUrl.exploreIcon = 'static/icons/tab/exploreOn.png'
-                    this.imgUrl.myselfIcon = 'static/icons/tab/myselfOff.png'
+                    this.imgUrl.createIcon = 'static'+'/'+'icons'+'/'+'tab'+'/'+'createOff.png'
+                    this.imgUrl.exploreIcon = 'static'+'/'+'icons'+'/'+'tab'+'/'+'exploreOn.png'
+                    this.imgUrl.myselfIcon = 'static'+'/'+'icons'+'/'+'tab'+'/'+'myselfOff.png'
                     break
                 case '/myself': 
-                    this.imgUrl.createIcon = 'static/icons/tab/createOff.png'
-                    this.imgUrl.exploreIcon = 'static/icons/tab/exploreOff.png'
-                    this.imgUrl.myselfIcon = 'static/icons/tab/myselfOn.png'
+                    this.imgUrl.createIcon = 'static'+'/'+'icons'+'/'+'tab'+'/'+'createOff.png'
+                    this.imgUrl.exploreIcon = 'static'+'/'+'icons'+'/'+'tab'+'/'+'exploreOff.png'
+                    this.imgUrl.myselfIcon = 'static'+'/'+'icons'+'/'+'tab'+'/'+'myselfOn.png'
                     break
 
         }
@@ -76,6 +76,7 @@ export default {
 
 <style lang='stylus' scoped>
   .navigation
+    touch-action: none
     height: 1.2rem
     line-height 1.2rem
     background: lightblue
@@ -87,7 +88,7 @@ export default {
     .item
       text-align center
       width: 33.33%
-      //float: left
+      float: left
       img 
         width 1.0rem
         touch-action: none

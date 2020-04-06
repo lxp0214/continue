@@ -45,6 +45,7 @@ export default {
         }
     }
     .list {
+        margin-top: 2rem
         overflow:hidden
         position:absolute
         top:4.22rem

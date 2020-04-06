@@ -56,12 +56,14 @@
             </ul>
             <div class='foot'>没有了呢</div>
         </div>
+        <transition>
         <div class='reverse' v-show='!messageShow'>
             <div class='reverse-item'>收藏创作更新</div>
             <div class='reverse-item'>关注的用户</div>
             <div class='reverse-item'>收藏的续作</div>
             <div class='reverse-item'>收藏的原创</div>
         </div>
+        </transition>
     </div>
 </template>
 
@@ -163,4 +165,8 @@ export default {
       margin-top: .12rem
       margin-bottom: .12rem
       border: solid .02rem #707070
+  .v-enter,.v-leave-to 
+    opacity: 0
+  .v-enter-active,.v-leave-active 
+    transition: opacity .5s
 </style>

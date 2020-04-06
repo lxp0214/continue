@@ -1,23 +1,64 @@
 <template>
-    <div class="list" ref="wrapper">
-        <div>
-            <div class="list-item border" v-for="item in 13" :key="item">
-                <div class="item-header">
-                    <div class="header-desc">|| 谁偷走了我的昨天</div>
-                    <div class="header-icon">
-                        <span class="iconfont">
-                            <img src="static/icons/small/组件 61 – 1.png" alt="">
-                        </span>
+    <div class='list' ref='wrapper'>
+        <ul class='wrapper'>
+            <li class='item'>
+                <div class='item-top'>
+                    <div class='item-title'>|| 谁偷走了我的昨天</div>
+                    <img src='static\icons\small\组件 61 – 1.png'>
+                </div>
+                <div class='item-content'>日本。东京市。练马区。天空中的云层倾轧而下，镇子里逐渐阴下来，寒风萧瑟……</div>
+                <div class='item-name'>
+                    <div class='item-name-left'>
+                        <div class='item-name-img'></div>
+                        <div class='item-name-name'>用户名称</div>
                     </div>
+                    <div class='item-name-right'>3月10日</div>
                 </div>
-                <div class="item-content">日本。东京市。练马区。天空中的云层倾轧而下，镇子里逐渐阴下来，寒风萧瑟哈哈哈哈哈哈哈</div>
-                <div class="item-last">
-                    <div class="circle border-circle"></div>
-                    <div class="username">用户昵称</div>
-                    <div class="date">3月20日</div>
+            </li>
+            <li class='item'>
+                <div class='item-top'>
+                    <div class='item-title'>|| 谁偷走了我的昨天</div>
+                    <img src='static\icons\small\组件 61 – 1.png'>
                 </div>
-            </div>
-        </div>
+                <div class='item-content'>日本。东京市。练马区。天空中的云层倾轧而下，镇子里逐渐阴下来，寒风萧瑟……</div>
+                <div class='item-name'>
+                    <div class='item-name-left'>
+                        <div class='item-name-img'></div>
+                        <div class='item-name-name'>用户名称</div>
+                    </div>
+                    <div class='item-name-right'>3月10日</div>
+                </div>
+            </li>
+            <li class='item'>
+                <div class='item-top'>
+                    <div class='item-title'>|| 谁偷走了我的昨天</div>
+                    <img src='static\icons\small\组件 61 – 1.png'>
+                </div>
+                <div class='item-content'>日本。东京市。练马区。天空中的云层倾轧而下，镇子里逐渐阴下来，寒风萧瑟……</div>
+                <div class='item-name'>
+                    <div class='item-name-left'>
+                        <div class='item-name-img'></div>
+                        <div class='item-name-name'>用户名称</div>
+                    </div>
+                    <div class='item-name-right'>3月10日</div>
+                </div>
+            </li>
+            <li class='item'>
+                <div class='item-top'>
+                    <div class='item-title'>|| 谁偷走了我的昨天</div>
+                    <img src='static\icons\small\组件 61 – 1.png'>
+                </div>
+                <div class='item-content'>日本。东京市。练马区。天空中的云层倾轧而下，镇子里逐渐阴下来，寒风萧瑟……</div>
+                <div class='item-name'>
+                    <div class='item-name-left'>
+                        <div class='item-name-img'></div>
+                        <div class='item-name-name'>用户名称</div>
+                    </div>
+                    <div class='item-name-right'>3月10日</div>
+                </div>
+            </li>
+        </ul>
+        <div class='foot'>没有了呢</div>
     </div>
 </template>
 
@@ -35,98 +76,54 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='stylus'>
-    .border {
-        &:before {
-            border: 2px solid #ccc
-            border-radius :0.22rem
-        }
-        &:after  {
-            border: 2px solid #ccc
-            border-radius :0.22rem
-        }
-    }
-    .border-circle {
-        &:before {
-            border: 2px solid #ccc
-        }
-        &:after  {
-            border: 2px solid #ccc
-        }
-    }
-    .list {
-        overflow:hidden
-        position:absolute
-        left :0.52rem
-        right: .52rem
-        top:4.02rem
-        bottom :0
-        .list-item {
-            height: 2.28rem
-            width: 100%     
-            margin-bottom:0.4rem
-            .item-header {
-                display:flex
-                margin-left:0.28rem
-                padding-top:0.2rem
-                .header-desc {
-                    line-height:0.42rem
-                    font-size: 0.32rem;
-                    font-weight:600
-                    color: #000000;
-                    flex:1
-                    font-family: PingFang SC;
-                }
-                .header-icon {
-                    line-height:0.12rem
-                    margin-right:0.22rem
-                    .iconfont {
-                        text-align:center
-                        font-size :25px
-                        font-weight:600
-                    }
-                }
-            }
-            .item-content {
-                margin-left:0.28rem
-                margin-top:0.1rem
-                width:6.16rem;
-                height:0.9rem
-                line-height:0.4rem
-                overflow :hidden
-                white-space :nowrap
-                text-overflow:ellipsis
-                // word-break:break-all;
-                // word-wrap:break-word;
-                font-size: 0.32rem
-                color: #707070
-            }
-            .item-last {
-                display:flex
-                align-items center;
-                .circle {
-                 //   text-align :center
-                    width :.4rem
-                    height : .4rem
-                    background-color: red
-                    margin-left:0.28rem
-                    border-radius:50%
-                }
-                .username {
-                 //   text-align:center
-                    padding-left 0.08rem
-                    flex 1
-                    font-size:0.24rem
-                    color: #000000
-                    line-height: .4rem
-                }
-                .date {
-                 //   text-align:center
-                    font-size:0.24rem;
-                    color: #000000;
-                    margin-right:0.3rem
-                    line-height: .4rem
-                }
-            }
-        }
-    }
+  .list 
+    .foot 
+      font-size: .22rem
+      text-align: center
+      margin-bottom: 2rem
+    .wrapper
+      .item
+        height: 3rem  
+        margin-left: .4rem
+        margin-right: .4rem
+        border-radius: .22rem
+        padding-left: .28rem
+        padding-right: .28rem
+        margin-bottom: .2rem
+        border: solid .01rem
+        .item-top 
+          display: flex 
+          justify-content: space-between
+          align-items: center
+          img  
+            height: .4rem
+          .item-title
+            height: .72rem
+            line-height: .8rem
+            font-size: .4rem
+        .item-content
+          height: 1.5rem
+          font-size: .37rem
+          color: #707070
+        .item-name
+          display: flex
+          justify-content: space-between
+          height: .58rem
+          padding-bottom: .2rem
+          .item-name-right 
+            height: .58rem
+            line-height: .58rem
+          .item-name-left
+            height: .58rem
+            .item-name-img
+              border-radius: 100%
+              width: .54rem
+              height: .54rem
+              background: red
+              float: left 
+            .item-name-name
+              float: right
+              height: .58rem
+              line-height: .58rem
+              margin-left: .1rem
 </style>

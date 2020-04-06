@@ -1,18 +1,19 @@
 <template>
     <div class="hot-create">
         <hot-create-header class="header"></hot-create-header>
-        <content-list></content-list>
+        <myself-list></myself-list>
     </div>
 </template>
 
 <script>
 import HotCreateHeader from './hot-create-components/Header'
 import ContentList from '@/allPages/commonList/contentList'
+import MyselfList from '../../../myself/Myself-components/MyselfList'
 export default {
   name: 'HotCreate',
   components: {
       HotCreateHeader:HotCreateHeader,
-      ContentList:ContentList
+      MyselfList:MyselfList
   }
 }
 </script>

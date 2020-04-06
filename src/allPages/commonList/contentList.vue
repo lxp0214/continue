@@ -13,7 +13,7 @@
                 </div>
             </li>
         </ul>
-        <!-- <div class='foot' v-show="display">没有了呢</div> -->
+        <div class='foot' v-show="display">没有了呢</div>
     </div>
 </template>
 

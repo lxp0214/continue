@@ -1,24 +1,29 @@
 <template>
-    <div>
-        <newest-continue-header></newest-continue-header>
-        <newest-continue-search></newest-continue-search>
+    <div class="newest-continue">
+        <newest-continue-header class="header"></newest-continue-header>
         <myself-list></myself-list>
     </div>
 </template>
 
 <script>
-import NewestContinueHeader from './newest-continue-components/NewestContinueHeader'
-import NewestContinueSearch from './newest-continue-components/NewestContinueSearch'
+import NewestContinueHeader from './newest-continue-components/Header'
+import ContentList from '@/allPages/commonList/contentList'
 import MyselfList from '../../../myself/Myself-components/MyselfList'
 export default {
-    name: 'NewestContinue',
-    components: {
-        NewestContinueHeader,
-        NewestContinueSearch,
-        MyselfList
-    }
+  name: 'HotContinue',
+  components: {
+      NewestContinueHeader:NewestContinueHeader,
+      ContentList:ContentList,
+      MyselfList:MyselfList
+  }
 }
 </script>
-
-<style lang='stylus' scoped>
+<style lang="stylus" scoped>
+    .newest-continue {
+        margin-top:0.4rem
+        .header {
+            margin-bottom:1.62rem
+        }
+    }
+    
 </style>

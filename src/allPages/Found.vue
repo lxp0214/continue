@@ -15,32 +15,93 @@
     <div class="info">
         <div class="infoPhone border">
             <img src='static\icons\middle\组件 29 – 1.png'>
-            <input type="text" class="infoPhone-text border" placeholder="请输入手机号">
+            <input type="text" class="infoPhone-text border" placeholder="请输入手机号" v-model="phone">
         </div>
         <div class="infoCode border">
             <img src='static\icons\middle\组件 28 – 1.png'>
-            <input type="password" class="infoCode-text border" placeholder="请输入验证码">
-            <span class="send-code">发送验证码</span>
+            <input type="password" class="infoCode-text border" placeholder="请输入验证码" v-model="code">
+            <span class="send-code" @click="handleGetCode">{{isRun?`${this.runTime}s后重获取`:`获取验证码`}}</span>
         </div>
         <div class="infoNewPass border">
             <img src='static\icons\middle\组件 23 – 1.png'>
-            <input type="password" class="infoNewPass-text border" placeholder="请设置新密码">
+            <input type="password" class="infoNewPass-text border" placeholder="请设置新密码" v-model="password1">
         </div>
         <div class="infoPass border">
             <img src='static\icons\middle\组件 23 – 1.png'>
-            <input type="password" class="infoPass-text border" placeholder="请再次输入密码">
+            <input type="password" class="infoPass-text border" placeholder="请再次输入密码" v-model="password2">
         </div>
     </div>
     <router-link to='/'>
-        <div class="FoundItem border">确认更改</div>
+        <div class="FoundItem border" @click="handleChange">确认更改</div>
     </router-link>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import { MessageBox } from 'mint-ui'
 export default {
   name: 'Login',
+  data: function() {
+      return {
+          phone:'',
+          code:'',
+          password1:'',
+          password2:'',
+          isRun:false,
+          runTime:30,
+          url:'http://sim.gxy.ink/auth/login'  //待定URL！！！
+      }
+  },
+  methods: {
+      handleGetCode() {
+          if(!this.phone) {
+              MessageBox.alert("请输入手机号码哦~", '提示');
+              return 
+          }
+          if(!/^1\d{10}$/.test(this.phone)) {
+              MessageBox.alert("请输入正确的手机号", '提示');
+              return 
+          }
+          this.isRun = true
+          var autoTime = setInterval(() => {
+             this.runTime--;
+             if(this.runTime === 0) {
+                this.runTime = 30;
+                this.isRun = false;
+                clearInterval(autoTime)
+                return
+             }
+          },1000)
+          if(this.password1 !== this.password2) {
+              MessageBox.alert("两次密码要一致哦~", '提示');
+              return
+          }
+      },
+      handleChange() {
+          let data = {
+                login:this.name,
+                password1:this.password1,
+                password2:this.password2,
+                code:this.code
+            }
+            fetch(this.url,{
+                mode:'cors',
+                method:'GET',
+                body:JSON.stringify(data),
+                headers:
+                    new Headers({
+                        'Content-Type':'application/json'
+                })
+            }).then(res => res.json().then(body => {
+                console.log(body)
+                //逻辑处理语句
+                //1.注册成功之后清除token；
+                //2.注册成功后push进入explore页面，去掉原来的router-link路由
+            })
+            ).catch(error => console.log("error: "+error))
+      }
+  }
 }
 </script>
 

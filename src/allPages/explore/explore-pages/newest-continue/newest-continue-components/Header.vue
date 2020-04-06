@@ -8,9 +8,9 @@
         <div class="header-content">
             <div class="content-desc">
                 <span class="desc-f">||</span>
-                <span class="desc-l">热门原创</span>
+                <span class="desc-l">最新续作</span>
             </div>
-            <!-- <router-link :to="'/search'+'?name='+'hotcreate'"> -->
+            <!-- <router-link :to="'/search'+'?name='+'hotcontinue'"> -->
             <div class="content-icon">
                 <span class="iconfont search" @click="handleShowSearch">&#xe60a;</span>
             </div>
@@ -26,17 +26,17 @@
 import Search from '@/allPages/Search'
 import FadeAnimation from '@/allPages/commonList/FadeAnimation'
 export default {
-  name: 'HotCreatHeader',
+  name: 'NewestContinueHeader',
+  data: function() {
+      return {
+          showSearch: false,
+          link:'newcontinue'
+      }
+  },
   components: {
         Search:Search,
         FadeAnimation:FadeAnimation
     },
-  data: function() {
-      return {
-          showSearch: false,
-          link:'hotcreate'
-      }
-  },
   methods: {
         handleShowSearch() {
             this.showSearch = true

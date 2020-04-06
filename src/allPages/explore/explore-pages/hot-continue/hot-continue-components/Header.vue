@@ -10,18 +10,41 @@
                 <span class="desc-f">||</span>
                 <span class="desc-l">热门续作</span>
             </div>
-            <router-link :to="'/search'+'?name='+'hotcontinue'">
-                <div class="content-icon">
-                    <span class="iconfont search">&#xe60a;</span>
-                </div>
-            </router-link>
+            <!-- <router-link :to="'/search'+'?name='+'hotcontinue'"> -->
+            <div class="content-icon">
+                <span class="iconfont search" @click="handleShowSearch">&#xe60a;</span>
+            </div>
+            <fade-animation>
+                <search v-show="showSearch" @close="handleCloseSearch" :param="link"></search>
+            </fade-animation>
+            <!-- </router-link> -->
         </div>
     </div>
 </template>
 
 <script>
+import Search from '@/allPages/Search'
+import FadeAnimation from '@/allPages/commonList/FadeAnimation'
 export default {
   name: 'HotContinueHeader',
+  data: function() {
+      return {
+          showSearch: false,
+          link:'hotcontinue'
+      }
+  },
+  components: {
+        Search:Search,
+        FadeAnimation:FadeAnimation
+    },
+  methods: {
+        handleShowSearch() {
+            this.showSearch = true
+        },
+        handleCloseSearch() {
+            this.showSearch = false
+        }
+  }
 }
 </script>
 <style lang="stylus" scoped>

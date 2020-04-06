@@ -92,20 +92,25 @@ export default {
         handleRegister() {
             let data = {
                 login:this.name,
-                password:this.password
+                password:this.password,
+                code:this.code,
+                token:this.token,
+                authenticate:this.authenticate
             }
             fetch(this.url,{
                 mode:'cors',
-                method:'POST',  //method方式待商议！！！
+                method:'GET',
                 body:JSON.stringify(data),
                 headers:
                     new Headers({
                         'Content-Type':'application/json'
                 })
-            }).then(
+            }).then(res => res.json().then(body => {
+                console.log(body)
                 //逻辑处理语句
                 //1.注册成功之后清除token；
                 //2.注册成功后push进入explore页面，去掉原来的router-link路由
+            })
             ).catch(error => console.log("error: "+error))
         }
     },

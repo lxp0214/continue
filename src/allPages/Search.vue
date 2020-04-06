@@ -1,13 +1,11 @@
 <template>
   <div class="search">
-    <div class="info">
-        <div class="infoName border">         
-            <input type="text" class="infoName-text border" placeholder="搜：晴天娃娃" v-model="keyword">
-            <span class="iconfont infoName-icon">&#xe60a;</span>
-        </div>
+    <div class="infoName">         
+        <input type="text" class="infoName-text border" placeholder="搜：晴天娃娃" v-model="keyword">
+        <span class="iconfont infoName-icon">&#xe60a;</span>
     </div>
     <div class="lastest">
-        <div class="content" v-show="!hasKeyword">最近搜索</div>
+        <div class="content" v-show="!hasKeyword" @click="handleCloseSearch">最近搜索</div>
     </div>
     <search-list v-show="!hasKeyword"></search-list>
     <content-list v-show="hasKeyword" :datas="Lists"></content-list>
@@ -23,12 +21,14 @@ export default {
   name: 'Search',
   data: function() {
       return {
-          link:this.$route.query.name,
           datas:[],
           keyword:'',
           Lists:[],
           timer:null
       }
+  },
+  props: {
+      param:String
   },
   computed: {
       hasKeyword() {
@@ -73,25 +73,31 @@ export default {
       }
   },
   mounted() {
-      console.log(this.link)
-      if(this.link === 'mycreate') {
+      if(this.param === 'mycreate') {
+          console.log(this.param)
           this.getMyCreateInfo()
-          //console.log(this.link)
       }
-      if(this.link === 'hotcontinue') {
+      if(this.param === 'hotcontinue') {
+          console.log(this.param)
           this.getHotContinueInfo()
       }
-      if(this.link === 'hotcreate') {
+      if(this.param === 'hotcreate') {
+          console.log(this.param)
           this.getHotCreateInfo()
       }
-      if(this.link === 'newcontinue') {
+      if(this.param === 'newcontinue') {
+          console.log(this.param)
           this.getNewContinueInfo()
       }
-      if(this.link === 'newcreate') {
+      if(this.param === 'newcreate') {
+          console.log(this.param)
           this.getNewCreateInfo()
       }
   },
   methods: {
+      handleCloseSearch() {
+          this.$emit('close')
+      },
       getMyCreateInfo() {
           axios.get('static/mock/collection.json').then(res => {
               res = res.data;
@@ -141,15 +147,25 @@ export default {
 }
 </script>
 
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='stylus'>
     .border {
         border: solid 1px #707070
     }
     .search {
-        margin-top:0.7rem
+        padding-top:0.7rem
+        position :fixed
+        left:0
+        right :0
+        top:0
+        bottom:0
+        background-color rgba(0,0,0,0.7)
+        z-index:99
+        display :flex
+        flex-direction :column
+        //justify-content :center
         .infoName {
+            background-color #fff
             width :6.7rem
             height :1.04rem
             line-height :1.04rem
@@ -164,6 +180,7 @@ export default {
                 color :#000
             }
             .infoName-text {
+                background-color opacity 
                 margin-left:0.44rem
                 height :1.04rem
                 line-height :1.0rem
@@ -176,10 +193,11 @@ export default {
             margin-top:0.42rem;
             font-size:0.22rem;
             font-family: Segoe UI;
-            color: #000000;
+            color: #ffffff;
         }
         .tip {
             margin-left 0.4rem
+            color #ffffff
         }
     }
 </style>

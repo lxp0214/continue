@@ -4,10 +4,10 @@
             <swiper :options="swiperOption" ref="mySwiper">
                 <!-- slides -->
                 <swiper-slide>
-                    <img src="http://img1.qunarzz.com/sight/p0/1603/a4/a4ed36eaa85c0f690.water.jpg_256x160_d58f6397.jpg" class="slide-img">
+                    <img src="static/imgs/swiper1.jpg" class="slide-img">
                 </swiper-slide>
                 <swiper-slide>
-                    <img src="http://img1.qunarzz.com/sight/p0/1508/2e/d9363ce50a88c8c5ff5a138c67687cd4.water.jpg_256x160_ca478972.jpg" class="slide-img">
+                    <img src="static/imgs/swiper2.jpg" class="slide-img">
                 </swiper-slide>
                 <!-- Optional controls -->
                 <div class="swiper-pagination"  slot="pagination"></div>
@@ -39,7 +39,7 @@ export default {
            //width 6.70rem
            height 3.54rem
            border-radius: 10px;
-           border: 1px solid 
+           //border: 1px solid 
            margin-left 0.4rem
            margin-right 0.4rem
            margin-bottom 0.4rem
@@ -55,7 +55,7 @@ export default {
                z-index 2
                font-size: 16px;
                font-weight 600
-	           color: #000000;
+	           color: white;
            }
        }
 </style>

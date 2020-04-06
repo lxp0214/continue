@@ -8,7 +8,7 @@
         <div class="header-content">
             <div class="content-desc">
                 <span class="desc-f">||</span>
-                <span class="desc-l">热门原创</span>
+                <span class="desc-l">最新原创</span>
             </div>
             <!-- <router-link :to="'/search'+'?name='+'hotcreate'"> -->
             <div class="content-icon">
@@ -26,7 +26,7 @@
 import Search from '@/allPages/Search'
 import FadeAnimation from '@/allPages/commonList/FadeAnimation'
 export default {
-  name: 'HotCreatHeader',
+  name: 'NewestCreateHeader',
   components: {
         Search:Search,
         FadeAnimation:FadeAnimation
@@ -34,7 +34,7 @@ export default {
   data: function() {
       return {
           showSearch: false,
-          link:'hotcreate'
+          link:'newcreate'
       }
   },
   methods: {

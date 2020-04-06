@@ -9,20 +9,30 @@
         <div class='left'>
             <div class='left-top'>探索</div>
             <div class='left-bottom'>多少人的思维，一笔笔勾勒出来的华章...</div>
-            <router-link to='/search'>
-                <img src='static\icons\组件 67 – 1.png'>
-            </router-link>
+            <!-- <router-link to='/search'> -->
+                <img src='static\icons\组件 67 – 1.png' @click="handleShowSearch">
+            <!-- </router-link> -->
+            <fade-animation>
+                <search v-show="showSearch" @close="handleCloseSearch"></search>
+            </fade-animation>
         </div>
     </div>
   </div>
 </template>
 
 <script>
+import Search from '../../Search'
+import FadeAnimation from '@/allPages/commonList/FadeAnimation'
 export default {
     name: 'ExplorefHeader',
+    components: {
+        Search:Search,
+        FadeAnimation:FadeAnimation
+    },
     data () {
         return {
-            headerShow: false
+            headerShow: false,
+            showSearch: false
         }
     },
     methods: {
@@ -34,6 +44,12 @@ export default {
             } else {
                 this.headerShow = false
             }
+        },
+        handleShowSearch() {
+            this.showSearch = true
+        },
+        handleCloseSearch() {
+            this.showSearch = false
         }
     },
     activated () {

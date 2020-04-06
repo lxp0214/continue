@@ -8,11 +8,11 @@
                     <div class='left'>
                         <div class='img'></div>
                         <span class='desc'>xxx用户</span>
-                        <span class='desc'>3月10日16:30</span>
+                        <span class='time'>3月10日16:30</span>
                     </div>
                     <div class='right'>
-                        <span class='iconfont icon'>&#xe65e;</span>
-                        <span class='iconfont icon'>&#xe607;</span>
+                        <img src='static\icons\small\组件 57 – 1.png'>
+                        <img src='static\icons\small\组件 60 – 1.png'>
                     </div>
                 </div>
             </li>
@@ -33,7 +33,7 @@ export default {
     -moz-box-sizing:border-box
     -webkit-box-sizing:border-box
     width: 100%
-    margin-top:1.4rem
+    margin-top: .4rem
     padding-left: .28rem
     padding-right: .28rem
     padding-bottom: .2rem
@@ -44,26 +44,32 @@ export default {
       font-size: .32rem
       line-height: .42rem
     .foot 
-      height: .36rem
+      height: .6rem
       margin-top: .4rem
-      background: blue
       overflow: hidden
       .left 
         float: left 
-        height: .36rem
-        line-height: .36rem
+        height: .6rem
+        line-height: .6rem
+        display: flex
         .img 
           border-radius: 100%
           background: red 
-          width: .36rem
-          height: .36rem
-          display: inline-block
+          width: .6rem
+          height: .6rem
         .desc 
-          line-height: .36rem
+          line-height: .6rem
+          margin-left: .1rem
+        .time
+          line-height: .6rem
+          margin-left: .2rem
       .right 
         float: right
-        .icon
-          margin-left: .5rem
-          line-height: .36rem
+        height: .6rem
+        line-height: .6rem
+        img 
+          height: .45rem
+          margin-left: .36rem
+          
 
 </style>

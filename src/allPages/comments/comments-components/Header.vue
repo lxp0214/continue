@@ -1,6 +1,8 @@
 <template>
     <div class='header'>
+      <router-link to='/articaldetails'>
         <img src='static\icons\middle\组件 39 – 1.png'>
+      </router-link>
         <img src='static\icons\middle\组件 56 – 1.png'>
     </div>
 </template>

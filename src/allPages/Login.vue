@@ -6,11 +6,11 @@
     <div class="title">续</div>
     <div class="info">
         <div class="infoName border">
-            <span class="iconfont infoName-icon">&#xe608;</span>
+            <img src='static\icons\middle\组件 21 – 1.png'>
             <input type="text" class="infoName-text border" placeholder="请输入手机号" v-model="phone">
         </div>
         <div class="infoPass border">
-            <span class="iconfont infoPass-icon">&#xe6e9;</span>
+            <img src='static\icons\middle\组件 23 – 1.png'>
             <input type="password" class="infoPass-text border" placeholder="请输入密码" v-model="password">
         </div>
         <router-link to='/forget'>
@@ -19,7 +19,7 @@
     </div>
     <div class="loginItem border" @click="handleLogin">登录</div>
     <router-link to='/register'>
-        <div class="registerEnter">注册账户</div>
+        <div class="registerEnter">没有账户？现在注册</div>
     </router-link>
   </div>
 </template>
@@ -105,28 +105,27 @@ export default {
     }
     .info {
         position relative
+        margin-left: 1.2rem
+        margin-right: 1.2rem
         margin-bottom 1.78rem
         .infoName,.infoPass {
-            width :5.78rem
+            width :100%
             height :1.04rem
             line-height :1.04rem
             border-radius 0.52rem
             //background-color red
             margin:0 auto
             display:flex
-            .iconfont{
-                text-align :center
-                margin-left :0.48rem
-                font-size:0.48rem
-                color :#000
-            }
-            .infoPass-icon {
-                font-size:0.52rem !important 
+            align-items: center
+            img {
+                height: .46rem
+                vertical-align: center
+                margin-left: .4rem
             }
             .infoName-text,.infoPass-text {
                 height :1.04rem
                 line-height :1.0rem
-                padding-left:0.4rem
+                padding-left:0.2rem
                 font-family :Microsoft YaHei;
                 border :none
             }
@@ -135,39 +134,30 @@ export default {
             margin-top :0.26rem
         }
         .forget {
-            font-family: Microsoft
-            font-size: 12px;
-            color: #6c6a6a;
-            width: 60px;
-            height: 16px;
-            line-height: 16px;
-            text-align :center
-            position absolute
-            right 0.86rem
-            bottom -0.41rem
+            font-size: .24rem
+            color: #6c6a6a
+            height: .32rem
+            line-height: .32rem
+            text-align: right
+            margin-top: .1rem
         }
     }
     .loginItem {
-        width :5.78rem
         height :1.04rem
         line-height :1.04rem
         border-radius 0.52rem
         text-align :center
-        margin:0 auto
-        font-family: Microsoft YaHei;
-	    font-size: 18px;
-        color: #6c6a6a;
-        letter-spacing: 0.1rem;
-        margin-bottom :0.16rem;
+        margin:0 2rem
+	    font-size: .36rem
+        color: #6c6a6a
+        letter-spacing: 0.1rem
+        margin-bottom :0.16rem
     }
     .registerEnter {
-        width: 0.96rem;
 	    height: 0.32rem;
         text-align :center
         line-height :0.32rem
-        margin:0 auto;
-        font-family: Microsoft YaHei;
-        font-size :0.24rem;
-        color:#6c6a6a;
+        font-size :0.24rem
+        color:#6c6a6a
     }
 </style>

@@ -101,6 +101,10 @@ export default new Router({
         path: '/comments',
         name: 'Comments',
         component: Comments
+    }, {
+        path: '/articaldetails',
+        name: 'ArticalDetails',
+        component: ArticalDetails
     }
 ],
 

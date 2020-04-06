@@ -3,9 +3,9 @@
     <div class="header">
         <div class="icon">
             <router-link to='/'>
-                <span class="iconfont arrow">&#xe65e;</span>
+                <img src='static\icons\middle\组件 39 – 1.png' class='left'>
             </router-link>
-            <span class="iconfont question">&#xe60a;</span>
+            <img src='static\icons\middle\组件 33 – 1.png' class='right'>
         </div>
         <div class="desc">
             <div class="desc-top">注册新账户</div>
@@ -14,16 +14,16 @@
     </div>
     <div class="info">
         <div class="infoPhone border">
-            <span class="iconfont infoPhone-icon">&#xe608;</span>
+            <img src='static\icons\middle\组件 29 – 1.png'>
             <input type="text" class="infoPhone-text border" placeholder="请输入手机号" v-model="name">
         </div>
         <div class="infoCode border">
-            <span class="iconfont infoCode-icon">&#xe6e9;</span>
+            <img src='static\icons\middle\组件 28 – 1.png'>
             <input type="password" class="infoCode-text border" placeholder="请输入验证码" v-model="code">
             <span class="send-code" @click="handleGetCode">发送验证码</span>
         </div>
         <div class="infoNewPass border">
-            <span class="iconfont infoNewPass-icon">&#xe6e9;</span>
+            <img src='static\icons\middle\组件 23 – 1.png'>
             <input type="password" class="infoNewPass-text border" placeholder="请设置密码" v-model="password">
         </div>
         <!-- <div class="infoPass border">
@@ -101,13 +101,17 @@ export default {
             border: solid 1px #707070
         }
         .header {
-            .question {
-                float right
-            }
-            .arrow,.question {
-                font-size 0.6rem
-                color #000000
-                font-weight 500
+            .icon {
+                height: .9rem
+                line-height: .8rem
+                .left {
+                    float: left
+                    height: .52rem
+                }
+                .right{
+                    float: right
+                    height: .52rem
+                } 
             }
             .desc {
                 margin-top 0.26rem
@@ -134,16 +138,15 @@ export default {
             //background-color red
             margin:0 auto
             display:flex
-            .iconfont{
-                text-align :center
-                margin-left :0.48rem
-                font-size:0.48rem
-                color :#000
+            align-items: center
+            img{
+                height: .5rem
+                margin-left: .4rem
             }
             .infoPhone-text,.infoNewPass-text,.infoCode-text {
                 height :1.02rem
                 line-height :1.02rem
-                padding-left:0.4rem
+                padding-left:0.2rem
                 font-family :Microsoft YaHei;
                 border :none
             }

@@ -2,11 +2,11 @@
     <div>
         <div class='header'>
             <router-link to='/create'>
-                <span class='iconfont left'>&#xe611;</span>
+                <img src='static\icons\middle\组件 47 – 1.png'>
             </router-link>
             创作
             <router-link to='/readyEdit'>
-                <span class='iconfont right'>&#xe607;</span>
+                <img src='static\icons\middle\组件 45 – 1.png'>
             </router-link>
         </div>
         <div class='wrapper'>
@@ -38,16 +38,14 @@ export default {
     padding-right: .4rem
     height: 1.1rem
     line-height: 1.1rem
-    text-align: center
     font-size: .5rem
     border-bottom: solid .01rem
     border-top: solid .01rem
-    .left
-      float: left
-      font-size: .7rem
-    .right 
-      float: right
-      font-size: .7rem
+    display: flex 
+    align-items: center
+    justify-content: space-between
+    img 
+      height: .6rem
   .wrapper
     padding-left: .4rem
     padding-right: .4rem
@@ -67,6 +65,8 @@ export default {
         margin-top: .56rem
         margin-right: 1.94rem
         margin-left: 1.94rem
+        border-bottom: double #707070 
+        border-bottom-width: .1rem
         .title 
           width: 100%   
           height: 100%
@@ -74,21 +74,20 @@ export default {
           font-size: .4rem
           &::placeholder 
             color: #000000
-          border-bottom: double 
-          border-bottom-width: .05rem
       .small-wrapper 
         width: 100%
-        height: .84rem
+        height: .67rem
+        margin-bottom: .2rem
         .small
           width: 100% 
           height: 100%
           font-size: .32rem
           &::placeholder 
             color: #000000
-          border-bottom:solid .01rem
+          border-bottom: solid .01rem #707070
       .content-wrapper 
         width: 100% 
-        height: 10.58rem
+        height: 10.38rem
         .content 
           width: 100%
           height: 100%

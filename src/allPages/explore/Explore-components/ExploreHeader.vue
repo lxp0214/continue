@@ -10,7 +10,7 @@
             <div class='left-top'>探索</div>
             <div class='left-bottom'>多少人的思维，一笔笔勾勒出来的华章...</div>
             <router-link to='/search'>
-                <span class="iconfont search">&#xe60a;</span>
+                <img src='static\icons\组件 67 – 1.png'>
             </router-link>
         </div>
     </div>
@@ -78,12 +78,9 @@ export default {
       .left-bottom
         height: 0.38rem
         line-height: 0.38rem
-      .search
+      img
         position:absolute
-        top:54px
-        right:20px
-        //margin-left :0.8rem
-        font-size:30px
-        font-weight:500
-        color:#000000;
+        top:1.3rem
+        right:.4rem
+        height: .7rem
 </style>

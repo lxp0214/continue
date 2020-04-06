@@ -3,15 +3,13 @@
         <div class="body-header">雨打芭蕉湿</div>
         <div class="body-foot">
             <div class="foot-left">
-                <div class="icon">
-                    <span class="iconfont">&#xe608;</span>
-                </div>
+                <div class="icon"></div>
                 <div class="desc">由xxx用户发起</div>
             </div>
             <div class="foot-right">
-                <div class="iconfont icon-right">&#xe61a;</div>
-                <div class="iconfont icon-right">&#xe628;</div>
-                <div class="iconfont icon-right">&#xe617;</div>
+                <img src='static\icons\middle\组件 56 – 1.png'>
+                <img src='static\icons\middle\组件 53 – 1.png'>
+                <img src='static\icons\middle\组件 51 – 1.png'>
             </div>
         </div>
     </div>
@@ -35,26 +33,28 @@ export default {
         }
         .body-foot {
             margin-top 0.38rem
-            line-height 0.4rem
+            line-height 0.6rem
+            height: .6rem
+            display: flex
+            justify-content: space-between
             .foot-left {
-                display flex
-                float left
+                display: flex
                 .icon {
-                    margin-right 0.08rem
+                    border-radius: 100%
+                    background: red 
+                    width: .6rem 
+                    height: .6rem
                 }
                 .desc {
                     font-size 0.24rem
                     color #000000
-                    align-items center
+                    margin-left: .1rem
                 }
             }
             .foot-right {
-                float right
-                display flex
-                text-align center
-                .icon-right {
-                    font-size 30px
-                    margin-left 0.42rem
+                img {
+                    height: .48rem
+                    margin-left: .36rem
                 }
             }
         }

@@ -1,10 +1,10 @@
 <template>
     <div class='header'>
         <router-link to='/createEdit'>
-            <span class='iconfont left'>&#xe611;</span>
+            <img src='static\icons\middle\组件 39 – 1.png'>
         </router-link>
         创作
-        <span class='iconfont right' @click="handlePopTop">&#xe607;</span>
+        <img src='static\icons\middle\组件 44 – 1.png' @click="handlePopTop">
         <mt-popup v-model="popupVisible" position="top">
             <!-- <div class="tip">
                 <div class="top">
@@ -47,18 +47,12 @@ export default {
     padding-right: .4rem
     height: 0.88rem
     line-height: 0.88rem
-    text-align: center
     font-size: .5rem
     border-bottom: solid .01rem
     border-top: solid .01rem
-    .left
-      float: left
-      font-size: .6rem
-    .right 
-      float: right
-      font-size: .6rem
-    .tip {
-        width 100%
-        height 2.84rem
-    }
+    display: flex 
+    justify-content: space-between
+    align-items: center
+    img 
+      height: .6rem
 </style>

@@ -2,10 +2,10 @@
     <div>
         <div class='header'>
             <router-link to='/create'>
-                <span class='iconfont left'>&#xe65e;</span>
+                <img src='static\icons\middle\组件 39 – 1.png'>
             </router-link>
             所有消息
-            <span @click='changeShow()' class='iconfont right' ref='change'>&#xe65e;</span>
+            <img @click='changeShow()' :src=this.rightUrl ref='change'>
         </div>
         <div class='list' v-show='messageShow'>
             <ul class='wrapper'>
@@ -70,16 +70,17 @@ export default {
     name: 'CreateAllMessages',
     data () {
         return {
-            messageShow: true
+            messageShow: true,
+            rightUrl:'static'+'/'+'icons'+'/'+'middle'+'/'+'组件 36 – 1.png'
         }
     },
     methods: {
         changeShow () {
             this.messageShow = !this.messageShow 
             if(!this.messageShow) {
-                this.$refs.change.innerHTML = '&#xe607;'
+                this.$refs.change.src='static'+'/'+'icons'+'/'+'middle'+'/'+'组件 35 – 1.png'
             } else {
-                this.$refs.change.innerHTML = '&#xe65e;'
+                this.$refs.change.src = 'static'+'/'+'icons'+'/'+'middle'+'/'+'组件 36 – 1.png'
             }
         }
     }
@@ -94,16 +95,14 @@ export default {
     padding-right: .4rem
     height: 1.1rem
     line-height: 1.1rem
-    text-align: center
     font-size: .5rem
     border-bottom: solid .01rem
     border-top: solid .01rem
-    .left
-      float: left
-      font-size: .7rem
-    .right 
-      float: right
-      font-size: .7rem
+    display: flex 
+    justify-content: space-between 
+    align-items: center
+    img 
+      height: .6rem
   .list 
     .foot 
       font-size: .22rem

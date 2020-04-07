@@ -20,6 +20,7 @@ import CreateReady from '@/allPages/create/create-pages/create-ready/CreateReady
 import ArticalDetails from '@/allPages/artical-details/ArticalDetails'
 import Comments from '@/allPages/comments/Comments'
 import Found from '@/allPages/Found'
+import About from '@/allPages/myself/myself-pages/myself-information/myself-information-pages/About'
 
 const routerPush = Router.prototype.push
 Router.prototype.push = function push(location) {
@@ -105,7 +106,12 @@ export default new Router({
         path: '/articaldetails',
         name: 'ArticalDetails',
         component: ArticalDetails
-    }],
+    }, {
+        path: '/about',
+        name: 'About',
+        component: About
+    }
+],
     scrollBehavior(to, from, savedPosition) {
         return { x: 0, y: 0 }
     }

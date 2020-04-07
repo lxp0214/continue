@@ -2,34 +2,155 @@
     <div class="information">
         <div class='header'>
             <router-link to='/myself'>
-                <span class='iconfont left'>&#xe65e;</span>
+                <img src='static\icons\middle\组件 39 – 1.png'>
             </router-link>
-            个人资料
+            <div class='desc'>个人资料</div>
         </div>
         <div class='basic-information'>
             <div class='head'>基本资料</div>
             <div class='img'>
                 <div class='img-text'>头像</div>
-                <div class='img-img'></div>
+                <div class='icon-wrapper'>
+                  <div class='img-img'></div>
+                  <img src='static\icons\middle\组件 41 – 1.png' class='icon'>
+                </div>
             </div>
-            <div class='item'>昵称</div>
-            <div class='item'>性别</div>
-            <div class='item'>简介</div>
+            <div class='item'>
+              <div class='item-name'>昵称</div>
+              <div class='name-wrapper'>
+                <div class='name' ref='name' @click="quxiao('name')">嘿凤梨</div>
+                <img src='static\icons\middle\组件 41 – 1.png' class='icon' @click="show('name')" v-show='nameImgShow'>
+              </div>
+            </div>
+            <div class='modifyName' v-show='nameShow'>
+              <input class='input' type='text' value='黑凤梨'>
+              <button class='button' @click="queren('name')">确认</button>
+            </div>
+            <div class='item'>
+              <div class='item-name'>性别</div>
+              <div class='name-wrapper'>
+                <div class='name' ref='sex' @click="quxiao('sex')">女</div>
+                <img src='static\icons\middle\组件 41 – 1.png' class='icon' @click="show('sex')" v-show='sexImgShow'>
+              </div>
+            </div>
+            <div class='modifySex' v-show='sexShow'>
+              <button class='button' @click="queren('sex')">男</button>
+              <button class='button' @click="queren('sex')">女</button>
+              <button class='button' @click="queren('sex')">保密</button>
+            </div>
+            <div class='item'>
+              <div class='item-name'>简介</div>
+              <div class='name-wrapper'>
+                <div ref='introduce' @click="quxiao('introduce')">&nbsp;</div>
+                <img src='static\icons\middle\组件 41 – 1.png' class='icon' @click="show('introduce')" v-show='introduceImgShow'>
+              </div>
+            </div>
+            <div class='modifyIntroduce' v-show='introduceShow'>
+              <textarea class='input'></textarea>
+              <div class='finishInput'>
+                <span claaa='fontNumber'>0/200字</span>
+                <span class='finish' @click="queren('introduce')">保存</span>
+              </div>
+            </div>
         </div>
-        <div class='accout-information'>
+        <div class='basic-information'>
             <div class='head'>账户资料</div>
-            <div class='item'>手机号</div>
+            <div class='item'>
+              <div class='item-name'>手机号</div>
+              <div class='name-wrapper'>
+                <div class='name'>132300000000</div>
+                <img src='static\icons\middle\组件 41 – 1.png' class='icon'>
+              </div>
+            </div>
             <div class='item'>密码</div>
         </div>
-        <div class='foot'>退出登录</div>
-        <div class='foot'>关于</div>
+        <div class='foot'>
+          <div class='item'>退出登录</div>
+          <div class='img-wrapper'>
+            <img src='static\icons\middle\组件 41 – 1.png' class='icon'>
+          </div>
+        </div>
+        <div class='foot'>
+          <div class='item'>关于</div>
+          <div class='img-wrapper'>
+            <img src='static\icons\middle\组件 41 – 1.png' class='icon'>
+          </div>
+        </div>
     </div>
 </template>
 
 <script>
-
 export default {
-    name: 'MyselfInformation'
+    name: 'MyselfInformation',
+    data () {
+      return {
+        nameShow: false,
+        nameImgShow: true,
+        sexShow: false,
+        sexImgShow:true,
+        introduceShow: false,
+        introduceImgShow: true
+      }
+    },
+    methods: {
+      show (val) {
+        switch (val) {
+          case 'name':
+            this.nameShow = true
+            this.nameImgShow = false 
+            this.$refs.name.innerHTML = '取消'
+            break
+          case 'sex':
+            this.sexShow = true 
+            this.sexImgShow = false
+            this.$refs.sex.innerHTML = '取消'
+            break 
+          case 'introduce':
+            this.introduceShow = true 
+            this.introduceImgShow = false
+            this.$refs.introduce.innerHTML = '取消'
+            break
+        }
+      },
+      quxiao (val) {
+        switch (val) {
+          case 'name':
+            this.nameShow = false
+            this.nameImgShow = true 
+            this.$refs.name.innerHTML = '黑凤梨'
+            break;
+          case 'sex':
+            this.sexShow = false 
+            this.sexImgShow = true
+            this.$refs.sex.innerHTML = '女'
+            break ;
+          case 'introduce':
+            this.introduceShow = false 
+            this.introduceImgShow = true
+            this.$refs.introduce.innerHTML = '&nbsp;'
+            break;
+        }
+      },
+      queren (val) {
+        switch (val) {
+          case 'name':
+            this.nameShow = false
+            this.nameImgShow = true 
+            this.$refs.name.innerHTML = '黑凤梨'
+            break;
+          case 'sex':
+            this.sexShow = false 
+            this.sexImgShow = true
+            this.$refs.sex.innerHTML = '女'
+            break ;
+          case 'introduce':
+            this.introduceShow = false 
+            this.introduceImgShow = true
+            this.$refs.introduce.innerHTML = '&nbsp;'
+            break;
+        }
+      }
+    }
 }
 </script>
 
@@ -38,65 +159,141 @@ export default {
     margin-top: .4rem
     padding-left: .4rem
     padding-right: .4rem
-    height: 1.1rem
-    line-height: 1.1rem
+    height: .88rem
+    line-height: .88rem
     text-align: center
-    font-size: .5rem
+    font-size: .36rem
     border-bottom: solid .01rem
     border-top: solid .01rem
-    .left
-      float: left
-      font-size: .7rem
+    display: flex 
+    align-items: center
+    justify-content: start
+    img
+      height: .4rem
+    .desc 
+      margin-left: 2.5rem
   .basic-information
-    height: 6.04rem
+    .modifyName
+      height: 1rem 
+      background: #4f92f5
+      padding-left: .4rem 
+      padding-right: .28rem
+      display: flex 
+      justify-content: space-between
+      .input 
+        height: 1rem 
+        background: #4f92f5
+        font-size: .32rem 
+        color: #ffffff
+      .button 
+        height: 1rem 
+        background: #4f92f5
+        font-size: .32rem 
+        color: #000000
+    .modifySex
+      height: 1rem 
+      background: #4f92f5
+      padding-left: 1.6rem 
+      padding-right: 1.6rem
+      display: flex 
+      justify-content: space-between
+      .button 
+        height: 1rem 
+        background: #4f92f5
+        font-size: .32rem 
+        color: #ffffff
+    .modifyIntroduce 
+      height: 5rem 
+      background: #4f92f5
+      padding: 0 .4rem 
+      padding-top: .2rem
+      border-bottom-left-radius:.6rem
+      border-bottom-right-radius:.6rem
+      .input 
+        width: 100%
+        height: 4rem
+        line-height: .4rem 
+        font-size: .32rem
+      .finishInput 
+        height: 1rem
+        line-height: 1rem
+        display: flex 
+        justify-content: space-between
+        .fontNumber 
+          font-size: .24rem
+          color: #6c6a6a
+        .finish 
+          font-size: .32rem 
+          color: #000000
     .head
       height: .74rem
       line-height: .74rem
       font-size: .25rem
       padding-left: .4rem
     .img
-      height: 1.64rem
+      height: 1.6rem
       padding-left: .4rem
-      padding-right: .4rem
+      padding-right: .28rem
       background: #efefef
+      display: flex 
+      justify-content: space-between
+      align-items: center
       .img-text
-        height: 1.64rem
-        line-height: 1.64rem
+        height: 1.6rem
+        line-height: 1.6rem
+        font-size: .32rem
         float: left
-        font-size: .36rem
-      .img-img
-        height: 1.64rem
-        width: 1.64rem
-        border-radius: 100%
-        background: purple
+      .icon-wrapper 
+        height: 1.6rem
         float: right
+        display: flex
+        align-items: center
+        .img-img
+          height: 1.2rem
+          width: 1.2rem
+          border-radius: 100%
+          background: purple
+        .icon 
+          height: .45rem
+          margin-left: .2rem
     .item
-      height: 1.22rem
-      line-height: 1.22rem
-      font-size: .36rem
+      height: 1rem
+      line-height: 1rem
+      font-size: .32rem
       background: #efefef
       padding-left: .4rem
-      padding-right: .4rem
-  .accout-information
-    height: 3.18rem
-    .head
-      height: .74rem
-      line-height: .74rem
-      font-size: .25rem
-      padding-left: .4rem
-    .item
-      height: 1.22rem
-      line-height: 1.22rem
-      font-size: .36rem
-      background: #efefef
-      padding-left: .4rem
-      padding-right: .4rem
+      padding-right: .28rem
+      .item-name 
+        float: left 
+        height: 1rem
+        line-height: 1rem
+      .name-wrapper 
+        height: 1rem
+        float: right
+        display: flex
+        align-items: center
+        .name 
+          color: #6c6a6a
+          font-size: .32rem
+        .icon 
+          height: .45rem
+          margin-left: .2rem
   .foot
-    margin-top: .5rem
-    height: 1.22rem
-    line-height: 1.22rem
-    font-size: .36rem
+    margin-top: .3rem
+    height: 1rem
     background: #efefef
     padding-left: .4rem
-    padding-right: .4rem
+    padding-right: .28rem
+    .item 
+      float: left 
+      line-height: 1rem
+      font-size: .32rem
+    .img-wrapper 
+      height: 1rem
+      float: right 
+      display: flex 
+      align-items: center 
+      img  
+        height: .45rem
+        margin-left: .2rem 
 </style>

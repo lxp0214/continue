@@ -1,19 +1,18 @@
 <template>
     <div class="newest-create">
         <newest-create-header class="header"></newest-create-header>
-        <myself-list></myself-list>
+        <new-and-hot></new-and-hot>
     </div>
 </template>
 
 <script>
 import NewestCreateHeader from './newest-create-components/Header'
-import ContentList from '@/allPages/commonList/contentList'
-import MyselfList from '../../../myself/Myself-components/MyselfList'
+import NewAndHot from '../../../commonList/NewAndHot'
 export default {
   name: 'HotCreate',
   components: {
       NewestCreateHeader:NewestCreateHeader,
-      MyselfList:MyselfList
+      NewAndHot
   }
 }
 </script>

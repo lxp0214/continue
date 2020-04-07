@@ -1,20 +1,18 @@
 <template>
     <div class="newest-continue">
         <newest-continue-header class="header"></newest-continue-header>
-        <myself-list></myself-list>
+        <new-and-hot></new-and-hot>
     </div>
 </template>
 
 <script>
 import NewestContinueHeader from './newest-continue-components/Header'
-import ContentList from '@/allPages/commonList/contentList'
-import MyselfList from '../../../myself/Myself-components/MyselfList'
+import NewAndHot from '../../../commonList/NewAndHot'
 export default {
   name: 'HotContinue',
   components: {
       NewestContinueHeader:NewestContinueHeader,
-      ContentList:ContentList,
-      MyselfList:MyselfList
+      NewAndHot
   }
 }
 </script>

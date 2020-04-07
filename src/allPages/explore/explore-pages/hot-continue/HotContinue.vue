@@ -7,13 +7,11 @@
 
 <script>
 import HotContinueHeader from './hot-continue-components/Header'
-import ContentList from '@/allPages/commonList/contentList'
 import NewAndHot from '../../../commonList/NewAndHot'
 export default {
   name: 'HotContinue',
   components: {
       HotContinueHeader:HotContinueHeader,
-      ContentList:ContentList,
       NewAndHot
   }
 }

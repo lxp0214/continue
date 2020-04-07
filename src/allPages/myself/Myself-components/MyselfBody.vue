@@ -64,9 +64,9 @@ export default {
 
 <style lang='stylus' scoped>
   .body
-    height: 3rem
+    height: 2.8rem
     .top
-      height 1.2rem
+      height 1.04rem
       margin: 0 .4rem
       background: rgb(174,222,252)
       border-radius: .6rem
@@ -77,9 +77,9 @@ export default {
         -webkit-box-sizing:border-box
         float: left 
         width: 33.33%
-        line-height: 1.2rem
+        line-height: 1.04rem
         text-align: center
-        font-size: .36rem
+        font-size: .32rem
         color: #000000
         opacity: 0.54
         font-weight: 400

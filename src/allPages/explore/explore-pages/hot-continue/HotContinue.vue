@@ -1,20 +1,20 @@
 <template>
     <div class="hot-continue">
         <hot-continue-header class="header"></hot-continue-header>
-        <myself-list></myself-list>
+        <new-and-hot></new-and-hot>
     </div>
 </template>
 
 <script>
 import HotContinueHeader from './hot-continue-components/Header'
 import ContentList from '@/allPages/commonList/contentList'
-import MyselfList from '../../../myself/Myself-components/MyselfList'
+import NewAndHot from '../../../commonList/NewAndHot'
 export default {
   name: 'HotContinue',
   components: {
       HotContinueHeader:HotContinueHeader,
       ContentList:ContentList,
-      MyselfList:MyselfList
+      NewAndHot
   }
 }
 </script>

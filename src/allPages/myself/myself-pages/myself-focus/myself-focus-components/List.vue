@@ -3,15 +3,13 @@
         <div class="list" ref='wrapper'>
             <div>
                 <div class="list-item border-bottom" v-for="item in 13" :key="item">
-                    <div class="item-icon border">
-                        <span class="iconfont iconContent">&#xe608;</span>
-                    </div>
+                    <div class="item-icon border"></div>
                     <div class="item-user">
                         <div class="user-name">晴天娃娃</div>
                         <div class="user-desc">做不一样的自己</div>
                     </div>
                     <div class="item-last">
-                        <span class="iconfont">&#xe700;</span>
+                        <img src='static\icons\middle\组件 63 – 1.png'>
                     </div>
                 </div>
             </div>
@@ -45,47 +43,38 @@ export default {
         }
     }
     .list {
-        margin-top: 2rem
-        overflow:hidden
-        position:absolute
-        top:4.22rem
-        left :0.52rem
-        right: .52rem
-        bottom :0
+        margin: 0 .4rem
         .list-item {
             width: 100%
-            line-height:0.74rem
+            height: 1rem
+            line-height: 1rem
             display :flex
-            margin-bottom:0.4rem
+            margin-bottom:0.2rem
+            background: #eee
+            border-radius: .5rem
             .item-icon {
-                height:0.77rem;
-                width:0.77rem;
-                line-height:0.77rem
-                border-radius 50%;
-                .iconContent {
-                    text-align:center !important 
-                    display:block;
-                    font-size 0.44rem
-                }
+                height:1rem
+                width:1rem
+                border-radius 100%
+                background: red
             }
             .item-user {
-                flex :1
-                padding-left 0.28rem
+                padding-left 0.16rem
                 .user-name {
-                    font-size :0.34rem;
-                    line-height:0.42rem
+                    font-size :0.32rem;
+                    line-height:0.5rem
                     font-weight:600
                 }
                 .user-desc {
-                    padding-top :0.08rem
-                    font-size :0.2rem;
-                    line-height:0.28rem;
+                    font-size :0.24rem
+                    line-height:0.5rem
                 }
             }
             .item-last {
-                margin-left:3.45rem
-                .iconfont {
-                    font-size 0.58rem
+                margin-left: 3rem
+                img{
+                    height: .46rem
+                    
                 }
             }
         }

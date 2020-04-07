@@ -83,13 +83,13 @@ export default {
       margin-bottom: 2rem
     .wrapper
       .item
-        height: 3rem  
+        height: 2.28rem  
         margin-left: .4rem
         margin-right: .4rem
         border-radius: .22rem
         padding-left: .28rem
         padding-right: .28rem
-        margin-bottom: .2rem
+        margin-bottom: .3rem
         border: solid .01rem
         .item-top 
           display: flex 
@@ -100,10 +100,10 @@ export default {
           .item-title
             height: .72rem
             line-height: .8rem
-            font-size: .4rem
+            font-size: .32rem
         .item-content
-          height: 1.5rem
-          font-size: .37rem
+          height: 1rem
+          font-size: .3rem
           color: #707070
         .item-name
           display: flex
@@ -111,19 +111,21 @@ export default {
           height: .58rem
           padding-bottom: .2rem
           .item-name-right 
-            height: .58rem
-            line-height: .58rem
+            height: .56rem
+            line-height: .56rem
           .item-name-left
-            height: .58rem
+            height: .56rem
+            display: flex 
+            align-items: center
             .item-name-img
               border-radius: 100%
-              width: .54rem
-              height: .54rem
+              width: .4rem
+              height: .4rem
               background: red
               float: left 
             .item-name-name
               float: right
-              height: .58rem
-              line-height: .58rem
+              height: .56rem
+              line-height: .56rem
               margin-left: .1rem
 </style>

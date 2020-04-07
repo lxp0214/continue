@@ -76,6 +76,7 @@ export default {
 
 <style lang='stylus' scoped>
   .navigation
+    z-index: 999
     touch-action: none
     height: 1.2rem
     line-height 1.2rem

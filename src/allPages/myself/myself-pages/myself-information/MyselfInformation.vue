@@ -62,7 +62,14 @@
                 <img src='static\icons\middle\组件 41 – 1.png' class='icon'>
               </div>
             </div>
-            <div class='item'>密码</div>
+            <div class='item'>
+              <div class='item-name'>密码</div>
+              <div class='name-wrapper'>
+                <router-link to='/changePassword'>
+                  <img src='static\icons\middle\组件 41 – 1.png' class='icon'>
+                </router-link>
+              </div>
+            </div>
         </div>
         <div class='foot'>
           <div class='item'>退出登录</div>
@@ -72,9 +79,11 @@
         </div>
         <div class='foot'>
           <div class='item'>关于</div>
-          <div class='img-wrapper'>
-            <img src='static\icons\middle\组件 41 – 1.png' class='icon'>
-          </div>
+          <router-link to='/about'>
+            <div class='img-wrapper'>
+              <img src='static\icons\middle\组件 41 – 1.png' class='icon'>
+            </div>
+          </router-link>
         </div>
     </div>
 </template>
@@ -167,11 +176,12 @@ export default {
     border-top: solid .01rem
     display: flex 
     align-items: center
-    justify-content: start
+    background-color: #ffffff
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.3)
     img
       height: .4rem
     .desc 
-      margin-left: 2.5rem
+      margin-left: 2.4rem
   .basic-information
     .modifyName
       height: 1rem 
@@ -234,7 +244,7 @@ export default {
       height: 1.6rem
       padding-left: .4rem
       padding-right: .28rem
-      background: #efefef
+      background-color: #ffffff
       display: flex 
       justify-content: space-between
       align-items: center
@@ -260,7 +270,7 @@ export default {
       height: 1rem
       line-height: 1rem
       font-size: .32rem
-      background: #efefef
+      background-color: #ffffff
       padding-left: .4rem
       padding-right: .28rem
       .item-name 
@@ -281,9 +291,9 @@ export default {
   .foot
     margin-top: .3rem
     height: 1rem
-    background: #efefef
     padding-left: .4rem
     padding-right: .28rem
+    background-color: #ffffff
     .item 
       float: left 
       line-height: 1rem

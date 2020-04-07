@@ -19,6 +19,7 @@ import ArticalDetails from '@/allPages/artical-details/ArticalDetails'
 import Comments from '@/allPages/comments/Comments'
 import Found from '@/allPages/Found'
 import About from '@/allPages/myself/myself-pages/myself-information/myself-information-pages/About'
+import changePassword from '@/allPages/myself/myself-pages/myself-information/myself-information-pages/changePassword'
 
 const routerPush = Router.prototype.push
 Router.prototype.push = function push(location) {
@@ -100,7 +101,12 @@ export default new Router({
         path: '/about',
         name: 'About',
         component: About
+    }, {
+        path: '/changePassword',
+        name: 'changePasswordbout',
+        component: changePassword
     }
+
 ],
     scrollBehavior(to, from, savedPosition) {
         return { x: 0, y: 0 }

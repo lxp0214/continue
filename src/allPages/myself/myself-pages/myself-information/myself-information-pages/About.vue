@@ -1,7 +1,9 @@
 <template>
     <div>
         <div class='header'>
-            <img src='static\icons\middle\组件 39 – 1.png'>
+            <router-link to='/myselfInformation'>
+                <img src='static\icons\middle\组件 39 – 1.png'>
+            </router-link>
             <span>关于</span>
         </div>
         <div class='desc'>更新</div>
@@ -25,25 +27,25 @@ export default {
     margin-top: .4rem
     height: .88rem 
     padding-left: .3rem
-    background: #eee
+    background: #ffffff
     display: flex 
     align-items: center
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.3)
     img 
       height: .46rem
     span 
       line-height: .88rem 
       font-size: .36rem
-      margin-left: 2.8rem
+      margin-left: 2.67rem
   .desc 
     height: .84rem 
     line-height: .84rem
     padding-left: .4rem
     color: #ffffff
-    background: pink
     font-size: .32rem
   .wrapper 
     height: 1rem 
-    background: orange
+    background: #ffffff
     margin: 0 .4rem
     padding: 0 .4rem
     display: flex 
@@ -59,5 +61,5 @@ export default {
     margin: 0 .4rem
     border-radius: .22rem
     box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.16)
-    background: #eee
+    background: #ffffff
 </style>

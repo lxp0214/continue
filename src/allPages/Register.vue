@@ -1,11 +1,11 @@
 <template>
-  <div class="found">
+  <div class="found" :style="createStyle">
     <div class="header">
         <div class="icon">
             <router-link to='/'>
-                <img src='static\icons\middle\组件 39 – 1.png' class='left'>
+                <img src='static\icons\middle\组件 76 – 1.png' class='left'>
             </router-link>
-            <img src='static\icons\middle\组件 33 – 1.png' class='right'>
+            <img src='static\icons\middle\组件 84 – 1.png' class='right'>
         </div>
         <div class="desc">
             <div class="desc-top">注册新账户</div>
@@ -13,27 +13,27 @@
         </div>
     </div>
     <div class="info">
-        <div class="infoPhone border">
+        <div class="infoPhone">
             <img src='static\icons\middle\组件 29 – 1.png'>
-            <input type="text" class="infoPhone-text border" placeholder="请输入手机号" v-model="phone">
+            <input type="text" class="infoPhone-text" placeholder="请输入手机号" v-model="phone">
         </div>
-        <div class="infoCode border">
+        <div class="infoCode">
             <img src='static\icons\middle\组件 28 – 1.png'>
-            <input type="password" class="infoCode-text border" placeholder="请输入验证码" v-model="code">
+            <input type="password" class="infoCode-text" placeholder="请输入验证码" v-model="code">
             <span class="send-code" @click="handleGetCode">{{isRun?`${this.runTime}s后重获取`:`获取验证码`}}</span>
         </div>
-        <div class="infoNewPass border">
+        <div class="infoNewPass">
             <img src='static\icons\middle\组件 23 – 1.png'>
-            <input type="password" class="infoNewPass-text border" placeholder="请设置密码" v-model="password">
+            <input type="password" class="infoNewPass-text" placeholder="请设置密码" v-model="password">
         </div>
-        <!-- <div class="infoPass border">
+        <!-- <div class="infoPass">
             <span class="iconfont infoPass-icon">&#xe6e9;</span>
-            <input type="password" class="infoPass-text border" placeholder="请再次输入密码">
+            <input type="password" class="infoPass-text" placeholder="请再次输入密码">
         </div> -->
     </div>
     <register-have></register-have>
     <router-link to='/explore'>
-        <div class="FoundItem border" @click="handleRegister">注册</div>
+        <div class="FoundItem" @click="handleRegister">注册</div>
     </router-link>
   </div>
 </template>
@@ -57,6 +57,14 @@ export default {
           isRun:false,
           runTime:30,
           url:'http://sim.gxy.ink/auth/login',   //待定URL！！！
+          createStyle: {
+                backgroundImage:"url('static/imgs/创作页动态背景1.gif')",
+                backgroundRepeat:"no-repeat",
+                backgroundSize:"100% 100%",
+                width:"100%",
+                height:"100%",
+                position:"fixed"
+          }
       } 
   },
   methods: {
@@ -128,8 +136,8 @@ export default {
 <style scoped lang='stylus'>
     .found {
         margin-top:0.4rem
-        margin-left 0.4rem
-        margin-right 0.4rem
+        // margin-left 0.4rem
+        // margin-right 0.4rem
         padding-top:0.22rem
         .border {
             border: solid 1px #707070
@@ -151,15 +159,14 @@ export default {
                 margin-top 0.26rem
                 margin-bottom 0.42rem
                 text-align center
+                color #ffffff
                 .desc-top {
                     font-size 0.64rem
-                    color #000000
                     font-weight 600
                 }
                 .desc-bottom {
                     margin-top 0.25rem
                     font-size 0.24rem
-                    color #000000
                     font-weight 400
                 }
             }
@@ -173,6 +180,7 @@ export default {
             margin:0 auto
             display:flex
             align-items: center
+            background-color #ffffff
             img{
                 height: .5rem
                 margin-left: .4rem
@@ -209,6 +217,7 @@ export default {
             color: #6c6a6a;
             letter-spacing: 0.05rem;
             margin-top :2.32rem;
+            background-color #ffffff
         }
     }
 </style>

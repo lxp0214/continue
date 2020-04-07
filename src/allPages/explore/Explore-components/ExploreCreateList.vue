@@ -27,6 +27,7 @@ export default {
         margin-left: 0.4rem
         margin-right:0.4rem
         .title {
+           color #ffffff
            height 0.48rem
            .title-left {
                float left
@@ -47,10 +48,11 @@ export default {
         .list-item {
             margin-top:0.14rem  
             .item-content {
+                background-color rgba(255,255,255,0.9)
                 margin-bottom:0.2rem
                 height 1rem
                 border-radius 0.22rem
-                border: solid .01rem
+                //border: solid .01rem
                 display flex
                 align-items: center; //flex子盒子垂直居中
                 //justify-content: center;  //flex子盒子水平居中

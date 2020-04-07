@@ -3,7 +3,9 @@
         <div class='header'>
             <div class='header-left'>创作</div>
             <router-link to='/createEdit'>
-                <div class='header-right'>+</div>
+                <div class='header-right'>
+                    <img src="static\icons\big\组件 82 – 1.png" alt="">
+                </div>
             </router-link>
         </div>
         <div class='small'>滴滴答答打开连接心灵的.....</div>
@@ -19,6 +21,7 @@ export default {
 
 <style lang='stylus' scoped>
   .body
+    color #ffffff
     border-top: solid .01rem
     height: 9.04rem
     margin-top: .4rem
@@ -33,6 +36,7 @@ export default {
         font-size: .64rem
         float: left 
       .header-right
+        color #ffffff
         float: right
         height: .86rem
         line-height: .86rem 

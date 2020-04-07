@@ -1,11 +1,13 @@
 <template>
-    <div class="explore">
-        <explore-header></explore-header>
-        <explore-swiper></explore-swiper>
-        <explore-body></explore-body>
-        <explore-continue-list></explore-continue-list>
-        <explore-create-list></explore-create-list>
-        <navigation></navigation>
+    <div class="explore" :style="createStyle" ref='wrapper'>
+        <div>
+            <explore-header></explore-header>
+            <explore-swiper></explore-swiper>
+            <explore-body></explore-body>
+            <explore-continue-list></explore-continue-list>
+            <explore-create-list></explore-create-list>
+            <navigation></navigation>
+        </div>
     </div>
 </template>
 
@@ -16,6 +18,7 @@ import ExploreContinueList from './Explore-components/ExploreContinueList'
 import ExploreCreateList from './Explore-components/ExploreCreateList'
 import ExploreSwiper from './Explore-components/ExploreSwiper'
 import Navigation from '../Navigation'
+import BScroll from 'better-scroll'
 export default {
     name: 'Explore',
     components: {
@@ -25,7 +28,22 @@ export default {
         ExploreCreateList:ExploreCreateList,
         ExploreSwiper:ExploreSwiper,
         Navigation:Navigation
-    }
+    },
+    mounted() {
+      this.scroll = new BScroll(this.$refs.wrapper)
+    },
+    data: function() {
+        return {
+            createStyle: {
+                backgroundImage:"url('static/imgs/创作页动态背景1.gif')",
+                backgroundRepeat:"no-repeat",
+                backgroundSize:"100% 100%",
+                width:"100%",
+                height:"100%",
+                position:"fixed"
+            }
+        }
+    },
 }
 </script>
 

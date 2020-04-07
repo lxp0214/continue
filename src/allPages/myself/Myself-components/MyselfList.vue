@@ -1,4 +1,5 @@
 <template>
+                                        <!-- 这个组件可能用不到了 -->
     <div class='list'>
         <ul class='wrapper'>
             <li class='item'>

@@ -5,12 +5,12 @@
             <div class='top-item center' @click="changeSize('b')" ref='b'>个人收藏</div>
             <div class='top-item' @click="changeSize('c')" ref='c'>关注用户</div>
         </div>
-        <router-link :to="'/search'+'?name='+'mycreate'">
+        <!-- <router-link :to="'/search'+'?name='+'mycreate'"> -->
             <div class='bottom'>
-                <input class='input' type='text' placeholder='搜索我的创作' ref='search'>
+                <input class='input' type='text' placeholder='搜索我的创作' ref='search' v-model="searchIndex">
                 <img src='static\icons\组件 67 – 1.png'>
             </div>
-        </router-link>
+        <!-- </router-link> -->
     </div>
 </template>
 
@@ -19,7 +19,13 @@ export default {
     name: 'MyselfBody',
     data () {
         return {
-            
+            searchIndex:''
+        }
+    },
+    watch: {
+        searchIndex:function() {
+            this.$emit('changeSearch',this.searchIndex);
+            //console.log(this.searchIndex)
         }
     },
     methods: {
@@ -68,7 +74,7 @@ export default {
     .top
       height 1.04rem
       margin: 0 .4rem
-      background: rgb(174,222,252)
+      background: rgba(255,255,255,0.9)
       border-radius: .6rem
       padding: 0 .4rem
       .top-item 
@@ -105,7 +111,7 @@ export default {
         padding-right: .4rem
         font-size: .4rem
         border-radius: .22rem
-        background: #eee
+        background-color rgba(255,255,255,0.9)
       img 
         position: absolute 
         top: .2rem

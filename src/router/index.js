@@ -5,8 +5,6 @@ import Register from '@/allPages/Register'
 import Explore from '@/allPages/explore/Explore'
 import Create from '@/allPages/create/Create'
 import Myself from '@/allPages/myself/Myself'
-import MyselfFocus from '@/allPages/myself/myself-pages/myself-focus/MyselfFocus'
-import MyselfCollections from '@/allPages/myself/myself-pages/myself-collections/MyselfCollections'
 import MyselfInformation from '@/allPages/myself/myself-pages/myself-information/MyselfInformation'
 import UserDetails from '@/allPages/user-details/UserDetails'
 import NewestCreate from '@/allPages/explore/explore-pages/newest-create/NewestCreate'
@@ -54,14 +52,6 @@ export default new Router({
         path: '/myselfInformation',
         name: 'MyselfInformation',
         component: MyselfInformation
-    }, {
-        path: '/myselfCollection',
-        name: 'MyselfCollections',
-        component: MyselfCollections
-    }, {
-        path: '/myselfFocus',
-        name: 'MyselfFocus',
-        component: MyselfFocus
     }, {
         path: '/search',
         name: 'Search',

@@ -100,6 +100,7 @@ export default {
 
 <style lang='stylus' scoped>
   .head 
+    color #ffffff
     height: .6rem
     line-height: .6rem
     font-size: .36rem
@@ -110,9 +111,10 @@ export default {
       float: left 
     .head-right
       float: right
-      color: #707070
+      color #ffffff
   .wrapper 
     .item 
+      background-color rgba(255,255,255,0.9)
       height: 1.3rem
       margin-left: .4rem
       margin-right: .4rem

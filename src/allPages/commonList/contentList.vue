@@ -25,7 +25,7 @@ export default {
     },
     computed: {
         display() {
-            if(this.datas) {
+            if(this.datas.length) {
                 return true
             }
             else {

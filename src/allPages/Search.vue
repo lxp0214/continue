@@ -159,7 +159,7 @@ export default {
         right :0
         top:0
         bottom:0
-        background-color rgba(0,0,0,0.7)
+        background-color rgba(255,255,255,0.8)
         z-index:99
         display :flex
         flex-direction :column
@@ -193,7 +193,7 @@ export default {
             margin-top:0.42rem;
             font-size:0.22rem;
             font-family: Segoe UI;
-            color: #ffffff;
+            color: #000000;
         }
         .tip {
             margin-left 0.4rem

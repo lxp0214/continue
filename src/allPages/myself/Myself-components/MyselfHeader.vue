@@ -55,6 +55,7 @@ export default {
       left: 0
       text-align: center 
       font-size: .64rem
+      z-index 99
     .v-enter,.v-leave-to{
         opacity: 0;
     }

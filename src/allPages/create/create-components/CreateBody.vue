@@ -3,7 +3,9 @@
         <div class='header'>
             <div class='header-left'>创作</div>
             <router-link to='/createEdit'>
-                <div class='header-right'>+</div>
+                <div class='header-right'>
+                    <img src="static/icons/middle/组件 34 – 1.png" alt="">
+                </div>
             </router-link>
         </div>
         <div class='small'>滴滴答答打开连接心灵的.....</div>

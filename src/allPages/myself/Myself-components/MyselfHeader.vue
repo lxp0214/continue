@@ -75,9 +75,11 @@ export default {
         font-size: 0.64rem
         height 0.86rem
         line-height:0.86rem
+        color #ffffff
       .left-bottom
         height: 0.38rem
         line-height: 0.38rem
+        color #ffffff
     .right
       float: right
       border-radius: 100%

@@ -52,6 +52,7 @@ export default {
             margin-bottom:0.2rem
             background: #eee
             border-radius: .5rem
+            background-color rgba(255,255,255,0.9)
             .item-icon {
                 height:1rem
                 width:1rem

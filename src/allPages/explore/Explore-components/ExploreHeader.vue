@@ -10,7 +10,7 @@
             <div class='left-top'>探索</div>
             <div class='left-bottom'>多少人的思维，一笔笔勾勒出来的华章...</div>
             <!-- <router-link to='/search'> -->
-                <img src='static\icons\组件 67 – 1.png' @click="handleShowSearch">
+                <img src='static/icons/big/组件 67 – 2.png' @click="handleShowSearch">
             <!-- </router-link> -->
             <fade-animation>
                 <search v-show="showSearch" @close="handleCloseSearch"></search>
@@ -77,6 +77,7 @@ export default {
       transition: all .5S 
     }
   .header
+    color #ffffff
     position relative
     height: 1.24rem
     padding-left: 0.4rem

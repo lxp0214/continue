@@ -1,14 +1,16 @@
 <template>
-    <div>
-        <myself-header></myself-header>
-        <myself-body @changeList="changeList" @changeSearch="searchContent"></myself-body>
-        <create-list v-show='MyselfListShow'></create-list>
-        <all-navigation></all-navigation>
-        <collections-list v-show='CollectionsListShow' ></collections-list>
-        <focus-list v-show='FocusListShow'></focus-list>
-        <content-list :datas="contents" v-show="disContent"></content-list>
-        <person-list :datas="contents" v-show="disPerson"></person-list> 
-        <div class="tip" v-show="display">没有找到结果哦~换个词搜索看吧！</div>
+    <div :style="createStyle" ref='wrapper'>
+        <div>
+            <myself-header></myself-header>
+            <myself-body @changeList="changeList" @changeSearch="searchContent"></myself-body>
+            <create-list v-show='MyselfListShow'></create-list>
+            <all-navigation></all-navigation>
+            <collections-list v-show='CollectionsListShow' ></collections-list>
+            <focus-list v-show='FocusListShow'></focus-list>
+            <content-list :datas="contents" v-show="disContent"></content-list>
+            <person-list :datas="contents" v-show="disPerson"></person-list> 
+            <div class="tip" v-show="display">没有找到结果哦~换个词搜索看吧！</div>
+        </div>
     </div>
 </template>
 
@@ -23,6 +25,7 @@ import CreateList from './myself-pages/myself-create/List'
 import AllNavigation from '../Navigation'
 import CollectionsList from './myself-pages/myself-collections/List'
 import FocusList from './myself-pages/myself-focus/List'
+import BScroll from 'better-scroll'
 export default {
     name: 'Myself',
     components: {
@@ -34,6 +37,9 @@ export default {
         FocusList,
         ContentList,
         PersonList
+    },
+    mounted() {
+      this.scroll = new BScroll(this.$refs.wrapper)
     },
     data () {
         return {
@@ -48,7 +54,15 @@ export default {
             timer:null,
             display:false,
             disContent:true,
-            disPerson:false
+            disPerson:false,
+            createStyle: {
+                backgroundImage:"url('static/imgs/创作页动态背景1.gif')",
+                backgroundRepeat:"no-repeat",
+                backgroundSize:"100% 100%",
+                width:"100%",
+                height:"100%",
+                position:"fixed"
+            }
         }
     },
     methods: {

@@ -74,7 +74,7 @@ export default {
     .top
       height 1.04rem
       margin: 0 .4rem
-      background: rgb(174,222,252)
+      background: rgba(255,255,255,0.9)
       border-radius: .6rem
       padding: 0 .4rem
       .top-item 
@@ -111,7 +111,7 @@ export default {
         padding-right: .4rem
         font-size: .4rem
         border-radius: .22rem
-        background: #eee
+        background-color rgba(255,255,255,0.9)
       img 
         position: absolute 
         top: .2rem

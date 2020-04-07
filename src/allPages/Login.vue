@@ -1,23 +1,24 @@
 <template>
-  <div class="login">
-    <div class="loginImg border">
-        <img src="" class="loginImg-content">
+  <div class="login" :style="createStyle">
+    <div class="loginImg">
+        continue               
+        <!-- <img src="" class="loginImg-content">  //wza改   -->
     </div>
-    <div class="title">续</div>
+    <div class="title">不同的灵魂邂逅在同一个故事</div>
     <div class="info">
-        <div class="infoName border">
+        <div class="infoName">
             <img src='static\icons\middle\组件 21 – 1.png'>
-            <input type="text" class="infoName-text border" placeholder="请输入手机号" v-model="phone">
+            <input type="text" class="infoName-text" placeholder="请输入手机号" v-model="phone">
         </div>
-        <div class="infoPass border">
+        <div class="infoPass">
             <img src='static\icons\middle\组件 23 – 1.png'>
-            <input type="password" class="infoPass-text border" placeholder="请输入密码" v-model="password">
+            <input type="password" class="infoPass-text" placeholder="请输入密码" v-model="password">
         </div>
         <router-link to='/forget'>
             <div class="forget">忘记密码？</div>
         </router-link>
     </div>
-    <div class="loginItem border" @click="handleLogin">登录</div>
+    <div class="loginItem" @click="handleLogin">登录</div>
     <router-link to='/register'>
         <div class="registerEnter">没有账户？现在注册</div>
     </router-link>
@@ -36,6 +37,14 @@ export default {
           phone:'',
           password:'',
           url:'http://api.gxy.ink/auth/login',
+          createStyle: {
+                backgroundImage:"url('static/imgs/创作页动态背景1.gif')",
+                backgroundRepeat:"no-repeat",
+                backgroundSize:"100% 100%",
+                width:"100%",
+                height:"100%",
+                position:"fixed"
+          }
       }
   },
   methods: {
@@ -55,6 +64,11 @@ export default {
                   })
           }).then(res => res.json().then(body => {
               console.log(body)
+              if(body.code === 1) {
+                  console.log(body.message)
+                  MessageBox.alert("请输入用户名和密码哦~", '提示');
+                  return ;
+              }
               if(body.code === 2) {
                   console.log(body.message)
                   MessageBox.alert("用户名不存在，请输入正确的手机号", '提示');
@@ -91,22 +105,28 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='stylus'>
     .loginImg {
-        height :2.16rem
-        width 2.16rem
-        border-radius 50%
+        //height :2.16rem    //wza改   
+        //width 2.16rem      //wza改
+        //border-radius 50%  //wza改
        // background-color red
-        margin :0 auto
+        font-size 1.24rem   //wza改
+        font-weight 600
+        //margin :0 auto   //wza改
         margin-top:1.8rem
-        margin-bottom none 
+        margin-bottom none
+        text-align center 
+        color #ffffff
     }
     .title {
         font-family:PingFang SC
-        font-size 0.48rem 
-        width :0.48rem
+        font-size 0.24rem   //wza改
+        // width :0.48rem   //wza改
         height :0.6rem
         line-height :0.64rem
-        margin:0 auto
+        //margin:0 auto     //wza改
+        text-align center   //wza改
         margin-bottom :0.46rem
+        color #ffffff
     }
     .border {
         border: solid 1px #707070
@@ -125,6 +145,7 @@ export default {
             margin:0 auto
             display:flex
             align-items: center
+            background-color rgb(255,255,255)
             img {
                 height: .46rem
                 vertical-align: center
@@ -148,6 +169,7 @@ export default {
             line-height: .32rem
             text-align: right
             margin-top: .1rem
+            color #ffffff
         }
     }
     .loginItem {
@@ -160,12 +182,13 @@ export default {
         color: #6c6a6a
         letter-spacing: 0.1rem
         margin-bottom :0.16rem
+        background-color #ffffff
     }
     .registerEnter {
 	    height: 0.32rem;
         text-align :center
         line-height :0.32rem
         font-size :0.24rem
-        color:#6c6a6a
+        color #ffffff
     }
 </style>

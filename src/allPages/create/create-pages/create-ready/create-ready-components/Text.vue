@@ -28,7 +28,7 @@ export default {
 
 <style lang='stylus' scoped>
   .item 
-    background: #eee
+    background-color rgb(255,255,255)
     box-sizing:border-box
     -moz-box-sizing:border-box
     -webkit-box-sizing:border-box

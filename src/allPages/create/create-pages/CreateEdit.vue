@@ -39,11 +39,12 @@ export default {
     height: 1.1rem
     line-height: 1.1rem
     font-size: .5rem
-    border-bottom: solid .01rem
-    border-top: solid .01rem
+    //border-bottom: solid .01rem
+    //border-top: solid .01rem
     display: flex 
     align-items: center
     justify-content: space-between
+    background-color #ffffff
     img 
       height: .6rem
   .wrapper
@@ -52,12 +53,14 @@ export default {
     padding-top: .28rem
     height: 12.88rem
     .body 
+      background-color rgba(255,255,255,0.8)
       box-sizing:border-box
       -moz-box-sizing:border-box
       -webkit-box-sizing:border-box
       width: 100%
       height: 100%
-      border: solid .02rem #707070
+      //border: solid .02rem #707070
+      border-radius 0.2rem
       padding-left: .28rem
       padding-right: .28rem
       .title-wrapper 
@@ -72,6 +75,7 @@ export default {
           height: 100%
           text-align: center
           font-size: .4rem
+          background-color rgba(255,255,255,0.8)
           &::placeholder 
             color: #000000
       .small-wrapper 
@@ -82,6 +86,7 @@ export default {
           width: 100% 
           height: 100%
           font-size: .32rem
+          background-color rgba(255,255,255,0.8)
           &::placeholder 
             color: #000000
           border-bottom: solid .01rem #707070
@@ -89,6 +94,7 @@ export default {
         width: 100% 
         height: 10.38rem
         .content 
+          background-color rgba(255,255,255,0.8)
           width: 100%
           height: 100%
           &::placeholder 

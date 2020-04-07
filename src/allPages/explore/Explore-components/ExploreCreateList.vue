@@ -40,7 +40,7 @@ export default {
            .title-right {
                line-height 0.48rem
                font-size 0.3rem
-               color:#707070
+               color:#ffffff
                float right
                font-family: PingFang SC
            }

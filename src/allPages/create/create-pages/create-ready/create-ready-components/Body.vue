@@ -7,9 +7,9 @@
                 <div class="desc">由xxx用户发起</div>
             </div>
             <div class="foot-right">
-                <img src='static\icons\middle\组件 56 – 1.png'>
-                <img src='static\icons\middle\组件 53 – 1.png'>
-                <img src='static\icons\middle\组件 51 – 1.png'>
+                <img src='static\icons\middle\组件 74 – 1.png'>
+                <img src='static\icons\middle\组件 73 – 1.png'>
+                <img src='static\icons\middle\组件 49 – 1.png'>
             </div>
         </div>
     </div>
@@ -28,7 +28,7 @@ export default {
         margin-right 0.4rem
         .body-header {
             font-size 0.64rem
-            color #000000
+            color #ffffff
             font-family PingFang 
         }
         .body-foot {

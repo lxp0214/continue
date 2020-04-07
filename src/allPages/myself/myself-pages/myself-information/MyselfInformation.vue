@@ -240,6 +240,7 @@ export default {
       line-height: .74rem
       font-size: .25rem
       padding-left: .4rem
+      color #ffffff
     .img
       height: 1.6rem
       padding-left: .4rem

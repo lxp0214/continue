@@ -75,11 +75,12 @@ export default {
         height: 0.88rem
         line-height: 0.88rem
         font-size: .5rem
-        border-bottom: solid .01rem
-        border-top: solid .01rem
+        //border-bottom: solid .01rem
+        //border-top: solid .01rem
         display: flex 
         justify-content: space-between
         align-items: center
+        background-color #ffffff
         img 
             height: .6rem
     .popTop 

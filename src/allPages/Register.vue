@@ -19,7 +19,7 @@
         </div>
         <div class="infoCode">
             <img src='static\icons\middle\组件 28 – 1.png'>
-            <input type="password" class="infoCode-text" placeholder="请输入验证码" v-model="code">
+            <input type="text" class="infoCode-text" placeholder="请输入验证码" v-model="code">
             <span class="send-code" @click="handleGetCode">{{isRun?`${this.runTime}s后重获取`:`获取验证码`}}</span>
         </div>
         <div class="infoNewPass">
@@ -56,14 +56,16 @@ export default {
           authenticate:'',
           isRun:false,
           runTime:30,
-          url:'http://sim.gxy.ink/auth/login',   //待定URL！！！
+          url1:'http://api.gxy.ink/auth/sendMsg',
+          url2:'http://api.gxy.ink/auth/register',
+          timestamp:0,
           createStyle: {
                 backgroundImage:"url('static/imgs/创作页动态背景1.gif')",
                 backgroundRepeat:"no-repeat",
                 backgroundSize:"100% 100%",
                 width:"100%",
                 height:"100%",
-                position:"fixed"
+                position:"fixed",     
           }
       } 
   },
@@ -95,19 +97,15 @@ export default {
                     return
                 }
             },1000)  
-            
-        },
-        handleRegister() {
+            //第一次向后端请求，用户获得验证码
             let data = {
-                login:this.name,
-                password:this.password,
-                code:this.code,
+                phone:this.phone,
                 token:this.token,
                 authenticate:this.authenticate
             }
-            fetch(this.url,{
+            fetch(this.url1, {
                 mode:'cors',
-                method:'GET',
+                method:'POST',
                 body:JSON.stringify(data),
                 headers:
                     new Headers({
@@ -115,6 +113,49 @@ export default {
                 })
             }).then(res => res.json().then(body => {
                 console.log(body)
+                this.timestamp = body.data.timestamp
+                if(body.code !== 0) {
+                    MessageBox.alert("验证码发送失败，请重试！", '提示');
+                    return
+                }
+            })).catch(error => console.log("error: ", error))
+        },
+        handleRegister() {
+            let data = {
+                phone:this.phone,
+                password:this.password,
+                code:this.code,
+                timestamp:this.timestamp
+            }
+            console.log(data)
+            fetch(this.url2,{
+                mode:'cors',
+                method:'POST',
+                body:JSON.stringify(data),
+                headers:
+                    new Headers({
+                        'Content-Type':'application/json'
+                })
+            }).then(res => res.json().then(body => {
+                console.log(body)
+                if(body.code === 1) {
+                    MessageBox.alert("啊哦，网络出现了一点小故障，请重试！", '提示');
+                }
+                if(body.code === 2) {
+                    MessageBox.alert("请输入正确的验证码哦！", '提示');
+                }
+                if(body.code === 0) {
+                    var _this = this;
+                    Indicator.open({
+                        text: '注册成功.',
+                        spinnerType: 'fading-circle'
+                    });
+                    this.timer = setTimeout(function(){
+                        //console.log(this); // 这里的this指向window对象
+                        _this.$router.push('/explore');
+                        Indicator.close();
+                    }, 500) 
+                }
                 //逻辑处理语句
                 //1.注册成功之后清除token；
                 //2.注册成功后push进入explore页面，去掉原来的router-link路由

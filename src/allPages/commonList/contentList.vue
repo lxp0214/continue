@@ -51,6 +51,7 @@ export default {
         padding-right: .28rem
         margin-bottom: .2rem
         border: solid .01rem
+        background-color #fff
         .item-title
           height: .72rem
           line-height: .8rem

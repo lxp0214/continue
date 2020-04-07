@@ -24,7 +24,7 @@ export default {
             }
         }
     },
-    created () {
+    activated () {
             let val = this.$route.path
             switch (val) {
                 case '/create': 

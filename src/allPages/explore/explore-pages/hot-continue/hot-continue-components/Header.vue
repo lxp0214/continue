@@ -55,7 +55,7 @@ export default {
             left:0.4rem
             top:0.22rem
             .arrow {
-                color :#000000
+                color :#ffffff
                 font-size:0.54rem
                 font-weight:600
             }
@@ -69,7 +69,7 @@ export default {
                 display:flex
                 .desc-f,.desc-l {
                     font-size:0.64rem
-                    color: #000000
+                    color: #ffffff
                     font-weight:500
                     text-align:center
                 }
@@ -83,7 +83,7 @@ export default {
                 right:1.1rem
                 .search {
                     font-size:0.56rem
-                    color:#000000
+                    color:#ffffff
                     font-weight:500
                 }
             }

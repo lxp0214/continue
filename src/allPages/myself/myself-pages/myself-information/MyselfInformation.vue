@@ -42,11 +42,13 @@ export default {
     line-height: 1.1rem
     text-align: center
     font-size: .5rem
-    border-bottom: solid .01rem
-    border-top: solid .01rem
+    //border-bottom: solid .01rem
+    //border-top: solid .01rem
+    background-color #ffffff
     .left
       float: left
       font-size: .7rem
+      color #000000
   .basic-information
     height: 6.04rem
     .head
@@ -54,11 +56,12 @@ export default {
       line-height: .74rem
       font-size: .25rem
       padding-left: .4rem
+      color #ffffff
     .img
       height: 1.64rem
       padding-left: .4rem
       padding-right: .4rem
-      background: #efefef
+      background: #ffffff
       .img-text
         height: 1.64rem
         line-height: 1.64rem
@@ -74,7 +77,7 @@ export default {
       height: 1.22rem
       line-height: 1.22rem
       font-size: .36rem
-      background: #efefef
+      background: #ffffff
       padding-left: .4rem
       padding-right: .4rem
   .accout-information
@@ -88,7 +91,7 @@ export default {
       height: 1.22rem
       line-height: 1.22rem
       font-size: .36rem
-      background: #efefef
+      background: #ffffff
       padding-left: .4rem
       padding-right: .4rem
   .foot
@@ -96,7 +99,7 @@ export default {
     height: 1.22rem
     line-height: 1.22rem
     font-size: .36rem
-    background: #efefef
+    background: #ffffff
     padding-left: .4rem
     padding-right: .4rem
 </style>

@@ -120,7 +120,7 @@ export default {
       margin-right: .4rem
       margin-bottom: .2rem
       border-radius: .22rem
-      border: solid .01rem
+      //border: solid .01rem
       padding-top: .2rem
       padding-left: .28rem
       padding-right: .28rem

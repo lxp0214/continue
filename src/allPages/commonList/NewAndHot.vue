@@ -7,8 +7,10 @@
                 <span class='number'>50</span>
             </div>
             <div class='user'>
+              <div class='left'>
                 <div class='img'></div>
                 <span class='name'>用户名称</span>
+              </div>
                 <span class='time'>3月10日</span>
             </div>
         </div>
@@ -53,17 +55,20 @@ export default({
         line-height: 0.64rem 
         display: flex 
         align-items: center
-        .img 
-          height: .4rem 
-          width: .4rem 
-          border-radius: 100%
-          background: red
-        .name 
-          font-size: .26rem
-          margin-left: .1rem
+        justify-content: space-between 
+        .left
+          display: flex
+          align-items: center
+          .img 
+            height: .4rem 
+            width: .4rem 
+            border-radius: 100%
+            background: red
+          .name 
+            font-size: .26rem
+            margin-left: .1rem
         .time 
           font-size: .22rem
-          margin-left: 2.82rem
     .bottom 
       .smallTitle 
         height:.8rem

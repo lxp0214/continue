@@ -7,7 +7,17 @@
             </router-link>
         </div>
         <ul class='wrapper'>
-            <li class='item'>
+            <li class='item' v-for="(item,index) in 8" :key="index">
+                <div class='item-top'>|| 谁偷走了我的昨天</div>
+                <div class='item-bottom'>
+                    <div class='bottom-left'>
+                        <div class='img'></div>
+                        <div class='desc'>用户名称</div>
+                    </div>
+                    <div class='bottom-right'>3月10日</div>
+                </div>
+            </li>
+            <!-- <li class='item'>
                 <div class='item-top'>|| 谁偷走了我的昨天</div>
                 <div class='item-bottom'>
                     <div class='bottom-left'>
@@ -76,17 +86,7 @@
                     </div>
                     <div class='bottom-right'>3月10日</div>
                 </div>
-            </li>
-            <li class='item'>
-                <div class='item-top'>|| 谁偷走了我的昨天</div>
-                <div class='item-bottom'>
-                    <div class='bottom-left'>
-                        <div class='img'></div>
-                        <div class='desc'>用户名称</div>
-                    </div>
-                    <div class='bottom-right'>3月10日</div>
-                </div>
-            </li>
+            </li> -->
         </ul>
     </div>
 </template>

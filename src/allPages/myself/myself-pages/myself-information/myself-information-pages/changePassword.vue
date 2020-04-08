@@ -29,6 +29,7 @@
 <script>
 import md5 from 'blueimp-md5'
 import { MessageBox } from 'mint-ui'
+import { Indicator } from 'mint-ui'
 export default {
     name: 'changePassword',
     data: function() {
@@ -68,6 +69,7 @@ export default {
                 console.log(body)
                 //其他code逻辑待确定
                 if(body.code === 0) {
+                    localStorage.password = md5(this.password)
                     var _this = this;
                     Indicator.open({
                         text: '修改成功.',

@@ -32,14 +32,13 @@
         </div> -->
     </div>
     <register-have></register-have>
-    <router-link to='/explore'>
-        <div class="FoundItem" @click="handleRegister">注册</div>
-    </router-link>
+    <div class="FoundItem" @click="handleRegister">注册</div>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import md5 from 'blueimp-md5'
 import { MessageBox } from 'mint-ui'
 import RegisterHave from './Behavior'
 export default {
@@ -58,7 +57,7 @@ export default {
           runTime:30,
           url1:'http://api.gxy.ink/auth/sendMsg',
           url2:'http://api.gxy.ink/auth/register',
-          timestamp:0,
+          timestamp:1586315958,
           createStyle: {
                 backgroundImage:"url('static/imgs/创作页动态背景1.gif')",
                 backgroundRepeat:"no-repeat",
@@ -127,7 +126,7 @@ export default {
                 code:this.code,
                 timestamp:this.timestamp
             }
-            console.log(data)
+            console.log(JSON.stringify(data))
             fetch(this.url2,{
                 mode:'cors',
                 method:'POST',
@@ -139,12 +138,34 @@ export default {
             }).then(res => res.json().then(body => {
                 console.log(body)
                 if(body.code === 1) {
+                    console.log(body.message)
                     MessageBox.alert("啊哦，网络出现了一点小故障，请重试！", '提示');
+                    return ;
                 }
                 if(body.code === 2) {
+                    console.log(body.message)
                     MessageBox.alert("请输入正确的验证码哦！", '提示');
+                    return ;
+                }
+                if(body.code === 3) {
+                    console.log(body.message)
+                    MessageBox.alert("服务端出错啦，请重试！", '提示');
+                    return ;
+                }
+                if(body.code === 4) {
+                    console.log(body.message)
+                    MessageBox.alert("服务端出了点问题呢，再试一次吧！", '提示');
+                    return ;
+                }
+                if(body.code === 5) {
+                    console.log(body.message)
+                    MessageBox.alert("该手机号已被注册了，快去登录吧！", '提示');
+                    return ;
                 }
                 if(body.code === 0) {
+                    console.log(body.message)
+                    localStorage.phone = md5(this.phone);
+                    localStorage.password = md5(this.password)
                     var _this = this;
                     Indicator.open({
                         text: '注册成功.',
@@ -156,9 +177,8 @@ export default {
                         Indicator.close();
                     }, 500) 
                 }
-                //逻辑处理语句
-                //1.注册成功之后清除token；
-                //2.注册成功后push进入explore页面，去掉原来的router-link路由
+                localStorage.removeItem('token');
+                localStorage.removeItem('authenticate');
             })
             ).catch(error => console.log("error: "+error))
         }

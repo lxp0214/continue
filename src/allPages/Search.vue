@@ -1,12 +1,13 @@
 <template>
-  <div class="search" v-clickOutside="handleCloseSearch">
+  <div class="search" ref="info">
     <div class="infoName">         
         <input type="text" class="infoName-text border" placeholder="搜：晴天娃娃" v-model="keyword">
         <span class="iconfont infoName-icon">&#xe60a;</span>
     </div>
     <div class="lastest">
-        <div class="content" v-show="!hasKeyword" @click="handleCloseSearch">最近搜索</div>
+        <div class="content" v-show="!hasKeyword" @click="handleCloseSearch">最近搜索（点击气泡下方空白处返回哦~）</div>
     </div>
+    <div class="shawdo" @click="handleCloseSearch"></div>
     <search-list v-show="!hasKeyword"></search-list>
     <content-list v-show="hasKeyword" :datas="Lists"></content-list>
     <div class="tip" v-show="hasDisplay">没有找到哦~再搜搜试试吧！</div>
@@ -28,7 +29,8 @@ export default {
       }
   },
   props: {
-      param:String
+      param:String,
+      point:Boolean
   },
   computed: {
       hasKeyword() {
@@ -92,7 +94,7 @@ export default {
       if(this.param === 'newcreate') {
           console.log(this.param)
           this.getNewCreateInfo()
-      }
+      } 
   },
   methods: {
       handleCloseSearch() {
@@ -198,6 +200,15 @@ export default {
         .tip {
             margin-left 0.4rem
             color #000000
+        }
+        .shawdo {
+            position absolute
+            width 100%
+            height 100%
+            padding-bottom 70%
+            background-color opacity 
+            z-index 999
+            margin-top 90%
         }
     }
 </style>

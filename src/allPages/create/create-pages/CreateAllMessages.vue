@@ -4,7 +4,7 @@
             <router-link to='/create'>
                 <img src='static\icons\middle\组件 39 – 1.png'>
             </router-link>
-            所有消息
+            <div class="allMessage">所有消息</div>
             <img @click='changeShow()' :src=this.rightUrl ref='change'>
         </div>
         <div class='list' v-show='messageShow'>
@@ -30,6 +30,9 @@
             <div class='reverse-item'>收藏的续作</div>
             <div class='reverse-item'>收藏的原创</div>
         </div>
+        </transition>
+        <transition>
+            <div class="shawdo" v-show="!messageShow"></div>
         </transition>
     </div>
 </template>
@@ -57,10 +60,18 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
+  .shawdo {
+      position absolute
+      top 0
+      height 100%
+      width  100%
+      background-color rgba(255,255,255,0.8)
+      z-index -1
+  }
   .header
     background-color: #ffffff
     margin-top: .4rem
-    margin-bottom: .4rem
+    //margin-bottom: .4rem
     padding-left: .4rem
     padding-right: .4rem
     height: .88rem
@@ -72,9 +83,11 @@ export default {
     img 
       height: .46rem
   .list 
+    padding-top 0.4rem
     .foot 
       font-size: .22rem
       text-align: center
+      color #ffffff
     .wrapper
       .item
         height: 2.28rem  
@@ -133,7 +146,8 @@ export default {
       padding-left: .26rem
       margin-top: .12rem
       margin-bottom: .12rem
-      border: solid .02rem #707070
+      //border: solid .02rem #707070
+      background-color #ffffff
   .v-enter,.v-leave-to 
     opacity: 0
   .v-enter-active,.v-leave-active 

@@ -14,17 +14,6 @@ import BScroll from 'better-scroll'
 import Navigation from './allPages/Navigation'
 import router from './router'
 
-// router.afterEach((to, from) => {
-//     console.log(from)
-//     console.log(to)
-//     console.log(to.path)
-//     if((to.path === '/create') || (to.path === '/explore') || (to.path === '/myself')) {
-//         console.log('ok')
-//         this.showTab = false
-//         console.log(this.showTab)
-//     }
-// })
-
 export default {
   name: 'App',
   components: {
@@ -42,11 +31,27 @@ export default {
           },
       }
   },
+  methods: {
+      initScroll() {
+          this.scroll = new BScroll(this.$refs.wrapper, {
+            mouseWheel: true,//开启鼠标滚轮
+            disableMouse: false,//启用鼠标拖动
+            disableTouch: false,//启用手指触摸  
+            pullDownRefresh:{
+                threshold:50,
+                stop:20
+            }
+          })
+      }
+  },
   mounted() {
       console.log(this.$route)
-      this.scroll = new BScroll(this.$refs.wrapper, {
-          mouseWheel: true
-      })
+      this.initScroll()
+    //   this.scroll = new BScroll(this.$refs.wrapper, {
+    //     mouseWheel: true,//开启鼠标滚轮
+    //     disableMouse: false,//启用鼠标拖动
+    //     disableTouch: false//启用手指触摸      
+    //   })
   },
   computed: {
       showTab: function() {

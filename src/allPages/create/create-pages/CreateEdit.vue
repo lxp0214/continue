@@ -34,11 +34,12 @@ export default {
 <style lang='stylus' scoped>
   .header
     margin-top: .4rem
+    margin-bottom: .3rem
     padding-left: .4rem
     padding-right: .4rem
-    height: 1.1rem
-    line-height: 1.1rem
-    font-size: .5rem
+    height: .88rem
+    line-height: .88rem
+    font-size: .36rem
     //border-bottom: solid .01rem
     //border-top: solid .01rem
     display: flex 
@@ -46,26 +47,26 @@ export default {
     justify-content: space-between
     background-color #ffffff
     img 
-      height: .6rem
+      height: .46rem
   .wrapper
     padding-left: .4rem
     padding-right: .4rem
-    padding-top: .28rem
-    height: 12.88rem
+    height: 11.78rem
     .body 
-      background-color rgba(255,255,255,0.8)
+      background-color: #ffffff
       box-sizing:border-box
       -moz-box-sizing:border-box
       -webkit-box-sizing:border-box
       width: 100%
       height: 100%
-      //border: solid .02rem #707070
       border-radius 0.2rem
       padding-left: .28rem
       padding-right: .28rem
+      padding-top: .64rem
+      opacity: 0.9
+      box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.16)
       .title-wrapper 
         height: .86rem
-        margin-top: .56rem
         margin-right: 1.94rem
         margin-left: 1.94rem
         border-bottom: double #707070 

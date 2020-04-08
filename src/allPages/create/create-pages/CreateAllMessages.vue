@@ -91,50 +91,52 @@ export default {
 
 <style lang='stylus' scoped>
   .header
+    background-color: #ffffff
     margin-top: .4rem
     margin-bottom: .4rem
     padding-left: .4rem
     padding-right: .4rem
-    height: 1.1rem
-    line-height: 1.1rem
-    font-size: .5rem
-    border-bottom: solid .01rem
-    border-top: solid .01rem
+    height: .88rem
+    line-height: .88rem
+    font-size: .36rem
     display: flex 
     justify-content: space-between 
     align-items: center
     img 
-      height: .6rem
+      height: .46rem
   .list 
     .foot 
       font-size: .22rem
       text-align: center
     .wrapper
       .item
-        height: 3rem  
+        height: 2.28rem  
         margin-left: .4rem
         margin-right: .4rem
         border-radius: .22rem
         padding-left: .28rem
         padding-right: .28rem
         margin-bottom: .2rem
-        border: solid .01rem
+        opacity: 0.9
+        background-color: #ffffff
+        box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.16)
         .item-title
-          height: .72rem
+          height: .8rem
           line-height: .8rem
-          font-size: .4rem
+          font-size: .32rem
           .gray 
-            color: #707070
-            font-size: .4rem
+            color: #000000
+            opacity: 0.54
+            font-size: .3rem
         .item-content
-          height: 1.5rem
-          font-size: .37rem
+          height: .9rem
+          line-height: .4rem
+          font-size: .3rem
           color: #707070
         .item-name
           display: flex
           justify-content: space-between
           height: .58rem
-          padding-bottom: .2rem
           .item-name-right 
             height: .58rem
             line-height: .58rem

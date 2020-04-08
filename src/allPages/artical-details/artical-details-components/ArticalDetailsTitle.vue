@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class='wrapper'>
         <div class='top'>|| 雨打芭蕉湿</div>
         <div class='bottom'>
             <div class='left'>
@@ -7,9 +7,9 @@
                 <div class='desc'>由xxx用户发起</div>
             </div>
             <div class='right'>
-                <span class='iconfont item'>&#xe65e;</span>
-                <span class='iconfont item'>&#xe607;</span>
-                <span class='iconfont item'>&#xe65e;</span>
+                <img src='static\icons\middle\组件 74 – 1.png'>
+                <img src='static\icons\middle\组件 73 – 1.png'>
+                <img src='static\icons\middle\组件 72 – 1.png'>
             </div>
         </div>
     </div>
@@ -22,30 +22,36 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
-  .top 
-    line-height: .86rem
-    font-size: .64rem
-    margin-left: .4rem
-  .bottom
-    height: .5rem
-    line-height: .5rem
-    margin-left: .4rem
-    .left
-      float: left 
+  .wrapper 
+      margin-bottom: .4rem
+    .top 
+      line-height: .86rem
+      font-size: .64rem
+      margin-left: .4rem
+      color: #ffffff
+    .bottom
       height: .5rem
-      min-width: 2.4rem
-      .img 
-        float: left
-        width: .5rem
+      line-height: .5rem
+      margin: 0 .4rem
+      .left
+        float: left 
         height: .5rem
-        border-radius: 100%
-        background: red
-      .desc 
-        float: right
-    .right
-      float: right 
-      height: .5rem
-      .item 
-        margin: 0 .33rem
-        font-size: .4rem
+        min-width: 2.4rem
+        border-radius: .24rem
+        background-color: #ffffff
+        opacity: 0.9
+        .img 
+          float: left
+          width: .5rem
+          height: .5rem
+          border-radius: 100%
+          background: red
+        .desc 
+          float: right
+      .right
+        float: right 
+        height: .5rem
+        img 
+          height: .46rem
+          margin-left: .3rem
 </style>

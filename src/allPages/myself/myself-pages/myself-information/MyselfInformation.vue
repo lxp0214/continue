@@ -59,7 +59,9 @@
               <div class='item-name'>手机号</div>
               <div class='name-wrapper'>
                 <div class='name'>132300000000</div>
-                <img src='static\icons\middle\组件 41 – 1.png' class='icon'>
+                <router-link to='/changePhone'>
+                  <img src='static\icons\middle\组件 41 – 1.png' class='icon'>
+                </router-link>
               </div>
             </div>
             <div class='item'>

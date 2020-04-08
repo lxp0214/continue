@@ -1,7 +1,9 @@
 <template>
     <div class='header'>
-        <span class='iconfont left'>&#xe65e;</span>
-        <span class='iconfont right'>&#xe607;</span>
+      <router-link to='/explore'>
+        <img src='static\icons\middle\组件 76 – 1.png'>
+      </router-link>
+        <img src='static\icons\middle\组件 75 – 1.png'>
     </div>
 </template>
 
@@ -13,19 +15,14 @@ export default {
 
 <style lang='stylus' scoped>
   .header
-    margin-top: .4rem
-    height: 1.1rem
-    line-height: 1.1rem
-    text-align: center
+    padding-top: .4rem
+    height: .88rem
+    line-height: .88rem
     font-size: .5rem
-    border-bottom: solid .01rem
-    border-top: solid .01rem
-    .left
-      float: left
-      margin-left: .4rem
-      font-size: .7rem
-    .right
-      float: right
-      margin-right: .4rem
-      font-size: .7rem
+    display: flex 
+    justify-content: space-between
+    align-items: center
+    padding: 0 .4rem
+    img 
+      height: .46rem
 </style>

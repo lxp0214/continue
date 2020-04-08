@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :style="createStyle">
+  <div id="app" :style="createStyle" ref='wrapper'>
     <keep-alive>
       <router-view/>
     </keep-alive>
@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import BScroll from 'better-scroll'
 export default {
   name: 'App',
   data: function() {
@@ -20,10 +21,12 @@ export default {
                 position:"fixed"
           }
       }
-  }
+  },
+  mounted() {
+      this.scroll = new BScroll(this.$refs.wrapper)
+    }
 }
 </script>
 
-<style>
-
+<style lang='stylus' scoped>
 </style>

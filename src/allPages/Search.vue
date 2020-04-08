@@ -1,5 +1,5 @@
 <template>
-  <div class="search">
+  <div class="search" v-clickOutside="handleCloseSearch">
     <div class="infoName">         
         <input type="text" class="infoName-text border" placeholder="搜：晴天娃娃" v-model="keyword">
         <span class="iconfont infoName-icon">&#xe60a;</span>
@@ -197,7 +197,7 @@ export default {
         }
         .tip {
             margin-left 0.4rem
-            color #ffffff
+            color #000000
         }
     }
 </style>

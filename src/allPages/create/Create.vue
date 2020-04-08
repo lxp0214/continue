@@ -1,10 +1,10 @@
 <template>
-    <div :style="createStyle" ref='wrapper'>
+    <div>
         <div>
             <create-header></create-header>
             <create-body></create-body>
             <create-message></create-message>
-            <navigation></navigation>
+            <!-- <navigation></navigation> -->
         </div>
     </div>
 </template>
@@ -24,21 +24,21 @@ export default {
         CreateMessage,
         Navigation
     },
-    data: function() {
-        return {
-            createStyle: {
-                backgroundImage:"url('static/imgs/创作页动态背景1.gif')",
-                backgroundRepeat:"no-repeat",
-                backgroundSize:"100% 100%",
-                width:"100%",
-                height:"100%",
-                position:"fixed"
-            }
-        }
-    },
-    mounted() {
-      this.scroll = new BScroll(this.$refs.wrapper)
-    }
+    // data: function() {
+    //     return {
+    //         createStyle: {
+    //             backgroundImage:"url('static/imgs/创作页动态背景1.gif')",
+    //             backgroundRepeat:"no-repeat",
+    //             backgroundSize:"100% 100%",
+    //             width:"100%",
+    //             height:"100%",
+    //             position:"fixed"
+    //         }
+    //     }
+    // },
+    // mounted() {
+    //   this.scroll = new BScroll(this.$refs.wrapper)
+    // }
 }
 </script>
 

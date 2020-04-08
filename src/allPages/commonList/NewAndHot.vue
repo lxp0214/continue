@@ -52,7 +52,7 @@ export default({
           font-size: .26rem
       .user 
         height: 0.64rem
-        line-height: 0.64rem 
+        //line-height: 0.64rem 
         display: flex 
         align-items: center
         justify-content: space-between 

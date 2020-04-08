@@ -5,30 +5,83 @@
                 <img src='static\icons\middle\组件 39 – 1.png'>
            </router-link>
            <span>密码</span>
-           <img src='static\icons\middle\组件 44 – 1.png'>
+           <img src='static\icons\middle\组件 44 – 1.png' @click="handleChangePassword">
         </div>
         <div class='desc'>用户确认</div>
         <div class='wrapper'>
-            <input type='text' placeholder='请输入您新的手机号'>
-            <div>发送验证码</div>
+            <input type='text' placeholder='请输入您新的手机号' v-model="phone">
+            <!-- <div>发送验证码</div> -->
         </div>
         <div class='wrapper'>
-            <input type='text' placeholder='请输入验证码'>
-            <div>验证码错误</div>
+            <input type='password' placeholder='请输入原密码' v-model="password">
+            <!-- <div>验证码错误</div> -->
         </div>
         <div class='desc'>更改资料</div>
         <div class='wrapper'>
-            <input type='text' placeholder='请输入新的密码'>
+            <input type='text' placeholder='请输入新的密码' v-model="password1">
         </div>
         <div class='wrapper'>
-            <input type='text' placeholder='请再次确认密码'>
+            <input type='text' placeholder='请再次确认密码' v-model="password2">
         </div>
     </div>
 </template>
 
 <script>
+import md5 from 'blueimp-md5'
+import { MessageBox } from 'mint-ui'
 export default {
-    name: 'changePassword'
+    name: 'changePassword',
+    data: function() {
+        return {
+            phone:'',
+            password:'',
+            password1:'',
+            password2:'',
+            url:'' //url待确定
+        }
+    },
+    methods: {
+        handleChangePassword() {
+            console.log(md5(this.phone))
+            if(md5(this.phone) !== localStorage.phone) {
+                MessageBox.alert("手机号不正确哦！", '提示');
+                return ;
+            }
+            if(this.password1 !== this.password2) {
+                MessageBox.alert("新密码两次要保持一致哦！", '提示');
+                return ;
+            }
+            let data = {
+                phone:this.phone,
+                password:this.password,
+                newpassword:this.password1
+            }
+            fetch(this.url1, {
+                mode:'cors',
+                method:'POST',
+                body:JSON.stringify(data),
+                headers:
+                    new Headers({
+                        'Content-Type':'application/json'
+                })
+            }).then(res => res.json().then(body => {
+                console.log(body)
+                //其他code逻辑待确定
+                if(body.code === 0) {
+                    var _this = this;
+                    Indicator.open({
+                        text: '修改成功.',
+                        spinnerType: 'fading-circle'
+                    });
+                    this.timer = setTimeout(function(){
+                        //console.log(this); // 这里的this指向window对象
+                        _this.$router.push('/myself');
+                        Indicator.close();
+                    }, 500) 
+                }
+            })).catch(error => console.log("error: ", error))
+        }
+    }
 }
 </script>
 

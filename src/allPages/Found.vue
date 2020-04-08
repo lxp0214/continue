@@ -31,26 +31,33 @@
             <input type="password" class="infoPass-text" placeholder="请再次输入密码" v-model="password2">
         </div>
     </div>
-    <router-link to='/'>
-        <div class="FoundItem" @click="handleChange">确认更改</div>
-    </router-link>
+    <register-have></register-have>
+    <div class="FoundItem" @click="handleChange">确认更改</div>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import RegisterHave from './Behavior'
 import { MessageBox } from 'mint-ui'
 export default {
   name: 'Login',
+  components: {
+      RegisterHave:RegisterHave
+  },
   data: function() {
       return {
           phone:'',
           code:'',
           password1:'',
           password2:'',
+          token:'',
+          authenticate:'',
           isRun:false,
           runTime:30,
-          url:'http://sim.gxy.ink/auth/login',  //待定URL！！！
+          timestamp:0,
+          url1:'http://sim.gxy.ink/auth/login',
+          url2:'http://api.gxy.ink/auth/register',
           createStyle: {
                 backgroundImage:"url('static/imgs/创作页动态背景1.gif')",
                 backgroundRepeat:"no-repeat",
@@ -63,37 +70,68 @@ export default {
   },
   methods: {
       handleGetCode() {
-          if(!this.phone) {
-              MessageBox.alert("请输入手机号码哦~", '提示');
-              return 
-          }
-          if(!/^1\d{10}$/.test(this.phone)) {
-              MessageBox.alert("请输入正确的手机号", '提示');
-              return 
-          }
-          this.isRun = true
-          var autoTime = setInterval(() => {
-             this.runTime--;
-             if(this.runTime === 0) {
-                this.runTime = 30;
-                this.isRun = false;
-                clearInterval(autoTime)
+            if(localStorage.token && localStorage.authenticate) {
+                this.token = localStorage.token;
+                this.authenticate = localStorage.authenticate;
+            }
+            if(!this.token && !this.authenticate) {
+                MessageBox.alert("请先点击下方蓝色按钮进行行为验证", '提示');
                 return
-             }
-          },1000)
+            }
+            if(this.isRun) {
+                return
+            }
+            if(!/^1\d{10}$/.test(this.phone)) {
+                MessageBox.alert("请输入正确的手机号", '提示');
+                return 
+            }
+            //获取验证码的跨域请求操作
+            this.isRun = true
+            var autoTime = setInterval(() => {
+                this.runTime--;
+                if(this.runTime === 0) {
+                    this.runTime = 30;
+                    this.isRun = false;
+                    clearInterval(autoTime)
+                    return
+                }
+            },1000)  
+            //第一次向后端请求，用户获得验证码
+            let data = {
+                phone:this.phone,
+                token:this.token,
+                authenticate:this.authenticate
+            }
+            fetch(this.url1, {
+                mode:'cors',
+                method:'POST',
+                body:JSON.stringify(data),
+                headers:
+                    new Headers({
+                        'Content-Type':'application/json'
+                })
+            }).then(res => res.json().then(body => {
+                console.log(body)
+                this.timestamp = body.data.timestamp
+                if(body.code !== 0) {
+                    MessageBox.alert("验证码发送失败，请重试！", '提示');
+                    return
+                }
+            })).catch(error => console.log("error: ", error))
+        },
+      handleChange() {
           if(this.password1 !== this.password2) {
               MessageBox.alert("两次密码要一致哦~", '提示');
               return
           }
-      },
-      handleChange() {
           let data = {
-                login:this.name,
-                password1:this.password1,
-                password2:this.password2,
-                code:this.code
+                phone:this.phone,
+                password:this.password1,
+                code:this.code,
+                timestamp:this.timestamp
             }
-            fetch(this.url,{
+            console.log(data)
+            fetch(this.ur2,{
                 mode:'cors',
                 method:'GET',
                 body:JSON.stringify(data),
@@ -103,9 +141,28 @@ export default {
                 })
             }).then(res => res.json().then(body => {
                 console.log(body)
-                //逻辑处理语句
-                //1.注册成功之后清除token；
-                //2.注册成功后push进入explore页面，去掉原来的router-link路由
+                if(body.code === 1) {
+                    MessageBox.alert("啊哦，网络出现了一点小故障，请重试！", '提示');
+                    return ;
+                }
+                if(body.code === 2) {
+                    MessageBox.alert("请输入正确的验证码哦！", '提示');
+                    return ;
+                }
+                if(body.code === 0) {
+                    var _this = this;
+                    Indicator.open({
+                        text: '请稍后...',
+                        spinnerType: 'fading-circle'
+                    });
+                    this.timer = setTimeout(function(){
+                        //console.log(this); // 这里的this指向window对象
+                        _this.$router.push('/');
+                        Indicator.close();
+                    }, 500) 
+                }
+                localStorage.removeItem('token');
+                localStorage.removeItem('authenticate');
             })
             ).catch(error => console.log("error: "+error))
       }
@@ -199,7 +256,7 @@ export default {
             font-size: 18px;
             color: #6c6a6a;
             letter-spacing: 0.05rem;
-            margin-top :2.32rem;
+            margin-top :0.82rem;
             background-color #ffffff
         }
     }

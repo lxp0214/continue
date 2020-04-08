@@ -33,29 +33,32 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-       .warpper {
-           position relative
-           overflow hidden
-           //width 6.70rem
-           height 3.54rem
-           border-radius: 10px;
-           //border: 1px solid 
-           margin-left 0.4rem
-           margin-right 0.4rem
-           margin-bottom 0.4rem
-           .slider-img {
-               width: 100%
-               height: 100%
-           }
-           .item {
-               position absolute
-               //top:0 
-               left 0.28rem
-               bottom 0.22rem
-               z-index 2
-               font-size: 16px;
-               font-weight 600
-	           color: white;
-           }
-       }
+  .warpper 
+    position: relative
+    overflow: hidden
+    height: 3.54rem
+    border-radius: .22rem 
+    margin-left: 0.4rem
+    margin-right: 0.4rem
+    margin-bottom 0.4rem
+    box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.16)
+    .swiper-content
+      height: 3.54rem
+      width: 100%
+    .swiper-content >>> .swiper-container 
+      width: 100%
+      height: 100%
+    .swiper-content >>> .swiper-pagination-bullet-active
+      background: #ffffff
+      .slider-img 
+        width: 100%
+        height: 100%
+    .item 
+      position absolute
+      left 0.28rem
+      bottom 0.22rem
+      z-index: 10
+      font-size: .32rem
+      font-weight: 600
+      color: #ffffff
 </style>

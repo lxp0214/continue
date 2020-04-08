@@ -20,6 +20,7 @@ import Comments from '@/allPages/comments/Comments'
 import Found from '@/allPages/Found'
 import About from '@/allPages/myself/myself-pages/myself-information/myself-information-pages/About'
 import changePassword from '@/allPages/myself/myself-pages/myself-information/myself-information-pages/changePassword'
+import changePhone from '@/allPages/myself/myself-pages/myself-information/myself-information-pages/changePhone'
 
 const routerPush = Router.prototype.push
 Router.prototype.push = function push(location) {
@@ -105,6 +106,10 @@ export default new Router({
         path: '/changePassword',
         name: 'changePasswordbout',
         component: changePassword
+    }, {
+        path: '/changePhone',
+        name: 'changePhone',
+        component: changePhone
     }
 
 ],

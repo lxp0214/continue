@@ -8,7 +8,7 @@
         </div>
         <ul class="list-item">
             <li class="item-content" v-for="(item,index) in 3" :key="index">
-                <div class="content-img"></div>
+                <img src='static\icons\middle\组件 86 – 1.png' class="content-img">
                 <div class="content-desc">谁偷走了我的昨天</div>
                 <div class="content-hot">50热度</div>
             </li>

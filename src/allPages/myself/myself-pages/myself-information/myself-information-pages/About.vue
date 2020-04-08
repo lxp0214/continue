@@ -12,7 +12,29 @@
             <div>1.0.0</div>
         </div>
         <div class='desc'>关于我们</div>
-        <div class='about'>大家好我们是葫芦七兄弟</div>
+        <div class='about-wrapper'>
+          <textarea class='about' disabled="disabled">
+                                关于产品
+
+ 嗨，历时两周，Continue终于成功和大家见面啦！
+Continue是一款专注于故事续写和原创故事的APP。在这里，次元壁被打破，文字构造全新的宇宙，每一个有趣的脑洞都被小心翼翼地收藏，每一份生动的喜欢都会毫无保留地表达，每一次真诚的续写都是不同灵魂的碰撞。在这里，最美妙的问候无非是一句：我可以参与你的故事吗？
+
+                                关于团队
+
+我们是一支很普通的大学生团队，在Continue的想法出现之前，我们甚至是一群没有交集的个体，有完全不同的生活轨迹。然而，我们拥有同样的对未知的探求、对脑洞的忠诚以及对创作的热情，于是，六个独特的灵魂在同一个故事邂逅，用同一份热爱让Continue诞生。
+
+Continue的中文翻译是“延续”，之所以选择动词形式，是因为我们想要表达的是关于动态的创作，是有生机的文字，是源源不断的灵感。
+在这个宇宙，不只有我，还有我们。
+
+团队成员
+产品：徐操兵
+运营：黄卉 李雅施
+设计：连海鸿
+前端：李欣苹 王子安
+后端：古新语
+
+          </textarea>
+        </div>
     </div>
 </template>
 
@@ -56,10 +78,17 @@ export default {
     div 
       font-size: .3rem 
       color: #000000
-  .about 
+  .about-wrapper 
     height: 8.9rem
     margin: 0 .4rem
     border-radius: .22rem
     box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.16)
     background: #ffffff
+    .about 
+      height: 100%
+      width: 100%
+      border-radius: .22rem
+      box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.16)
+      background: #ffffff
+      touch-action: none
 </style>

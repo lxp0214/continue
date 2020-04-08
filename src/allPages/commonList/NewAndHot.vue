@@ -8,7 +8,7 @@
             </div>
             <div class='user'>
               <div class='left'>
-                <div class='img'></div>
+                <img src='static\icons\middle\组件 86 – 1.png' class='img'>
                 <span class='name'>用户名称</span>
               </div>
                 <span class='time'>3月10日</span>

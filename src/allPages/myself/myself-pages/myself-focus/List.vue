@@ -4,7 +4,7 @@
             <div>
                 <div class="list-item border-bottom" v-for="item in 13" :key="item">
                     <router-link to='/userdetail'>
-                        <div class="item-icon border"></div>
+                        <img src='static\icons\middle\组件 86 – 1.png' class="item-icon border">
                     </router-link>
                     <div class="item-user">
                         <div class="user-name">晴天娃娃</div>

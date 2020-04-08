@@ -11,7 +11,7 @@
             <div class='img'>
                 <div class='img-text'>头像</div>
                 <div class='icon-wrapper'>
-                  <div class='img-img'></div>
+                  <img src='static\icons\middle\组件 86 – 1.png' class='img-img'>
                   <img src='static\icons\middle\组件 41 – 1.png' class='icon'>
                 </div>
             </div>
@@ -22,10 +22,12 @@
                 <img src='static\icons\middle\组件 41 – 1.png' class='icon' @click="show('name')" v-show='nameImgShow'>
               </div>
             </div>
+            <transition enter-active-class='animated fadeIn' leave-active-class='animated fadeOut'>
             <div class='modifyName' v-show='nameShow'>
               <input class='input' type='text' value='黑凤梨'>
               <button class='button' @click="queren('name')">确认</button>
             </div>
+            </transition>
             <div class='item'>
               <div class='item-name'>性别</div>
               <div class='name-wrapper'>

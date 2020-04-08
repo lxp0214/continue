@@ -3,7 +3,7 @@
         <div class="body-header">雨打芭蕉湿</div>
         <div class="body-foot">
             <div class="foot-left">
-                <div class="icon"></div>
+                <img src='static\icons\middle\组件 86 – 1.png' class="icon">
                 <div class="desc">由xxx用户发起</div>
             </div>
             <div class="foot-right">

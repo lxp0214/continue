@@ -11,7 +11,7 @@
                 <div class='item-top'>|| 谁偷走了我的昨天</div>
                 <div class='item-bottom'>
                     <div class='bottom-left'>
-                        <div class='img'></div>
+                        <img src='static\icons\middle\组件 86 – 1.png' class='img'>
                         <div class='desc'>用户名称</div>
                     </div>
                     <div class='bottom-right'>3月10日</div>

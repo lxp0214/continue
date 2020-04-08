@@ -9,7 +9,7 @@
                 <div class='item-content'>日本。东京市。练马区。天空中的云层倾轧而下，镇子里逐渐阴下来，寒风萧瑟……</div>
                 <div class='item-name'>
                     <div class='item-name-left'>
-                        <div class='item-name-img'></div>
+                        <img src='static\icons\middle\组件 86 – 1.png' class='item-name-img'>
                         <div class='item-name-name'>用户名称</div>
                     </div>
                     <div class='item-name-right'>3月10日</div>

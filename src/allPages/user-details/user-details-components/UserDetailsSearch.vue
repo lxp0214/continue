@@ -28,10 +28,10 @@ export default {
       width: 100%
       background:#eee
       border-radius: .22rem
-      border: solid .02rem
       font-size:.32rem
       padding-left: .28rem
       padding-right: .28rem
+      box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.16)
     .icon
       position: absolute
       top: .17rem

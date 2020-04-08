@@ -174,8 +174,8 @@ export default {
     line-height: .88rem
     text-align: center
     font-size: .36rem
-    border-bottom: solid .01rem
-    border-top: solid .01rem
+    //border-bottom: solid .01rem
+    //border-top: solid .01rem
     display: flex 
     align-items: center
     background-color: #ffffff

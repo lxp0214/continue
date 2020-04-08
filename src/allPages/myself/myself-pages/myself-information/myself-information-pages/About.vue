@@ -12,7 +12,7 @@
             <div>1.0.0</div>
         </div>
         <div class='desc'>关于我们</div>
-        <div class='about'></div>
+        <div class='about'>大家好我们是葫芦七兄弟</div>
     </div>
 </template>
 

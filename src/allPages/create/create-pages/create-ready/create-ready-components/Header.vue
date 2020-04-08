@@ -50,11 +50,11 @@ export default {
                 text: '发布中...',
                 spinnerType: 'fading-circle'
             });
+            this.popupVisible = false
             this.timer = setTimeout(function(){
                 //console.log(this); // 这里的this指向window对象
                 _this.$router.push('/create');
                 Indicator.close();
-                this.popupVisible = false
             }, 500)         
             console.log('ok')
         },

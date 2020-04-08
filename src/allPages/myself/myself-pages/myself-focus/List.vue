@@ -3,7 +3,9 @@
         <div class="list" ref='wrapper'>
             <div>
                 <div class="list-item border-bottom" v-for="item in 13" :key="item">
-                    <div class="item-icon border"></div>
+                    <router-link to='/userdetail'>
+                        <div class="item-icon border"></div>
+                    </router-link>
                     <div class="item-user">
                         <div class="user-name">晴天娃娃</div>
                         <div class="user-desc">做不一样的自己</div>

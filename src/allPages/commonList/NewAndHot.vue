@@ -50,7 +50,7 @@ export default({
           font-size: .26rem
       .user 
         height: 0.64rem
-        line-height: 0.64rem 
+        //line-height: 0.64rem 
         display: flex 
         align-items: center
         .img 
@@ -60,7 +60,7 @@ export default({
           background: red
         .name 
           font-size: .26rem
-          margin-left: .1rem
+         // margin-left: .1rem
         .time 
           font-size: .22rem
           margin-left: 2.82rem

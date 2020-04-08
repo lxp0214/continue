@@ -13,7 +13,6 @@ import './assets/styles/iconfont.css'
 import 'swiper/css/swiper.css'
 import animated from 'animate.css'
 
-
 Vue.config.productionTip = false
 fastClick.attach(document.body)
 Vue.use(VueAwesomeSwiper)

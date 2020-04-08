@@ -1,10 +1,10 @@
 <template>
-    <div :style="createStyle" ref='wrapper'>
+    <div ref="wrapper">
         <div>
             <myself-header></myself-header>
             <myself-body @changeList="changeList" @changeSearch="searchContent"></myself-body>
             <create-list v-show='MyselfListShow'></create-list>
-            <all-navigation></all-navigation>
+            <!-- <all-navigation></all-navigation> -->
             <collections-list v-show='CollectionsListShow' ></collections-list>
             <focus-list v-show='FocusListShow'></focus-list>
             <content-list :datas="contents" v-show="disContent"></content-list>
@@ -55,14 +55,14 @@ export default {
             display:false,
             disContent:true,
             disPerson:false,
-            createStyle: {
-                backgroundImage:"url('static/imgs/创作页动态背景1.gif')",
-                backgroundRepeat:"no-repeat",
-                backgroundSize:"100% 100%",
-                width:"100%",
-                height:"100%",
-                position:"fixed"
-            }
+            // createStyle: {
+            //     backgroundImage:"url('static/imgs/创作页动态背景1.gif')",
+            //     backgroundRepeat:"no-repeat",
+            //     backgroundSize:"100% 100%",
+            //     width:"100%",
+            //     height:"100%",
+            //     position:"fixed"
+            // }
         }
     },
     methods: {

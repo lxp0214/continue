@@ -51,7 +51,7 @@
             </li>
         </ul>
         <artical-details-title></artical-details-title>
-        <button>查看评论</button>
+        <button @click="handleGetComments">查看评论</button>
     </div>
 </template>
 
@@ -61,6 +61,11 @@ export default {
     name: 'ArticalDetailsChapter',
     components: {
         ArticalDetailsTitle
+    },
+    methods: {
+        handleGetComments() {
+            this.$router.push('/comments')
+        }
     }
 }
 </script>
@@ -68,7 +73,7 @@ export default {
 <style lang='stylus' scoped>
   .wrapper
     .item 
-      background: #eee
+      background-color: #ffffff
       box-sizing:border-box
       -moz-box-sizing:border-box
       -webkit-box-sizing:border-box

@@ -7,7 +7,7 @@
                 <div class='desc'>由xxx用户发起</div>
             </div>
             <div class='right'>
-                <img src='static\icons\middle\组件 53 – 1.png'>
+                <img src='static\icons\middle\组件 73 – 1.png'>
                 <img :src=iconUrl @click='changeIcon()' ref='icon'>
             </div>
         </div>
@@ -29,7 +29,7 @@ export default {
         if (this.red) {
           this.$refs.icon.src = 'static'+'/'+'icons'+'/'+'middle'+'/'+'组件 49 – 1.png'
         } else {
-          this.$refs.icon.src = 'static/icons/middle/组件 51 – 1.png'
+          this.$refs.icon.src = 'static/icons/middle/组件 72 – 1.png'
         }
       }
     }
@@ -42,6 +42,7 @@ export default {
     font-size: .64rem
     font-weight: 600
     margin-left: .4rem
+    color #ffffff
   .bottom
     height: .92rem
     line-height: .92rem
@@ -60,6 +61,7 @@ export default {
         background: red
       .desc 
         float: right
+        color #000000
     .right
       float: right 
       height: .92rem

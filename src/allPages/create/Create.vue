@@ -1,5 +1,5 @@
 <template>
-    <div ref="wrapper">
+    <div>
         <div>
             <create-header></create-header>
             <create-body></create-body>
@@ -25,7 +25,7 @@ export default {
         Navigation
     },
     mounted() {
-      this.scroll = new BScroll(this.$refs.wrapper)
+    //   this.scroll = new BScroll(this.$refs.wrapper)
     },
 }
 </script>

@@ -13,7 +13,7 @@
             </router-link>
         </div>
         <router-link to='/myselfInformation'>
-            <img src='static\icons\middle\组件 86 – 1.png' class='right'>
+            <img src='static/imgs/touxiang/批注 2020-02-10 002238.jpg' class='right'>
         </router-link>
     </div>
   </div>

@@ -57,7 +57,7 @@ export default {
           runTime:30,
           url1:'http://api.gxy.ink/auth/sendMsg',
           url2:'http://api.gxy.ink/auth/register',
-          timestamp:1586315958,
+          expires_at:0,
           createStyle: {
                 backgroundImage:"url('static/imgs/创作页动态背景1.gif')",
                 backgroundRepeat:"no-repeat",
@@ -112,7 +112,7 @@ export default {
                 })
             }).then(res => res.json().then(body => {
                 console.log(body)
-                this.timestamp = body.data.timestamp
+                this.expires_at = body.data.expires_at
                 if(body.code !== 0) {
                     MessageBox.alert("验证码发送失败，请重试！", '提示');
                     return
@@ -124,7 +124,7 @@ export default {
                 phone:this.phone,
                 password:this.password,
                 code:this.code,
-                timestamp:this.timestamp
+                expires_at:this.expires_at
             }
             console.log(JSON.stringify(data))
             fetch(this.url2,{

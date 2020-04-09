@@ -1,5 +1,5 @@
 <template>
-    <div class='body'>
+    <div class='body' @click="handleGetArtical">
         <div class='top'>
             <div class='title'>
                 | 谁偷走了我的昨天
@@ -17,8 +17,8 @@
         <div class='bottom'>
             <div class='smallTitle'>1 || 雨停了</div>
             <div class='text'>日本。东京市。练马区。天空中的云层倾轧而下，镇子里逐渐阴下来，寒风萧瑟……      似乎有什么东西在呼喊着自己的名字，但那个声音隔着一季又一季的时空，等传到大雄耳中时，只剩下被掰碎的语句杂糅在风里，和冷风的“呜呜”声合而为一，再也无从分辨。
-　　他知道，自己一定是在做梦。
-　　自从那时起，这个场景无数次出现在自己的噩梦中，挥之不去。
+    　　他知道，自己一定是在做梦。
+    　　自从那时起，这个场景无数次出现在自己的噩梦中，挥之不去。
       他看到了幼时的自己，那个时间点，他和哆啦A梦一起在空地上训练棒球。大雄至今都记得那件事的整个过场：先是胖虎提着球棍，笑嘻嘻地警告他第三天会有一场和隔壁镇子决胜负的棒球赛。如果大雄在关键时候掉了链子，等待他的将是一顿胖揍。</div>
         </div>
     </div>
@@ -28,6 +28,11 @@
 <script >
 export default({
     name: 'NewAndHot',
+    methods: {
+        handleGetArtical() {
+            this.$router.push('/articaldetails')
+        }
+    }
 })
 </script>>
 <style lang="stylus" scoped>

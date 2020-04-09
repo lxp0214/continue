@@ -1,11 +1,12 @@
 <template>
     <div>
-        <div id="app" :style="createStyle" ref='wrapper'>
+        <div id="app" :style="createStyle">
             <keep-alive>
                 <router-view></router-view> 
             </keep-alive>
         </div>
         <navigation class="navBar" v-show="showTab"></navigation>
+        <div class="photo"></div>
     </div>
 </template>
 
@@ -19,40 +20,6 @@ export default {
   components: {
       Navigation:Navigation
   },
-  data: function() {
-      return {
-          createStyle: {
-                backgroundImage:"url('static/imgs/创作页动态背景1.gif')",
-                backgroundRepeat:"no-repeat",
-                backgroundSize:"100% 100%",
-                width:"100%",
-                height:"100%",
-                position:"fixed"
-          },
-      }
-  },
-  methods: {
-      initScroll() {
-          this.scroll = new BScroll(this.$refs.wrapper, {
-            mouseWheel: true,//开启鼠标滚轮
-            disableMouse: false,//启用鼠标拖动
-            disableTouch: false,//启用手指触摸  
-            pullDownRefresh:{
-                threshold:50,
-                stop:20
-            }
-          })
-      }
-  },
-  mounted() {
-      console.log(this.$route)
-      this.initScroll()
-    //   this.scroll = new BScroll(this.$refs.wrapper, {
-    //     mouseWheel: true,//开启鼠标滚轮
-    //     disableMouse: false,//启用鼠标拖动
-    //     disableTouch: false//启用手指触摸      
-    //   })
-  },
   computed: {
       showTab: function() {
           if((this.$route.path === '/create') || (this.$route.path === '/myself') || (this.$route.path === '/explore')) {
@@ -62,12 +29,18 @@ export default {
               return false
           }
       }
-  }
+  },
 }
 </script>
 
 <style lang='stylus' scoped>
-    // #app {
-    //     overflow hidden
-    // }
+    .photo 
+        background-image url('../static/imgs/img.gif')
+        background-repeat no-repeat
+        background-size 100% 100%
+        height 100%
+        width 100%
+        position fixed
+        top 0
+        z-index -1
 </style>

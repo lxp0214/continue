@@ -12,6 +12,7 @@ import './assets/styles/border.css'
 import './assets/styles/iconfont.css'
 import 'swiper/css/swiper.css'
 import animated from 'animate.css'
+import store from './store'
 
 Vue.config.productionTip = false
 fastClick.attach(document.body)
@@ -23,6 +24,7 @@ Vue.use(animated)
 new Vue({
     el: '#app',
     router,
+    store,
     components: { App },
     template: '<App/>'
 })

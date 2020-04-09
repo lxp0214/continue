@@ -1,17 +1,17 @@
 <template>
-  <div class="search" ref="info">
-    <div class="infoName">         
-        <input type="text" class="infoName-text border" placeholder="搜：晴天娃娃" v-model="keyword">
-        <span class="iconfont infoName-icon">&#xe60a;</span>
-    </div>
-    <div class="lastest">
-        <div class="content" v-show="!hasKeyword" @click="handleCloseSearch">最近搜索（点击气泡下方空白处返回哦~）</div>
-    </div>
-    <div class="shawdo" @click="handleCloseSearch"></div>
-    <search-list v-show="!hasKeyword"></search-list>
-    <content-list v-show="hasKeyword" :datas="Lists"></content-list>
-    <div class="tip" v-show="hasDisplay">没有找到哦~再搜搜试试吧！</div>
-  </div>
+        <div class="search" ref="info">
+            <div class="infoName">         
+                <input type="text" class="infoName-text border" placeholder="搜：晴天娃娃" v-model="keyword">
+                <span class="iconfont infoName-icon">&#xe60a;</span>
+            </div>
+            <div class="lastest">
+                <div class="content" v-show="!hasKeyword" @click="handleCloseSearch">最近搜索（点击气泡下方空白处返回哦~）</div>
+            </div>
+            <div class="shawdo" @click="handleCloseSearch"></div>
+            <search-list v-show="!hasKeyword"></search-list>
+            <content-list v-show="hasKeyword" :datas="Lists"></content-list>
+            <div class="tip" v-show="hasDisplay">没有找到哦~再搜搜试试吧！</div>
+        </div>
 </template>
 
 <script>
@@ -66,7 +66,7 @@ export default {
           this.timer = setTimeout(() => {
               const result = [];
               this.datas.forEach(value => {
-                  if(value.name.indexOf(this.keyword) > -1) {
+                  if((value.title.indexOf(this.keyword) > -1) || (value.content.indexOf(this.keyword) > -1)) {
                       result.push(value);
                   }
               })
@@ -75,9 +75,9 @@ export default {
       }
   },
   mounted() {
-      if(this.param === 'mycreate') {
+      if(this.param === 'allThings') {
           console.log(this.param)
-          this.getMyCreateInfo()
+          this.getAllInfo()
       }
       if(this.param === 'hotcontinue') {
           console.log(this.param)
@@ -100,23 +100,38 @@ export default {
       handleCloseSearch() {
           this.$emit('close')
       },
-      getMyCreateInfo() {
-          axios.get('static/mock/collection.json').then(res => {
-              res = res.data;
-              if(res.ret && res.data) {
-                  const data = res.data;
-                  this.datas = data.collections;
-              }
-          });
+      getAllInfo() {
+          //等待考究
       },
       getHotContinueInfo() {
-          axios.get('static/mock/collection.json').then(res => {
-              res = res.data;
-              if(res.ret && res.data) {
-                  const data = res.data;
-                  this.datas = data.collections;
-              }
-          });
+        //   axios.get('static/mock/collection.json').then(res => {
+        //       res = res.data;
+        //       if(res.ret && res.data) {
+        //           const data = res.data;
+        //           this.datas = data.collections;
+        //       }
+        //   });
+            fetch('http://api.gxy.ink/v1/hot/sequels?page=1', {
+            mode:'cors',
+            method:'GET',
+            headers:
+                new Headers({
+                    'Content-Type':'application/json',
+                    'Authorization':localStorage.token_id
+                })
+            }).then(res => res.json().then(body => {
+            console.log(body)
+            if(body.code === 0) {
+                console.log(body.message)
+                var data = body.data
+                data.forEach(value => {
+                    value.sections.forEach(item => {
+                        this.datas.push(item)
+                    })
+                })
+                console.log(this.datas)
+             }
+           })).catch(error => console.log("error: ", error))
       },
       getHotCreateInfo() {
           axios.get('static/mock/collection.json').then(res => {
@@ -155,7 +170,7 @@ export default {
         border: solid 1px #707070
     }
     .search {
-        padding-top:0.7rem
+        padding-top:0.4rem
         position :fixed
         left:0
         right :0

@@ -13,7 +13,7 @@
                 <img src='static/icons/big/组件 67 – 2.png' @click="handleShowSearch">
             <!-- </router-link> -->
             <fade-animation>
-                <search v-show="showSearch" @close="handleCloseSearch" :point="param"></search>
+                <search v-show="showSearch" @close="handleCloseSearch" :point="param" :param="link"></search>
             </fade-animation>
         </div>
     </div>
@@ -33,7 +33,8 @@ export default {
         return {
             headerShow: false,
             showSearch: false,
-            param:false
+            param:false,
+            link:'allThings'
         }
     },
     methods: {

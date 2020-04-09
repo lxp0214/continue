@@ -1,5 +1,5 @@
 <template>
-    <div ref="wrapper">
+    <div>
         <div>
             <myself-header></myself-header>
             <myself-body @changeList="changeList" @changeSearch="searchContent"></myself-body>
@@ -39,7 +39,7 @@ export default {
         PersonList
     },
     mounted() {
-      this.scroll = new BScroll(this.$refs.wrapper)
+    //   this.scroll = new BScroll(this.$refs.wrapper)
     },
     data () {
         return {
@@ -55,14 +55,6 @@ export default {
             display:false,
             disContent:true,
             disPerson:false,
-            // createStyle: {
-            //     backgroundImage:"url('static/imgs/创作页动态背景1.gif')",
-            //     backgroundRepeat:"no-repeat",
-            //     backgroundSize:"100% 100%",
-            //     width:"100%",
-            //     height:"100%",
-            //     position:"fixed"
-            // }
         }
     },
     methods: {

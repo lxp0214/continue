@@ -25,10 +25,12 @@
         </div>
         <transition>
         <div class='reverse' v-show='!messageShow'>
-            <div class='reverse-item'>收藏创作更新</div>
-            <div class='reverse-item'>关注的用户</div>
-            <div class='reverse-item'>收藏的续作</div>
-            <div class='reverse-item'>收藏的原创</div>
+            <router-link to="/myself">
+                <div class='reverse-item'>收藏创作更新</div>
+                <div class='reverse-item'>关注的用户</div>
+                <div class='reverse-item'>收藏的续作</div>
+                <div class='reverse-item'>收藏的原创</div>
+            </router-link>
         </div>
         </transition>
         <transition>
@@ -148,6 +150,7 @@ export default {
       margin-bottom: .12rem
       //border: solid .02rem #707070
       background-color #ffffff
+      color #000000
   .v-enter,.v-leave-to 
     opacity: 0
   .v-enter-active,.v-leave-active 

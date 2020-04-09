@@ -53,7 +53,7 @@ export default {
     background: #ffffff
     display: flex 
     align-items: center
-    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.3)
+    box-shadow: 0rem 0.02rem 0.1rem 0rem rgba(0, 0, 0, 0.3)
     img 
       height: .46rem
     span 
@@ -75,7 +75,7 @@ export default {
     align-items: center 
     justify-content: space-between
     border-radius: .22rem
-    box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.16)
+    box-shadow: 0.02rem 0.04rem 0.06rem 0rem rgba(0, 0, 0, 0.16)
     div 
       font-size: .3rem 
       color: #000000
@@ -83,47 +83,39 @@ export default {
     height: 10.9rem
     margin: 0 .4rem
     border-radius: .22rem
-    box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.16)
+    box-shadow: 0.02rem 0.04rem 0.06rem 0rem rgba(0, 0, 0, 0.16)
     background-color rgba(255,255,255,0.75)
-    margin-bottom 30px
+    margin-bottom 0.6rem
     color #000000
     .product 
       padding-top 0.4rem
       padding-left 0.22rem
       .title
-        font-size 22px
+        font-size 0.44rem
         font-weight 600
         margin-bottom 0.2rem
       .content 
-        font-size 15px
-        margin-left 8px
-        margin-right 8px
-        line-height 22px
+        font-size 0.3rem
+        margin-left 0.16rem
+        margin-right 0.16rem
+        line-height 0.44rem
     .team 
       padding-top 0.2rem
       padding-left 0.22rem
       .title
-        font-size 22px
+        font-size 0.44rem
         font-weight 600
         margin-bottom 0.2rem
       .content 
-        font-size 15px
-        margin-left 8px
-        margin-right 8px
-        line-height 22px
+        font-size 0.3rem
+        margin-left 0.16rem
+        margin-right 0.16rem
+        line-height 0.44rem
     .people
       padding-top 0.12rem
       padding-left 0.36rem
       .members 
         font-weight 600
       .job 
-        margin-top 3px
-    // .about 
-    //   height: 100%
-    //   width: 100%
-    //   border-radius: .22rem
-    //   box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.16)
-    //   background: #ffffff
-    //   touch-action: none
-    //   overflow-y:hidden
+        margin-top 0.06rem
 </style>

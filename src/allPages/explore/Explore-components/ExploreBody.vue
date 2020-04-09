@@ -17,7 +17,7 @@
 
 <script>
 export default {
-    name: 'ExploreBody'
+    name: 'ExploreBody',
 }
 </script>
 

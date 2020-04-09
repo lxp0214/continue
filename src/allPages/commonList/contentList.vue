@@ -1,27 +1,35 @@
 <template>
-    <div class='list'>
-        <ul class='wrapper'>
-            <li class='item' v-for="(item,index) in datas" :key="index">
-                <div class='item-title'>|| {{item.name}}</div>
-                <div class='item-content'>{{item.desc}}</div>
-                <div class='item-name'>
-                    <div class='item-name-left'>
-                        <div class='item-name-img'></div>
-                        <div class='item-name-name'>{{item.user}}</div>
-                    </div>
-                    <div class='item-name-right'>3月10日</div>
-                </div>
-            </li>
-        </ul>
-        <div class='foot' v-show="display">没有了呢</div>
+    <div ref="wrapper">
+        <div class='list' @click="handleGetArtical">      
+            <div>
+                <ul class='wrapper'>
+                    <li class='item' v-for="(item,index) in datas" :key="index">
+                        <div class='item-title'>|| {{item.title}}</div>
+                        <div class='item-content'>{{item.content}}</div>
+                        <div class='item-name'>
+                            <div class='item-name-left'>
+                                <div class='item-name-img'></div>
+                                <div class='item-name-name'>{{item.user_nickname}}</div>
+                            </div>
+                            <div class='item-name-right'>{{new Date().toLocaleDateString(item.create_at)}}</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class='foot' v-show="display">没有了呢</div>
+        </div>
     </div>
 </template>
 
 <script>
+import BScroll from 'better-scroll'
 export default {
     name: 'MyselfList',
     props: {
         datas:Array
+    },
+    mounted() {
+      this.scroll = new BScroll(this.$refs.wrapper)
     },
     computed: {
         display() {
@@ -32,12 +40,18 @@ export default {
                 return false
             }
         }
-    }
+    },
+    methods: {
+        handleGetArtical() {
+            this.$router.push('/articaldetails')
+        }
+    },
 }
 </script>
 
 <style lang='stylus' scoped>
   .list 
+    overflow hidden
     .foot 
       font-size: .22rem
       text-align: center

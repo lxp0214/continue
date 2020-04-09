@@ -7,10 +7,10 @@
             </router-link>
         </div>
         <ul class="list-item">
-            <li class="item-content" v-for="(item,index) in 3" :key="index">
+            <li class="item-content" v-for="(item,index) in hotContinue" :key="index">
                 <img src='static\icons\middle\组件 86 – 1.png' class="content-img">
-                <div class="content-desc">谁偷走了我的昨天</div>
-                <div class="content-hot">50热度</div>
+                <div class="content-desc">{{item.passage.title}}</div>
+                <div class="content-hot">{{item.passage.collection}} 热度</div>
             </li>
         </ul>
     </div>
@@ -19,6 +19,9 @@
 <script>
 export default {
     name: 'ExploreContinueList',
+    props: {
+        hotContinue:Array
+    }
 }
 </script>
 

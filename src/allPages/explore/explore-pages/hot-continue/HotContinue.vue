@@ -17,6 +17,7 @@ export default {
   },
   components: {
       HotContinueHeader:HotContinueHeader,
+<<<<<<< HEAD
       NewAndHot 
   },
   mounted () {
@@ -36,6 +37,10 @@ export default {
         }
     }))
   }
+=======
+      NewAndHot
+  },
+>>>>>>> cefeecae65fdd680074a94a81741379dd66da9ab
 }
 </script>
 <style lang="stylus" scoped>
@@ -45,5 +50,4 @@ export default {
             margin-bottom:1.62rem
         }
     }
-    
 </style>

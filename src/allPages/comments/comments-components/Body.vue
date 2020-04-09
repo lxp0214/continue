@@ -29,7 +29,11 @@ export default {
         if (this.red) {
           this.$refs.icon.src = 'static'+'/'+'icons'+'/'+'middle'+'/'+'组件 49 – 1.png'
         } else {
+<<<<<<< HEAD
           this.$refs.icon.src = 'static'+'/'+'icons'+'/'+'middle'+'/'+'组件 72 – 1.png'
+=======
+          this.$refs.icon.src = 'static/icons/middle/组件 72 – 1.png'
+>>>>>>> cefeecae65fdd680074a94a81741379dd66da9ab
         }
       }
     }
@@ -42,7 +46,11 @@ export default {
     font-size: .64rem
     font-weight: 600
     margin-left: .4rem
+<<<<<<< HEAD
     color: #ffffff
+=======
+    color #ffffff
+>>>>>>> cefeecae65fdd680074a94a81741379dd66da9ab
   .bottom
     height: .46rem
     margin-left: .4rem
@@ -63,7 +71,12 @@ export default {
         border-radius: 100%
         background: red
       .desc 
+<<<<<<< HEAD
         margin-left: .1rem
+=======
+        float: right
+        color #000000
+>>>>>>> cefeecae65fdd680074a94a81741379dd66da9ab
     .right
       float: right 
       height: .92rem

@@ -5,7 +5,7 @@
             <img src='static\icons\middle\组件 56 – 1.png' class='img'>
         </div>
         <ul class='wrapper'>
-            <li class='item'>
+            <li class='item' v-for="(item,index) in 3" :key="index">
                 <div class='top'>
                     <div class='flex-wrapper'>
                         <img src='static\icons\middle\组件 86 – 1.png' class='img'>
@@ -68,7 +68,7 @@ export default {
   .head 
     margin-top: .48rem
     margin-bottom: .4rem
-    background: #eee
+    background: #ffffff
     height: 1.06rem
     line-height: 1.06rem
     font-size: .36rem
@@ -80,7 +80,7 @@ export default {
   .wrapper 
     .item 
       height: 1.3rem 
-      background: #eee
+      background: #fff
       margin-bottom: .3rem
       padding: 0 .28rem
       padding-top: .2rem

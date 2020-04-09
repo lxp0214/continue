@@ -2,7 +2,7 @@
     <div>
         <div id="app">
             <keep-alive>
-                <router-view v-if='isRouterAlive'></router-view> 
+                <router-view></router-view> 
             </keep-alive>
         </div>
         <navigation class="navBar" v-show="showTab"></navigation>

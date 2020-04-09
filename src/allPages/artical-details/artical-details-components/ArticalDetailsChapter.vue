@@ -20,34 +20,22 @@
                 <div class='item-title'>5 || 期待你的续写....</div>
             </li>
         </ul>
-<<<<<<< HEAD
-        <router-link to='/comments'>
-            <button>查看评论</button>
-        </router-link>
-=======
-        <artical-details-title></artical-details-title>
         <button @click="handleGetComments">查看评论</button>
->>>>>>> cefeecae65fdd680074a94a81741379dd66da9ab
     </div>
 </template>
 
 <script>
 import ArticalDetailsTitle from './ArticalDetailsTitle'
 export default {
-    name: 'ArticalDetailsChapter',
-<<<<<<< HEAD
-    props: {
-      contents: Object
-=======
-    components: {
-        ArticalDetailsTitle
-    },
-    methods: {
-        handleGetComments() {
-            this.$router.push('/comments')
-        }
->>>>>>> cefeecae65fdd680074a94a81741379dd66da9ab
+  name: 'ArticalDetailsChapter',
+  props: {
+    contents: Object
+  },
+  methods: {
+    handleGetComments() {
+        this.$router.push('/comments')
     }
+  }
 }
 </script>
 

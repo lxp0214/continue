@@ -1,9 +1,9 @@
 <template>
     <div class='header'>
       <router-link to='/articaldetails'>
-        <img src='static\icons\middle\组件 39 – 1.png'>
+        <img src='static\icons\middle\组件 76 – 1.png'>
       </router-link>
-        <img src='static\icons\middle\组件 56 – 1.png'>
+        <img src='static\icons\middle\组件 74 – 1.png'>
     </div>
 </template>
 
@@ -17,8 +17,8 @@ export default {
   .header
     padding: 0 .3rem
     margin-top: .4rem
-    height: 1.1rem
-    line-height: 1.1rem
+    height: .88rem
+    line-height: .88rem
     text-align: center
     font-size: .5rem
     border-top: solid .01rem
@@ -26,6 +26,5 @@ export default {
     justify-content: space-between 
     align-items: center
     img 
-      height: .6rem
-      width: .6rem
+      height: .46rem
 </style>

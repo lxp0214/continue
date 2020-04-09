@@ -17,6 +17,7 @@ import CreateMessage from './create-components/CreateMessage'
 import Navigation from '../Navigation'
 import BScroll from 'better-scroll'
 export default {
+    inject: ['reload'],
     name: 'Create',
     components: {
         CreateHeader,
@@ -26,7 +27,7 @@ export default {
     },
     mounted() {
       this.scroll = new BScroll(this.$refs.wrapper)
-    },
+    }
 }
 </script>
 

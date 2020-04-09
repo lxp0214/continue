@@ -2,7 +2,7 @@
     <div>
         <div id="app" :style="createStyle" ref='wrapper'>
             <keep-alive>
-                <router-view></router-view> 
+                <router-view v-if='isRouterAlive'></router-view> 
             </keep-alive>
         </div>
         <navigation class="navBar" v-show="showTab"></navigation>
@@ -15,54 +15,66 @@ import Navigation from './allPages/Navigation'
 import router from './router'
 
 export default {
-  name: 'App',
-  components: {
-      Navigation:Navigation
-  },
-  data: function() {
-      return {
-          createStyle: {
-                backgroundImage:"url('static/imgs/创作页动态背景1.gif')",
-                backgroundRepeat:"no-repeat",
-                backgroundSize:"100% 100%",
-                width:"100%",
-                height:"100%",
-                position:"fixed"
-          },
-      }
-  },
-  methods: {
-      initScroll() {
-          this.scroll = new BScroll(this.$refs.wrapper, {
-            mouseWheel: true,//开启鼠标滚轮
-            disableMouse: false,//启用鼠标拖动
-            disableTouch: false,//启用手指触摸  
-            pullDownRefresh:{
-                threshold:50,
-                stop:20
+    name: 'App',
+    provide () {
+        return {
+            reload: this.reload
+        }
+    },
+    components: {
+        Navigation:Navigation
+    },
+    data: function() {
+        return {
+            createStyle: {
+                  backgroundImage:"url('static/imgs/创作页动态背景1.gif')",
+                  backgroundRepeat:"no-repeat",
+                  backgroundSize:"100% 100%",
+                  width:"100%",
+                  height:"100%",
+                  position:"fixed"
+            },
+            isRouterAlive: true
+        }
+    },
+    methods: {
+        initScroll() {
+            this.scroll = new BScroll(this.$refs.wrapper, {
+                mouseWheel: true,//开启鼠标滚轮
+                disableMouse: false,//启用鼠标拖动
+                disableTouch: false,//启用手指触摸  
+                pullDownRefresh:{
+                    threshold:50,
+                    stop:20
+                }
+              })
+        },
+        reload () {
+            this.isRouterAlive = false
+            this.$nextTick(function () {
+                this.isRouterAlive = true
+            })
+        }
+    },
+    mounted () {
+        console.log(this.$route)
+        this.initScroll()
+      //   this.scroll = new BScroll(this.$refs.wrapper, {
+      //     mouseWheel: true,//开启鼠标滚轮
+      //     disableMouse: false,//启用鼠标拖动
+      //     disableTouch: false//启用手指触摸      
+      //   })
+    },
+    computed: { 
+        showTab: function() {
+            if((this.$route.path === '/create') || (this.$route.path === '/myself') || (this.$route.path === '/explore')) {
+                return true
             }
-          })
-      }
-  },
-  mounted() {
-      console.log(this.$route)
-      this.initScroll()
-    //   this.scroll = new BScroll(this.$refs.wrapper, {
-    //     mouseWheel: true,//开启鼠标滚轮
-    //     disableMouse: false,//启用鼠标拖动
-    //     disableTouch: false//启用手指触摸      
-    //   })
-  },
-  computed: {
-      showTab: function() {
-          if((this.$route.path === '/create') || (this.$route.path === '/myself') || (this.$route.path === '/explore')) {
-              return true
-          }
-          else {
-              return false
-          }
-      }
-  }
+            else {
+                return false
+            }
+        }
+    }
 }
 </script>
 

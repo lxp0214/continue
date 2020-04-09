@@ -3,11 +3,11 @@
         <div class='top'>|| 雨打芭蕉湿</div>
         <div class='bottom'>
             <div class='left'>
-                <div class='img'></div>
+                <img src='static\icons\middle\组件 86 – 1.png' class='img'>
                 <div class='desc'>由xxx用户发起</div>
             </div>
             <div class='right'>
-                <img src='static\icons\middle\组件 53 – 1.png'>
+                <img src='static\icons\middle\组件 73 – 1.png'>
                 <img :src=iconUrl @click='changeIcon()' ref='icon'>
             </div>
         </div>
@@ -19,7 +19,7 @@ export default {
     name: 'CommentsBody',
     data () {
       return {
-        iconUrl: 'static/icons/middle/组件 51 – 1.png',
+        iconUrl: 'static'+'/'+'icons'+'/'+'middle'+'/'+'组件 72 – 1.png',
         red: false
       }
     },
@@ -29,7 +29,7 @@ export default {
         if (this.red) {
           this.$refs.icon.src = 'static'+'/'+'icons'+'/'+'middle'+'/'+'组件 49 – 1.png'
         } else {
-          this.$refs.icon.src = 'static/icons/middle/组件 51 – 1.png'
+          this.$refs.icon.src = 'static'+'/'+'icons'+'/'+'middle'+'/'+'组件 72 – 1.png'
         }
       }
     }
@@ -42,29 +42,32 @@ export default {
     font-size: .64rem
     font-weight: 600
     margin-left: .4rem
+    color: #ffffff
   .bottom
-    height: .92rem
-    line-height: .92rem
+    height: .46rem
     margin-left: .4rem
     margin-right: .4rem
     .left
       float: left 
-      line-height: .92rem
+      height: .46rem
       min-width: 2.6rem
+      display: flex
+      align-items: center
+      background: #ffffff
+      box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.16)
+      opacity: 0.9
+      border-radius: .24rem
       .img 
-        display: inline-block
-        vertical-align: middle
-        width: .6rem
-        height: .6rem
+        width: .46rem
+        height: .46rem
         border-radius: 100%
         background: red
       .desc 
-        float: right
+        margin-left: .1rem
     .right
       float: right 
       height: .92rem
       img 
         margin-left: .3rem
-        height: .6rem
-        width: .6rem
+        height: .46rem
 </style>

@@ -83,6 +83,7 @@ export default {
                 console.log(body.message)
                 localStorage.phone = md5(this.phone);
                 localStorage.password = md5(this.password)
+                localStorage.token_id=body.data.token
                 var _this = this;
                 Indicator.open({
                     text: '登陆成功...',

@@ -8,13 +8,35 @@
             <li class='item' v-for="(item,index) in 3" :key="index">
                 <div class='top'>
                     <div class='flex-wrapper'>
-                        <div class='img'></div>
+                        <img src='static\icons\middle\组件 86 – 1.png' class='img'>
                         <div class='name'>xxx用户</div>
                         <div class='time'>3月10日16:30</div>
                     </div>
                     <img :src=iconUrl ref='icon' @click='changeIcon()'>
                 </div>
-                <div class='content'>再然后呢？？？</div>
+                <div class='content'>这是个假评论。。。</div>
+            </li>
+            <li class='item'>
+                <div class='top'>
+                    <div class='flex-wrapper'>
+                        <img src='static\icons\middle\组件 86 – 1.png' class='img'>
+                        <div class='name'>xxx用户</div>
+                        <div class='time'>3月10日16:30</div>
+                    </div>
+                    <img src='static\icons\small\组件 60 – 1.png'>
+                </div>
+                <div class='content'>评论功能暂时没写出来。。。</div>
+            </li>
+            <li class='item'>
+                <div class='top'>
+                    <div class='flex-wrapper'>
+                        <img src='static\icons\middle\组件 86 – 1.png' class='img'>
+                        <div class='name'>xxx用户</div>
+                        <div class='time'>3月10日16:30</div>
+                    </div>
+                    <img src='static\icons\small\组件 60 – 1.png'>
+                </div>
+                <div class='content'>后续会改进哦~</div>
             </li>
         </ul>
     </div>
@@ -64,26 +86,24 @@ export default {
       padding-top: .2rem
       .top 
         height: .54rem 
-        position: relative
+        display: flex 
+        justify-content: space-between
         .flex-wrapper  
           height: .54rem
           display: flex
-          justify-content: flex-start
           align-items: center
           .img 
             border-radius: 100% 
             background: red 
             height: .4rem
             width: .4rem
+            display: block
           .name 
             margin-left: .1rem
           .time 
             margin-left: .2rem
         img 
-          width: .4rem
-          position: absolute 
-          right: 0
-          top: 0
+          height: .4rem
       .content 
         height: .7rem 
         line-height: .7rem 

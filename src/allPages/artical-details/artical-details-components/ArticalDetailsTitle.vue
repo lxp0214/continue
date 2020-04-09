@@ -1,10 +1,10 @@
 <template>
     <div class='wrapper'>
-        <div class='top'>|| 雨打芭蕉湿</div>
+        <div class='top'>{{this.contents.passage.title}}</div>
         <div class='bottom'>
             <div class='left'>
                 <div class='img'></div>
-                <div class='desc'>由xxx用户发起</div>
+                <div class='desc'>由{{this.contents.passage.user_nickname}}发起</div>
             </div>
             <div class='right'>
                 <img src='static\icons\middle\组件 74 – 1.png'>
@@ -17,7 +17,10 @@
 
 <script>
 export default {
-    name: 'ArticalDetailsTitle'
+    name: 'ArticalDetailsTitle',
+    props: {
+      contents: Object
+    }
 }
 </script>
 

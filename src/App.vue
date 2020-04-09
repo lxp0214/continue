@@ -7,6 +7,7 @@
         </div>
         <navigation class="navBar" v-show="showTab"></navigation>
         <div class="photo"></div>
+        <div class="dark" @click="handleChange"></div>
     </div>
 </template>
 
@@ -14,6 +15,7 @@
 import BScroll from 'better-scroll'
 import Navigation from './allPages/Navigation'
 import router from './router'
+import darkStyle from './assets/styles/dayChange.styl'
 
 export default {
   name: 'App',
@@ -30,6 +32,11 @@ export default {
           }
       }
   },
+  methods: {
+      handleChange() {
+          console.log(darkStyle)
+      }
+  }
 }
 </script>
 
@@ -43,4 +50,13 @@ export default {
         position fixed
         top 0
         z-index -1
+    .dark 
+        position absolute
+        width 33px
+        height 33px
+        border-radius 50%
+        background-color rgba(0,0,0,0.4)
+        z-index 1000
+        top:17%
+        left 40%
 </style>

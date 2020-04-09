@@ -8,7 +8,7 @@
         </div>
         <ul class="list-item">
             <li class="item-content" v-for="(item,index) in hotCreate" :key="index">
-                <img src='static\icons\middle\组件 86 – 1.png' class="content-img">
+                <img src='static\imgs\touxiang\批注 2020-02-10 002238.jpg' class="content-img">
                 <div class="content-desc">{{item.passage.title}}</div>
                 <div class="content-hot">{{item.passage.collection}} 热度</div>
             </li>
@@ -26,6 +26,7 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
+    @import '../../../assets/styles/dayChange.styl';
     .list {
         margin-left: 0.4rem
         margin-right:0.4rem
@@ -51,7 +52,7 @@ export default {
         .list-item {
             margin-top:0.14rem  
             .item-content {
-                background-color rgba(255,255,255,0.9)
+                background-color $bgColor
                 margin-bottom:0.2rem
                 height 1rem
                 border-radius 0.22rem
@@ -71,12 +72,12 @@ export default {
                     margin-left:0.16rem
                     flex 1
                     font-size 0.28rem
-                    color:#000000
+                    color:$fontColor
                     font-family: PingFang SC
                 }
                 .content-hot {
                     margin-right:0.34rem
-                    color:#000000
+                    color:$fontColor
                     font-size 0.24rem
                     font-family: PingFang SC
                 }

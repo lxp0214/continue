@@ -1,45 +1,12 @@
 <template>
     <div class='list'>
         <ul class='wrapper'>
-            <li class='item'>
+            <li class='item' v-for="(item,index) in 6" :key="index">
                 <div class='item-title'>|| 谁偷走了我的昨天</div>
                 <div class='item-content'>日本。东京市。练马区。天空中的云层倾轧而下，镇子里逐渐阴下来，寒风萧瑟……</div>
                 <div class='item-name'>
                     <div class='item-name-left'>
-                        <img src='static\icons\middle\组件 86 – 1.png' class='item-name-img'>
-                        <div class='item-name-name'>用户名称</div>
-                    </div>
-                    <div class='item-name-right'>3月10日</div>
-                </div>
-            </li>
-            <li class='item'>
-                <div class='item-title'>|| 谁偷走了我的昨天</div>
-                <div class='item-content'>日本。东京市。练马区。天空中的云层倾轧而下，镇子里逐渐阴下来，寒风萧瑟……</div>
-                <div class='item-name'>
-                    <div class='item-name-left'>
-                        <div class='item-name-img'></div>
-                        <div class='item-name-name'>用户名称</div>
-                    </div>
-                    <div class='item-name-right'>3月10日</div>
-                </div>
-            </li>
-            <li class='item'>
-                <div class='item-title'>|| 谁偷走了我的昨天</div>
-                <div class='item-content'>日本。东京市。练马区。天空中的云层倾轧而下，镇子里逐渐阴下来，寒风萧瑟……</div>
-                <div class='item-name'>
-                    <div class='item-name-left'>
-                        <div class='item-name-img'></div>
-                        <div class='item-name-name'>用户名称</div>
-                    </div>
-                    <div class='item-name-right'>3月10日</div>
-                </div>
-            </li>
-            <li class='item'>
-                <div class='item-title'>|| 谁偷走了我的昨天</div>
-                <div class='item-content'>日本。东京市。练马区。天空中的云层倾轧而下，镇子里逐渐阴下来，寒风萧瑟……</div>
-                <div class='item-name'>
-                    <div class='item-name-left'>
-                        <div class='item-name-img'></div>
+                        <img src='static/imgs/touxiang/批注 2020-02-10 002238.jpg' class='item-name-img'>
                         <div class='item-name-name'>用户名称</div>
                     </div>
                     <div class='item-name-right'>3月10日</div>
@@ -57,6 +24,7 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
+  @import '../../../../assets/styles/dayChange.styl';
   .list 
     .foot 
       font-size: .22rem
@@ -72,15 +40,16 @@ export default {
         padding-right: .28rem
         margin-bottom: .3rem
         //border: solid .01rem
-        background-color rgba(255,255,255,0.9)
+        background-color $bgColor
         .item-title
           height: .72rem
           line-height: .8rem
           font-size: .32rem
+          color $fontColor
         .item-content
           height: 1rem
           font-size: .3rem
-          color: #707070
+          color $fontColor
         .item-name
           display: flex
           justify-content: space-between
@@ -88,6 +57,7 @@ export default {
           .item-name-right 
             height: .56rem
             line-height: .56rem
+            color $fontColor
           .item-name-left
             height: .56rem
             display: flex 
@@ -103,6 +73,7 @@ export default {
               height: .56rem
               line-height: .56rem
               margin-left: .1rem
+              color $fontColor
            
 </style>
 

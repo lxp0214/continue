@@ -22,7 +22,7 @@ export default {
 <style lang='stylus' scoped>
   .body
     color #ffffff
-    border-top: solid .01rem
+    //border-top: solid .01rem
     height: 9.04rem
     margin-top: .4rem
     padding-top: 1rem

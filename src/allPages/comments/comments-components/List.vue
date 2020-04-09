@@ -8,7 +8,7 @@
             <li class='item' v-for="(item,index) in 3" :key="index">
                 <div class='top'>
                     <div class='flex-wrapper'>
-                        <img src='static\icons\middle\组件 86 – 1.png' class='img'>
+                        <img src='static\imgs\touxiang\批注 2020-02-10 002238.jpg' class='img'>
                         <div class='name'>xxx用户</div>
                         <div class='time'>3月10日16:30</div>
                     </div>
@@ -19,7 +19,7 @@
             <li class='item'>
                 <div class='top'>
                     <div class='flex-wrapper'>
-                        <img src='static\icons\middle\组件 86 – 1.png' class='img'>
+                        <img src='static\imgs\touxiang\批注 2020-02-10 002238.jpg' class='img'>
                         <div class='name'>xxx用户</div>
                         <div class='time'>3月10日16:30</div>
                     </div>
@@ -30,7 +30,7 @@
             <li class='item'>
                 <div class='top'>
                     <div class='flex-wrapper'>
-                        <img src='static\icons\middle\组件 86 – 1.png' class='img'>
+                        <img src='static\imgs\touxiang\批注 2020-02-10 002238.jpg' class='img'>
                         <div class='name'>xxx用户</div>
                         <div class='time'>3月10日16:30</div>
                     </div>

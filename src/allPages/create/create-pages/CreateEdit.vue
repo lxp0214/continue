@@ -32,6 +32,7 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
+  @import '../../../assets/styles/dayChange.styl';
   .header
     margin-top: .4rem
     margin-bottom: .3rem
@@ -53,7 +54,7 @@ export default {
     padding-right: .4rem
     height: 11.78rem
     .body 
-      background-color: #ffffff
+      background-color: $bgColor
       box-sizing:border-box
       -moz-box-sizing:border-box
       -webkit-box-sizing:border-box
@@ -76,9 +77,9 @@ export default {
           height: 100%
           text-align: center
           font-size: .4rem
-          background-color rgba(255,255,255,0.8)
+          background-color $bgColor
           &::placeholder 
-            color: #000000
+            color: $fontColor
       .small-wrapper 
         width: 100%
         height: .67rem
@@ -87,19 +88,19 @@ export default {
           width: 100% 
           height: 100%
           font-size: .32rem
-          background-color rgba(255,255,255,0.8)
+          background-color $bgColor
           &::placeholder 
-            color: #000000
+            color: $fontColor
           border-bottom: solid .01rem #707070
       .content-wrapper 
         width: 100% 
         height: 10.38rem
         .content 
-          background-color rgba(255,255,255,0.8)
+          background-color $bgColor
           width: 100%
           height: 100%
           &::placeholder 
-            color: #000000
+            color: $fontColor
           line-height: .42rem
           font-size: .32rem
 

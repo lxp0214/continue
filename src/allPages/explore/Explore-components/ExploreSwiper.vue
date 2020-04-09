@@ -1,5 +1,4 @@
 <template>
-<router-link to='/articaldetails'>
     <div class="warpper">
         <div class="swiper-content">
             <swiper :options="swiperOption" ref="mySwiper">
@@ -22,7 +21,6 @@
         </div>
         <div class="item">本周热续 || 雨打芭蕉湿</div>
     </div>
-</router-link>
 </template>
 
 <script>

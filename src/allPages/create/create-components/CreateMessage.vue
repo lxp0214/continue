@@ -11,7 +11,7 @@
                 <div class='item-top'>|| 谁偷走了我的昨天</div>
                 <div class='item-bottom'>
                     <div class='bottom-left'>
-                        <img src='static\icons\middle\组件 86 – 1.png' class='img'>
+                        <img src='static/imgs/touxiang/批注 2020-02-10 002238.jpg' class='img'>
                         <div class='desc'>用户名称</div>
                     </div>
                     <div class='bottom-right'>3月10日</div>
@@ -29,6 +29,7 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
+  @import '../../../assets/styles/dayChange.styl';
   .head 
     color #ffffff
     height: .6rem
@@ -44,7 +45,7 @@ export default {
       color #ffffff
   .wrapper 
     .item 
-      background-color rgba(255,255,255,0.9)
+      background-color $bgColor
       height: 1.3rem
       margin-left: .4rem
       margin-right: .4rem
@@ -58,6 +59,7 @@ export default {
         line-height: .5rem
         font-size: .32rem
         margin-bottom: .2rem
+        color $fontColor
       .item-bottom 
         height: .4rem
         color: #707070
@@ -76,6 +78,8 @@ export default {
           .desc 
             line-height: .4rem
             font-size: .24rem
+            color $fontColor
         .bottom-right 
           line-height: .4rem
+          color $fontColor
 </style>

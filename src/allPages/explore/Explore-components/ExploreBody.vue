@@ -22,6 +22,7 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
+    @import '../../../assets/styles/dayChange.styl'
     .border {
         border:1px solid #000000
     }
@@ -37,14 +38,14 @@ export default {
             float right
         }
         .button-left,.button-right {
-            background-color rgba(255,255,255,0.9)
+            background-color $bgColor
             width:3.14rem
             height:1.2rem;
             border-radius:0.2rem
             .text {
                 padding-top:34px
                 padding-left :16px
-                color #000000
+                color $fontColor
             }
         }
     }

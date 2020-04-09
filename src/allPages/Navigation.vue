@@ -75,12 +75,13 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
+  @import '../assets/styles/dayChange.styl';
   .navigation
     z-index: 9999
     touch-action: none
     height: 1.2rem
     line-height 1.2rem
-    background: #ffffff
+    background: $bgColor
     position: fixed
     right: 0
     left: 0

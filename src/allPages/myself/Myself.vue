@@ -193,4 +193,5 @@ export default {
 <style lang='stylus' scoped>
     .tip
         padding-left 0.4rem
+        color #ffffff
 </style>

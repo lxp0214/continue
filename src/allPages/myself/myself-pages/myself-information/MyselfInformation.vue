@@ -11,21 +11,21 @@
             <div class='img'>
                 <div class='img-text'>头像</div>
                 <div class='icon-wrapper'>
-                  <img src='static\icons\middle\组件 86 – 1.png' class='img-img'>
+                  <img src='static\imgs\touxiang\批注 2020-02-10 002238.jpg' class='img-img'>
                   <img src='static\icons\middle\组件 41 – 1.png' class='icon'>
                 </div>
             </div>
             <div class='item'>
               <div class='item-name'>昵称</div>
               <div class='name-wrapper'>
-                <div class='name' ref='name' @click="quxiao('name')">嘿凤梨</div>
+                <div class='name' ref='name' @click="quxiao('name')">黑凤梨</div>
                 <img src='static\icons\middle\组件 41 – 1.png' class='icon' @click="show('name')" v-show='nameImgShow'>
               </div>
             </div>
             <transition enter-active-class='animated fadeIn' leave-active-class='animated fadeOut'>
             <div class='modifyName' v-show='nameShow'>
-              <input class='input' type='text' value='黑凤梨'>
-              <button class='button' @click="queren('name')">确认</button>
+              <input class='input' type='text' value='输入你的新昵称吧' v-model="username">
+              <button class='button' @click="queren('name',' ')">确认</button>
             </div>
             </transition>
             <div class='item'>
@@ -36,14 +36,14 @@
               </div>
             </div>
             <div class='modifySex' v-show='sexShow'>
-              <button class='button' @click="queren('sex')">男</button>
-              <button class='button' @click="queren('sex')">女</button>
-              <button class='button' @click="queren('sex')">保密</button>
+              <button class='button' @click="queren('sex','male')">男</button>
+              <button class='button' @click="queren('sex','female')">女</button>
+              <button class='button' @click="queren('sex','unknow')">保密</button>
             </div>
             <div class='item'>
               <div class='item-name'>简介</div>
               <div class='name-wrapper'>
-                <div ref='introduce' @click="quxiao('introduce')">&nbsp;</div>
+                <div ref='introduce' @click="quxiao('introduce',' ')">&nbsp;</div>
                 <img src='static\icons\middle\组件 41 – 1.png' class='icon' @click="show('introduce')" v-show='introduceImgShow'>
               </div>
             </div>
@@ -102,7 +102,9 @@ export default {
         sexShow: false,
         sexImgShow:true,
         introduceShow: false,
-        introduceImgShow: true
+        introduceImgShow: true,
+        username:'',
+        usersex:'',
       }
     },
     methods: {
@@ -144,18 +146,28 @@ export default {
             break;
         }
       },
-      queren (val) {
+      queren (val,info) {
         switch (val) {
           case 'name':
             this.nameShow = false
             this.nameImgShow = true 
-            this.$refs.name.innerHTML = '黑凤梨'
+            this.$refs.name.innerHTML = this.username
             break;
           case 'sex':
             this.sexShow = false 
             this.sexImgShow = true
-            this.$refs.sex.innerHTML = '女'
-            break ;
+            if(info == 'male') {
+                this.$refs.sex.innerHTML = '男'
+                break ;
+            }
+            if(info == 'female') {
+                this.$refs.sex.innerHTML = '女'
+                break ;
+            }
+            if(info == 'unknow') {
+                this.$refs.sex.innerHTML = '保密'
+                break ;
+            }
           case 'introduce':
             this.introduceShow = false 
             this.introduceImgShow = true

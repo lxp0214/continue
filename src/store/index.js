@@ -7,6 +7,7 @@ export default new Vuex.Store({
     state: {
         token: '', //操作令牌
         artical: [],
+        comments: [],
         darkImg: true,
         fontColor: '#000000',
         bgColor: '#ffffff',

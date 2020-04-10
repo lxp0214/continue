@@ -15,7 +15,8 @@
                     <input class='title' type='text' placeholder="你的标题" >
                 </div>
                 <div class='small-wrapper'>
-                    <input class='small' type='text' placeholder='1 小标题'>
+                    <div>1&nbsp;</div>
+                    <input class='small' type='text' placeholder='小标题'>
                 </div>
                 <div class='content-wrapper'>
                     <textarea class='content' placeholder='开始创作……'></textarea>
@@ -52,7 +53,7 @@ export default {
   .wrapper
     padding-left: .4rem
     padding-right: .4rem
-    height: 11.78rem
+    height: 11.7rem
     .body 
       background-color: $bgColor
       box-sizing:border-box
@@ -84,17 +85,22 @@ export default {
         width: 100%
         height: .67rem
         margin-bottom: .2rem
+        display: flex
+        border-bottom: solid .01rem #707070
+        div 
+          height: 100%
+          line-height: .67rem
+          font-size: .32rem
         .small
-          width: 100% 
+          width: 90% 
           height: 100%
           font-size: .32rem
           background-color $bgColor
           &::placeholder 
             color: $fontColor
-          border-bottom: solid .01rem #707070
       .content-wrapper 
         width: 100% 
-        height: 10.38rem
+        height: 9rem
         .content 
           background-color $bgColor
           width: 100%

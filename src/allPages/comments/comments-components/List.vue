@@ -2,7 +2,12 @@
     <div>
         <div class='head'>
             | 添加评论
-            <img src='static\icons\middle\组件 56 – 1.png' class='img'>
+            <img src='static\icons\middle\组件 56 – 1.png' class='img' @click='addComments'>
+            <span ref='quxiao' @click='quxiao'></span>
+        </div>
+        <div class='input-wrapper' v-show='commentsInputShow'>
+          <textarea type='text' placeholder='请输入评论' v-model='addcomments'></textarea>
+          <button @click='queren'>确认</button>
         </div>
         <ul class='wrapper'>
             <li class='item' v-for="(item,index) in 3" :key="index">
@@ -48,7 +53,9 @@ export default {
     data () {
       return {
         iconUrl: 'static'+'/'+'icons'+'/'+'small'+'/'+'组件 60 – 1.png',
-        red: false
+        red: false,
+        commentsInputShow: false,
+        addcomments: ''
       }
     },
     methods: {
@@ -59,6 +66,34 @@ export default {
         } else {
           this.$refs.icon.src = 'static'+'/'+'icons'+'/'+'small'+'/'+'组件 60 – 1.png'
         }
+      },
+      addComments () {
+        this.commentsInputShow = true
+        this.$refs.quxiao.innerHTML = '取消'
+      },
+      queren () {
+        this.commentsInputShow = false
+        this.$refs.quxiao.innerHTML = ''
+        var data = this.addcomments
+        fetch('',{
+                  mode:'cors',
+                  method:'POST',
+                  body: JSON.stringify(data),
+                  headers:
+                    new Headers({
+                        'Content-Type':'application/json',
+                        'Authorization':localStorage.token_id
+                    })
+        }).then(res => res.json().then(body => {
+            console.log(body)
+            if(body.code===0) {
+                
+            }
+        }))
+      },
+      quxiao() {
+        this.commentsInputShow = false
+        this.$refs.quxiao.innerHTML = ''
       }
     }
 }
@@ -67,21 +102,41 @@ export default {
 <style lang='stylus' scoped>
   .head 
     margin-top: .48rem
-    margin-bottom: .4rem
     background: #ffffff
     height: 1.06rem
     line-height: 1.06rem
     font-size: .36rem
     font-weight: 600
-    padding-left: .28rem
+    padding: 0 .28rem
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.16)
     img 
       width: .5rem
       margin-left: .48rem
+    span 
+      float: right
+  .input-wrapper  
+    height: 3.08rem
+    background-color: #ffffff
+    margin-bottom: .4rem
+    padding: .2rem .4rem
+    border-bottom-right-radius:.6rem
+    border-bottom-left-radius:.6rem 
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.16)
+    textarea  
+      height: 2.28rem
+      width: 100%
+      line-height: .4rem
+      font-size: .32rem
+    button 
+      float: right
+      background: #ffffff
+      font-size: .32rem 
+      color: #000000
   .wrapper 
     .item 
       height: 1.3rem 
       background: #fff
-      margin-bottom: .3rem
+      margin-top: .3rem
       padding: 0 .28rem
       padding-top: .2rem
       .top 

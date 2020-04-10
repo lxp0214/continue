@@ -30,9 +30,6 @@
 import ArticalDetailsTitle from './ArticalDetailsTitle'
 export default {
   name: 'ArticalDetailsChapter',
-  props: {
-    contents: Object
-  },
   methods: {
     handleGetComments() {
         this.$router.push('/comments')

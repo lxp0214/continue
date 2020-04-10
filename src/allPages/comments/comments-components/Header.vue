@@ -21,7 +21,7 @@ export default {
     line-height: .88rem
     text-align: center
     font-size: .5rem
-    border-top: solid .01rem
+    //border-top: solid .01rem
     display: flex 
     justify-content: space-between 
     align-items: center

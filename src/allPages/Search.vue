@@ -25,7 +25,8 @@ export default {
           datas:[],
           keyword:'',
           Lists:[],
-          timer:null
+          timer:null,
+          url:'',
       }
   },
   props: {
@@ -64,102 +65,51 @@ export default {
               return
           }
           this.timer = setTimeout(() => {
-              const result = [];
-              this.datas.forEach(value => {
-                  if((value.title.indexOf(this.keyword) > -1) || (value.content.indexOf(this.keyword) > -1)) {
-                      result.push(value);
-                  }
-              })
-              this.Lists = result
+              var url_old = 'http://127.0.0.1:9930/v1/passage?key='+this.keyword
+              this.url = encodeURI(url_old)
+              fetch(this.url, {
+                mode:'cors',
+                method:'GET',
+                headers:
+                    new Headers({
+                        'Content-Type':'application/json',
+                        'Authorization':localStorage.token_id
+                    })
+                }).then(res => res.json().then(body => {
+                console.log(body)
+                if(body.code === 0) {
+                    console.log(body.message)
+                    var data = body.data
+                    this.datas = data
+                    this.Lists = data
+                }
+            })).catch(error => console.log("error: ", error))
           },100)
       }
-  },
-  mounted() {
-      if(this.param === 'allThings') {
-          console.log(this.param)
-          this.getAllInfo()
-      }
-      if(this.param === 'hotcontinue') {
-          console.log(this.param)
-          this.getHotContinueInfo()
-      }
-      if(this.param === 'hotcreate') {
-          console.log(this.param)
-          this.getHotCreateInfo()
-      }
-      if(this.param === 'newcontinue') {
-          console.log(this.param)
-          this.getNewContinueInfo()
-      }
-      if(this.param === 'newcreate') {
-          console.log(this.param)
-          this.getNewCreateInfo()
-      } 
   },
   methods: {
       handleCloseSearch() {
           this.$emit('close')
       },
-      getAllInfo() {
-          //等待考究
-      },
-      getHotContinueInfo() {
-        //   axios.get('static/mock/collection.json').then(res => {
-        //       res = res.data;
-        //       if(res.ret && res.data) {
-        //           const data = res.data;
-        //           this.datas = data.collections;
-        //       }
-        //   });
-            fetch('http://api.gxy.ink/v1/hot/sequels?page=1', {
-            mode:'cors',
-            method:'GET',
-            headers:
-                new Headers({
-                    'Content-Type':'application/json',
-                    'Authorization':localStorage.token_id
-                })
-            }).then(res => res.json().then(body => {
-            console.log(body)
-            if(body.code === 0) {
-                console.log(body.message)
-                var data = body.data
-                data.forEach(value => {
-                    value.sections.forEach(item => {
-                        this.datas.push(item)
-                    })
-                })
-                console.log(this.datas)
-             }
-           })).catch(error => console.log("error: ", error))
-      },
-      getHotCreateInfo() {
-          axios.get('static/mock/collection.json').then(res => {
-              res = res.data;
-              if(res.ret && res.data) {
-                  const data = res.data;
-                  this.datas = data.collections;
-              }
-          });
-      },
-      getNewContinueInfo() {
-          axios.get('static/mock/collection.json').then(res => {
-              res = res.data;
-              if(res.ret && res.data) {
-                  const data = res.data;
-                  this.datas = data.collections;
-              }
-          });
-      },
-      getNewCreateInfo() {
-          axios.get('static/mock/collection.json').then(res => {
-              res = res.data;
-              if(res.ret && res.data) {
-                  const data = res.data;
-                  this.datas = data.collections;
-              }
-          });
-      }
+    //   getAllInfo(url) {
+    //       fetch(url, {
+    //         mode:'cors',
+    //         method:'GET',
+    //         headers:
+    //             new Headers({
+    //                 'Content-Type':'application/json',
+    //                 'Authorization':localStorage.token_id
+    //             })
+    //         }).then(res => res.json().then(body => {
+    //         console.log(body)
+    //         if(body.code === 0) {
+    //             console.log(body.message)
+    //             var data = body.data
+    //             this.datas = data
+    //             this.Lists = data
+    //          }
+    //        })).catch(error => console.log("error: ", error))
+    //   },
   }
 }
 </script>

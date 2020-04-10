@@ -1,14 +1,16 @@
 <template>
     <div ref="wrapper">
-        <div class='list' @click="handleGetArtical">      
+        <div class='list'>      
             <div>
                 <ul class='wrapper'>
-                    <li class='item' v-for="(item,index) in datas" :key="index">
+                    <li class='item' v-for="(item,index) in datas" :key="index" @click="handleGetArtical(item)">
                         <div class='item-title'>|| {{item.title}}</div>
                         <div class='item-content'>{{item.content}}</div>
                         <div class='item-name'>
                             <div class='item-name-left'>
-                                <div class='item-name-img'></div>
+                                <div class='item-name-img'>
+                                    <img src="static\imgs\touxiang\批注 2020-02-10 002238.jpg" alt="">
+                                </div>
                                 <div class='item-name-name'>{{item.user_nickname}}</div>
                             </div>
                             <div class='item-name-right'>{{new Date().toLocaleDateString(item.create_at)}}</div>
@@ -42,7 +44,8 @@ export default {
         }
     },
     methods: {
-        handleGetArtical() {
+        handleGetArtical(item) {
+            this.$store.commit('getArtical',item)
             this.$router.push('/articaldetails')
         }
     },
@@ -90,6 +93,10 @@ export default {
               height: .54rem
               background: red
               float: left 
+              img 
+                width 100%
+                height 100%
+                border-radius 50%
             .item-name-name
               float: right
               height: .58rem

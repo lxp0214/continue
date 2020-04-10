@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul class='wrapper'>
-            <li class='item' v-for='(item,index) of contents.sections' :key='index'>
+            <li class='item' v-for='(item,index) of this.$store.state.artical.sections' :key='index'>
                 <div class='item-title'>{{item.title}}</div>
                 <div class='content'>{{item.content}}</div>
                 <div class='foot'>
@@ -36,6 +36,23 @@ export default {
   methods: {
     handleGetComments() {
         this.$router.push('/comments')
+        fetch('',{
+              mode:'cors',
+              method:'GET',
+              headers:
+                new Headers({
+                    'Content-Type':'application/json',
+                    'Authorization':localStorage.token_id,
+                    'passage_id': this.$store.state.artical.sections[0].passage_id,
+                    'content': '文章评论'
+                })
+        }).then(res => res.json().then(body => {
+        console.log(body)
+        if(body.code===0) {
+            this.comments = body.data.content
+            console.log(this.contents)
+        }
+        }))
     }
   }
 }

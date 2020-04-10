@@ -37,13 +37,6 @@ export default({
     props:{
       contents: Array,
     },
-    data () {
-      return {
-        swiperOption: {
-          loop: true
-        }
-      }
-    },
     methods: {
         //监听路由
         handleGetArtical(item) {

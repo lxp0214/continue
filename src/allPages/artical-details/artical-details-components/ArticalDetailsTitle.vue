@@ -1,12 +1,12 @@
 <template>
     <div class='wrapper'>
-        <div class='top'>{{this.contents.passage.title}}</div>
+        <div class='top'>{{this.$store.state.artical.passage.title}}</div>
         <div class='bottom'>
             <div class='left'>
                 <div class='img'>
                     <img src="static\imgs\touxiang\批注 2020-02-10 002238.jpg" alt="" class="img-img">
                 </div>
-                <div class='desc'>由{{this.contents.passage.user_nickname}}发起</div>
+                <div class='desc'>由{{this.$store.state.artical.passage.user_nickname}}发起</div>
             </div>
             <div class='right'>
                 <img src='static\icons\middle\组件 74 – 1.png'>

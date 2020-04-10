@@ -28,19 +28,25 @@ export default {
             let val = this.$route.path
             switch (val) {
                 case '/create': 
-                    this.imgUrl.createIcon = 'static'+'/'+'icons'+'/'+'tab'+'/'+'createOn.png'
-                    this.imgUrl.exploreIcon = 'static'+'/'+'icons'+'/'+'tab'+'/'+'exploreOff.png'
-                    this.imgUrl.myselfIcon = 'static'+'/'+'icons'+'/'+'tab'+'/'+'myselfOff.png'
+                    this.imgUrl = {
+                        createIcon : 'static'+'/'+'icons'+'/'+'tab'+'/'+'createOn.png',
+                        exploreIcon : 'static'+'/'+'icons'+'/'+'tab'+'/'+'exploreOff.png',
+                        myselfIcon : 'static'+'/'+'icons'+'/'+'tab'+'/'+'myselfOff.png'
+                    }
                     break
                 case '/explore':
-                    this.imgUrl.createIcon = 'static'+'/'+'icons'+'/'+'tab'+'/'+'createOff.png'
-                    this.imgUrl.exploreIcon = 'static'+'/'+'icons'+'/'+'tab'+'/'+'exploreOn.png'
-                    this.imgUrl.myselfIcon = 'static'+'/'+'icons'+'/'+'tab'+'/'+'myselfOff.png'
+                    this.imgUrl = {
+                        createIcon : 'static'+'/'+'icons'+'/'+'tab'+'/'+'createOff.png',
+                        exploreIcon : 'static'+'/'+'icons'+'/'+'tab'+'/'+'exploreOn.png',
+                        myselfIcon : 'static'+'/'+'icons'+'/'+'tab'+'/'+'myselfOff.png'
+                    }
                     break
                 case '/myself': 
-                    this.imgUrl.createIcon = 'static'+'/'+'icons'+'/'+'tab'+'/'+'createOff.png'
-                    this.imgUrl.exploreIcon = 'static'+'/'+'icons'+'/'+'tab'+'/'+'exploreOff.png'
-                    this.imgUrl.myselfIcon = 'static'+'/'+'icons'+'/'+'tab'+'/'+'myselfOn.png'
+                    this.imgUrl = {
+                        createIcon : 'static'+'/'+'icons'+'/'+'tab'+'/'+'createOff.png',
+                        exploreIcon : 'static'+'/'+'icons'+'/'+'tab'+'/'+'exploreOff.png',
+                        myselfIcon : 'static'+'/'+'icons'+'/'+'tab'+'/'+'myselfOn.png'
+                    }
                     break
 
         }
@@ -49,21 +55,27 @@ export default {
         handleClick(val) {
             switch (val) {
                 case '/create': 
-                    this.imgUrl.createIcon = 'static/icons/tab/createOn.png'
-                    this.imgUrl.exploreIcon = 'static/icons/tab/exploreOff.png'
-                    this.imgUrl.myselfIcon = 'static/icons/tab/myselfOff.png'
+                    this.imgUrl = {
+                        createIcon : 'static'+'/'+'icons'+'/'+'tab'+'/'+'createOn.png',
+                        exploreIcon : 'static'+'/'+'icons'+'/'+'tab'+'/'+'exploreOff.png',
+                        myselfIcon : 'static'+'/'+'icons'+'/'+'tab'+'/'+'myselfOff.png'
+                    }
                     this.$router.push({ path: '/create' })
                     break
                 case '/explore':
-                    this.imgUrl.createIcon = 'static/icons/tab/createOff.png'
-                    this.imgUrl.exploreIcon = 'static/icons/tab/exploreOn.png'
-                    this.imgUrl.myselfIcon = 'static/icons/tab/myselfOff.png'
+                    this.imgUrl = {
+                        createIcon : 'static'+'/'+'icons'+'/'+'tab'+'/'+'createOff.png',
+                        exploreIcon : 'static'+'/'+'icons'+'/'+'tab'+'/'+'exploreOn.png',
+                        myselfIcon : 'static'+'/'+'icons'+'/'+'tab'+'/'+'myselfOff.png'
+                    }
                     this.$router.push({ path: '/explore' })
                     break
                 case '/myself': 
-                    this.imgUrl.createIcon = 'static/icons/tab/createOff.png'
-                    this.imgUrl.exploreIcon = 'static/icons/tab/exploreOff.png'
-                    this.imgUrl.myselfIcon = 'static/icons/tab/myselfOn.png'
+                    this.imgUrl = {
+                        createIcon : 'static'+'/'+'icons'+'/'+'tab'+'/'+'createOff.png',
+                        exploreIcon : 'static'+'/'+'icons'+'/'+'tab'+'/'+'exploreOff.png',
+                        myselfIcon : 'static'+'/'+'icons'+'/'+'tab'+'/'+'myselfOn.png'
+                    }
                     this.$router.push({ path: '/myself' })
                     break
             

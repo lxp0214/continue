@@ -1,10 +1,5 @@
 <template>
   <div>
-    <transition>
-        <div v-show='headerShow' class='head' >
-            探索
-        </div>
-    </transition>
     <div class='header'>
         <div class='left'>
             <div class='left-top'>探索</div>
@@ -31,22 +26,12 @@ export default {
     },
     data () {
         return {
-            headerShow: false,
             showSearch: false,
             param:false,
             link:'allThings'
         }
     },
     methods: {
-        handleScroll () {
-            console.log(document.documentElement.scrollTop)
-            const top = document.documentElement.scrollTop
-            if (top > 120) {
-                this.headerShow = true
-            } else {
-                this.headerShow = false
-            }
-        },
         handleShowSearch() {
             this.showSearch = true
             this.param = true
@@ -62,23 +47,6 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
-  .head 
-      background: rgb(174,222,252)
-      height: 1rem 
-      line-height: 1rem 
-      position: fixed 
-      top: 0
-      right: 0
-      left: 0
-      text-align: center 
-      font-size: .64rem
-      z-index: 100
-  .v-enter,.v-leave-to{
-      opacity: 0;
-  }
-  .v-enter-active,.v-leave-active{
-      transition: all .5S 
-    }
   .header
     color #ffffff
     position relative

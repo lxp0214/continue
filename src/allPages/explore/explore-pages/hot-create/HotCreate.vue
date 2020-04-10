@@ -20,7 +20,7 @@ export default {
       NewAndHot
   },
   mounted () {
-    fetch('http://api.gxy.ink/v1/latest/creations?page=1',{
+    fetch('http://api.gxy.ink/v1/hot/creations?page=1',{
               mode:'cors',
               method:'GET',
               headers:

@@ -29,6 +29,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='stylus'>
+    @import '../../assets/styles/dayChange.styl'
     .search-list {
         margin-left:0.4rem;
         margin-top:0.45rem;
@@ -45,7 +46,7 @@ export default {
             margin-right 0.22rem
             width auto
             height 0.45rem
-            background-color #ffffff 
+            background-color $bgColor
             line-height 0.45rem
             text-align center
             border-radius 0.36rem
@@ -56,7 +57,7 @@ export default {
             padding-bottom 0.12rem
             padding-left 0.2rem
             padding-right 0.2rem
-            color: #000000;
+            color: $fontColor;
         }
     }
 </style>

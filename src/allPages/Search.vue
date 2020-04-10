@@ -166,6 +166,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='stylus'>
+    @import '.././assets/styles/dayChange.styl'
     .border {
         border: solid 1px #707070
     }
@@ -176,7 +177,7 @@ export default {
         right :0
         top:0
         bottom:0
-        background-color rgba(255,255,255,0.8)
+        background-color $bgApColoe
         z-index:99
         display :flex
         flex-direction :column
@@ -210,7 +211,7 @@ export default {
             margin-top:0.42rem;
             font-size:0.22rem;
             font-family: Segoe UI;
-            color: #000000;
+            color: $fontColor;
         }
         .tip {
             margin-left 0.4rem

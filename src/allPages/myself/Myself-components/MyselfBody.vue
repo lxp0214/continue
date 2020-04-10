@@ -69,12 +69,13 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
+  @import '../../../assets/styles/dayChange.styl';
   .body
     height: 2.8rem
     .top
       height 1.04rem
       margin: 0 .4rem
-      background: rgba(255,255,255,0.9)
+      background: $bgColor
       border-radius: .6rem
       padding: 0 .4rem
       .top-item 
@@ -86,7 +87,7 @@ export default {
         line-height: 1.04rem
         text-align: center
         font-size: .32rem
-        color: #000000
+        color: $fontColor
         opacity: 0.54
         font-weight: 400
       .right  
@@ -111,7 +112,9 @@ export default {
         padding-right: .4rem
         font-size: .4rem
         border-radius: .22rem
-        background-color rgba(255,255,255,0.9)
+        background-color $bgColor
+        &::placeholder 
+            color: $fontColor
       img 
         position: absolute 
         top: .2rem

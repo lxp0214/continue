@@ -14,7 +14,7 @@ export default {
     name: 'ArticalDetails',
     data () {
       return {
-          contents: {}
+          contents: this.$store.state.artical
       }
     },
     components: {
@@ -22,23 +22,23 @@ export default {
         ArticalDetailsTitle,
         ArticalDetailsChapter
     },
-    mounted () {
-    fetch('http://api.gxy.ink/v1/hot/sequels?page=1',{
-              mode:'cors',
-              method:'GET',
-              headers:
-                new Headers({
-                    'Content-Type':'application/json',
-                    'Authorization':localStorage.token_id
-                })
-    }).then(res => res.json().then(body => {
-        console.log(body)
-        if(body.code===0) {
-            this.contents = body.data[0]
-            console.log(this.contents)
-        }
-    }))
-  }
+//     mounted () {
+//     fetch('http://api.gxy.ink/v1/hot/sequels?page=1',{
+//               mode:'cors',
+//               method:'GET',
+//               headers:
+//                 new Headers({
+//                     'Content-Type':'application/json',
+//                     'Authorization':localStorage.token_id
+//                 })
+//     }).then(res => res.json().then(body => {
+//         console.log(body)
+//         if(body.code===0) {
+//             this.contents = body.data[0]
+//             console.log(this.contents)
+//         }
+//     }))
+//   }
 }
 </script>
 

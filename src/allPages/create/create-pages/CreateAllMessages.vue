@@ -14,7 +14,7 @@
                     <div class='item-content'>日本。东京市。练马区。天空中的云层倾轧而下，镇子里逐渐阴下来，寒风萧瑟……</div>
                     <div class='item-name'>
                         <div class='item-name-left'>
-                            <img src='static\icons\middle\组件 86 – 1.png' class='item-name-img'>
+                            <img src='static\imgs\touxiang\批注 2020-02-10 002238.jpg' class='item-name-img'>
                             <div class='item-name-name'>用户名称</div>
                         </div>
                         <div class='item-name-right'>3月10日</div>
@@ -62,13 +62,14 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
+  @import '../../../assets/styles/dayChange.styl';
   .shawdo {
       position absolute
-      top 0
+      top 1rem
       height 100%
       width  100%
-      background-color rgba(255,255,255,0.8)
-      z-index -1
+      background-color $bgApColoe
+      z-index 0
   }
   .header
     background-color: #ffffff
@@ -82,6 +83,7 @@ export default {
     display: flex 
     justify-content: space-between 
     align-items: center
+    z-index 99
     img 
       height: .46rem
   .list 
@@ -100,12 +102,13 @@ export default {
         padding-right: .28rem
         margin-bottom: .2rem
         opacity: 0.9
-        background-color: #ffffff
+        background-color: $bgColor
         box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.16)
         .item-title
           height: .8rem
           line-height: .8rem
           font-size: .32rem
+          color $fontColor
           .gray 
             color: #000000
             opacity: 0.54
@@ -114,7 +117,7 @@ export default {
           height: .9rem
           line-height: .4rem
           font-size: .3rem
-          color: #707070
+          color $fontColor
         .item-name
           display: flex
           justify-content: space-between
@@ -122,6 +125,7 @@ export default {
           .item-name-right 
             height: .58rem
             line-height: .58rem
+            color $fontColor
           .item-name-left
             height: .58rem
             .item-name-img
@@ -135,11 +139,13 @@ export default {
               height: .58rem
               line-height: .58rem
               margin-left: .1rem
+              color $fontColor
   .reverse
     position: absolute 
     top: 1.5rem
     right: 0
     width: 3.6rem
+    z-index 99
     .reverse-item
       height: 1.2rem
       line-height: 1.2rem
@@ -149,8 +155,8 @@ export default {
       margin-top: .12rem
       margin-bottom: .12rem
       //border: solid .02rem #707070
-      background-color #ffffff
-      color #000000
+      background-color $bgColor
+      color $fontColor
   .v-enter,.v-leave-to 
     opacity: 0
   .v-enter-active,.v-leave-active 

@@ -3,13 +3,15 @@
         <div class='top'>{{this.contents.passage.title}}</div>
         <div class='bottom'>
             <div class='left'>
-                <div class='img'></div>
+                <div class='img'>
+                    <img src="static\imgs\touxiang\批注 2020-02-10 002238.jpg" alt="" class="img-img">
+                </div>
                 <div class='desc'>由{{this.contents.passage.user_nickname}}发起</div>
             </div>
             <div class='right'>
                 <img src='static\icons\middle\组件 74 – 1.png'>
                 <img src='static\icons\middle\组件 73 – 1.png'>
-                <img src='static\icons\middle\组件 72 – 1.png'>
+                <img src='static\icons\middle\组件 49 – 1.png'>
             </div>
         </div>
     </div>
@@ -25,6 +27,7 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
+  @import '../../../assets/styles/dayChange.styl';
   .wrapper 
       margin-bottom: .4rem
     .top 
@@ -48,9 +51,14 @@ export default {
           width: .5rem
           height: .5rem
           border-radius: 100%
-          background: red
+          //background: red
+          .img-img
+            width: .5rem
+            height: .5rem
+            border-radius: 100%
         .desc 
           float: right
+          color $fontColor
       .right
         float: right 
         height: .5rem

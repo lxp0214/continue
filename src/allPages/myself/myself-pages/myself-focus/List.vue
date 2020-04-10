@@ -4,7 +4,7 @@
             <div>
                 <div class="list-item border-bottom" v-for="item in 13" :key="item">
                     <router-link to='/userdetail'>
-                        <img src='static\icons\middle\组件 86 – 1.png' class="item-icon border">
+                        <img src='static/imgs/touxiang/批注 2020-02-10 002238.jpg' class="item-icon border">
                     </router-link>
                     <div class="item-user">
                         <div class="user-name">晴天娃娃</div>
@@ -33,6 +33,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='stylus'>
+    @import '../../../../assets/styles/dayChange.styl';
     .border {
         &:before {
             border:2px solid #ccc
@@ -54,7 +55,7 @@ export default {
             margin-bottom:0.2rem
             background: #eee
             border-radius: .5rem
-            background-color rgba(255,255,255,0.9)
+            background-color $bgColor
             .item-icon {
                 height:1rem
                 width:1rem
@@ -67,10 +68,12 @@ export default {
                     font-size :0.32rem;
                     line-height:0.5rem
                     font-weight:600
+                    color $fontColor
                 }
                 .user-desc {
                     font-size :0.24rem
                     line-height:0.5rem
+                    color $fontColor
                 }
             }
             .item-last {

@@ -5,11 +5,16 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        token: '' //操作令牌
+        token: '', //操作令牌
+        artical: [],
+        darkImg: true
     },
     actions: {
         getToken(ctx, token) {
             ctx.commit('getToken', token)
+        },
+        getArtical(ctx, content) {
+            ctx.commit('getArtical', content)
         }
     },
     mutations: {
@@ -17,6 +22,11 @@ export default new Vuex.Store({
             state.token = token
             localStorage.token_id = token
             console.log(state.token)
+        },
+        getArtical(state, artical) {
+            state.artical = artical
+            console.log(artical)
+            console.log('ok')
         }
     }
 })

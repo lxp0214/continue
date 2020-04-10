@@ -31,7 +31,7 @@ export default {
                 {
                     values:['原创','续写'],
                     textAlign: 'center',
-                    defaultIndex:0
+                    defaultIndex:0,
                 }
             ],
             message:'',
@@ -67,6 +67,7 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
+    @import '../../../../../assets/styles/dayChange.styl';
     .header
         margin-top: .4rem
         margin-bottom: .4rem
@@ -84,6 +85,8 @@ export default {
         img 
             height: .6rem
     .popTop 
+        background $bgColor
+        color $fontColor
         width 100%
         .picker-toolbar-title 
             display: flex;
@@ -97,5 +100,5 @@ export default {
             .usi-btn-cancel,
             .usi-btn-sure
                 padding-top 10px 
-                color: #000000
+                color: $fontColor
 </style>

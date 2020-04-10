@@ -6,7 +6,9 @@
                 <div class='content'>{{item.content}}</div>
                 <div class='foot'>
                     <div class='left'>
-                        <div class='img'></div>
+                        <div class='img'>
+                            <img src="static\imgs\touxiang\批注 2020-02-10 002238.jpg" alt="" class="img-img">
+                        </div>
                         <span class='desc'>{{item.user_nickname}}</span>
                         <span class='time'>3月10日16:30</span>
                     </div>
@@ -17,7 +19,7 @@
                 </div>
             </li>
             <li class='item'>
-                <div class='item-title'>5 || 期待你的续写....</div>
+                <div class='item-title' style="color $fontColor">5 || 期待你的续写....</div>
             </li>
         </ul>
         <button @click="handleGetComments">查看评论</button>
@@ -40,9 +42,10 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
+  @import '../../../assets/styles/dayChange.styl'
   .wrapper
     .item 
-      background-color: #ffffff
+      background-color: $bgColor
       box-sizing:border-box
       -moz-box-sizing:border-box
       -webkit-box-sizing:border-box
@@ -55,9 +58,11 @@ export default {
         height: .8rem
         line-height: .8rem
         font-size: .32rem
+        color $fontColor
       .content 
         font-size: .3rem
         line-height: .4rem
+        color $fontColor
       .foot 
         height: .36rem
         margin-top: .2rem
@@ -69,17 +74,23 @@ export default {
           display: flex
           .img 
             border-radius: 100%
-            background: red 
+            //background: red 
             width: .36rem
             height: .36rem
+            .img-img
+              width .36rem
+              height .36rem
+              border-radius 50%
           .desc 
             line-height: .36rem
             font-size: .26rem
             margin-left: .1rem
+            color $fontColor
           .time 
             line-height: .36rem
             font-size: .22rem
             margin-left: .2rem
+            color $fontColor
         .right 
           float: right
           img 
@@ -88,7 +99,8 @@ export default {
   button 
     height: .84rem 
     line-height: .84rem 
-    background-color: #ffffff
+    background-color: $bgColor
+    color $fontColor
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3)
     border-radius: .42rem
     width: 2.9rem

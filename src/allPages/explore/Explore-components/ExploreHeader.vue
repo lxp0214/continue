@@ -39,7 +39,7 @@ export default {
     },
     methods: {
         handleScroll () {
-            console.log(document.documentElement.scrollTop)
+            //console.log(document.documentElement.scrollTop)
             const top = document.documentElement.scrollTop
             if (top > 120) {
                 this.headerShow = true
@@ -80,7 +80,7 @@ export default {
       transition: all .5S 
     }
   .header
-    color #ffffff
+    color #000000
     position relative
     height: 1.24rem
     padding-left: 0.4rem
@@ -95,9 +95,11 @@ export default {
         font-size: 0.64rem
         height 0.86rem
         line-height:0.86rem
+        color #ffffff
       .left-bottom
         height: 0.38rem
         line-height: 0.38rem
+        color #ffffff
       img
         position:absolute
         top:1.3rem

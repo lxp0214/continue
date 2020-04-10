@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul class='wrapper'>
-            <li class='item' v-for='(item,index) of contents.sections' :key='index'>
+            <li class='item' v-for='(item,index) of this.$store.state.artical.sections' :key='index'>
                 <div class='item-title'>{{item.title}}</div>
                 <div class='content'>{{item.content}}</div>
                 <div class='foot'>

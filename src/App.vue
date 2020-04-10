@@ -35,6 +35,9 @@ export default {
   methods: {
       handleChange() {
           console.log(darkStyle)
+          this.$store.commit('getFont','#ffffff')
+          this.$store.commit('getbg','#000000')
+          this.$store.commit('getbgAp','rgba(0,0,0,0.8)')
       }
   }
 }
@@ -55,7 +58,7 @@ export default {
         width 33px
         height 33px
         border-radius 50%
-        background-color rgba(0,0,0,0.4)
+        //background-color rgba(0,0,0,0.4)
         z-index 1000
         top:17%
         left 40%

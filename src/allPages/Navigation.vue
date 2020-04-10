@@ -93,7 +93,7 @@ export default {
     touch-action: none
     height: 1.2rem
     line-height 1.2rem
-    background: $bgColor
+    background: $navColor
     position: fixed
     right: 0
     left: 0

@@ -23,6 +23,7 @@
             </li>
         </ul>
         <button @click="handleGetComments">查看评论</button>
+        <button @click="handleGetContinue" class="continue">我要续写</button>
     </div>
 </template>
 
@@ -36,6 +37,14 @@ export default {
   methods: {
     handleGetComments() {
         this.$router.push('/comments')
+    },
+    handleGetContinue() {
+        var passage_title = this.$store.state.artical.passage.title
+        var sections_id = this.$store.state.artical.sections.length
+        var passage_id = this.$store.state.artical.sections[0].passage_id
+        console.log(passage_title)
+        console.log(sections_id)
+        this.$router.push('/createEdit?title='+passage_title+'&number='+sections_id+'&id='+passage_id)
     }
   }
 }
@@ -108,4 +117,7 @@ export default {
     font-size: .32rem
     display: block
     margin: 0 auto
+  .continue {
+    margin-top 20px
+  }
 </style>

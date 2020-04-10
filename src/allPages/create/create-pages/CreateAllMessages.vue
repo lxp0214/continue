@@ -9,15 +9,15 @@
         </div>
         <div class='list' v-show='messageShow'>
             <ul class='wrapper'>
-                <li class='item' v-for="(item,index) in 4" :key="index">
-                    <div class='item-title'>|| 谁偷走了我的昨天<span class='gray'> 有了新的续作</span></div>
-                    <div class='item-content'>日本。东京市。练马区。天空中的云层倾轧而下，镇子里逐渐阴下来，寒风萧瑟……</div>
+                <li class='item' v-for="(item,index) in datas" :key="index">
+                    <div class='item-title'>|| {{item.passage_title}}<span class='gray'> 有了新的续作</span></div>
+                    <div class='item-content'>{{item.passage_content}}</div>
                     <div class='item-name'>
                         <div class='item-name-left'>
                             <img src='static\imgs\touxiang\批注 2020-02-10 002238.jpg' class='item-name-img'>
-                            <div class='item-name-name'>用户名称</div>
+                            <div class='item-name-name'>{{item.doer_nickname}}</div>
                         </div>
-                        <div class='item-name-right'>3月10日</div>
+                        <div class='item-name-right'>{{new Date().toLocaleDateString(item.create_at)}}</div>
                     </div>
                 </li>
             </ul>
@@ -45,7 +45,8 @@ export default {
     data () {
         return {
             messageShow: true,
-            rightUrl:'static'+'/'+'icons'+'/'+'middle'+'/'+'组件 36 – 1.png'
+            rightUrl:'static'+'/'+'icons'+'/'+'middle'+'/'+'组件 36 – 1.png',
+            datas:[],
         }
     },
     methods: {
@@ -57,7 +58,24 @@ export default {
                 this.$refs.change.src = 'static'+'/'+'icons'+'/'+'middle'+'/'+'组件 36 – 1.png'
             }
         }
-    }
+    },
+    mounted() {
+        //记得加一个setInterval 时间是5min
+        fetch('http://api.gxy.ink/v1/hot/creations?page=1',{
+            mode:'cors',
+            method:'GET',
+            headers:
+                new Headers({
+                    'Content-Type':'application/json',
+                    'Authorization':localStorage.token_id
+                })
+        }).then(res => res.json().then(body => {
+            console.log(body)
+            if(body.code === 0) {
+                this.datas = body.data;
+            }
+        })).catch(error => console.log("error: ", error))
+    },
 }
 </script>
 

@@ -3,7 +3,7 @@
         <div>
             <create-header></create-header>
             <create-body></create-body>
-            <create-message></create-message>
+            <create-message :datas="datas"></create-message>
             <!-- <navigation></navigation> -->
         </div>
     </div>
@@ -24,8 +24,28 @@ export default {
         CreateMessage,
         Navigation
     },
+    data: function() {
+        return {
+            datas:[],
+        }
+    },
     mounted() {
-    //   this.scroll = new BScroll(this.$refs.wrapper)
+        //记得加一个setInterval 时间是5min
+        fetch('http://api.gxy.ink/v1/hot/creations?page=1',{
+            mode:'cors',
+            method:'GET',
+            headers:
+                new Headers({
+                    'Content-Type':'application/json',
+                    'Authorization':localStorage.token_id
+                })
+        }).then(res => res.json().then(body => {
+            console.log(body)
+            if(body.code === 0) {
+                var result = body.data.slice(0,7)
+                this.datas = result;
+            }
+        })).catch(error => console.log("error: ", error))
     },
 }
 </script>

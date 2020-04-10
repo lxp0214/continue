@@ -10,26 +10,24 @@ export default new Vuex.Store({
         darkImg: true,
         fontColor: '#000000',
         bgColor: '#ffffff',
-        bgApColor: 'rgba(255,255,255,0.8)'
+        bgApColor: 'rgba(255,255,255,0.8)',
+        datas: {
+            title: '',
+            sonTitle: '',
+            content: '',
+            number: 0,
+            passage_id: 0,
+        }
     },
-    // actions: {
-    //     getToken(ctx, token) {
-    //         ctx.commit('getToken', token)
-    //     },
-    //     getArtical(ctx, content) {
-    //         ctx.commit('getArtical', content)
-    //     },
-    //     getFont(ctx, font) {
-    //         ctx.commit('getFont', font)
-    //     },
-    //     getbg(ctx, bg) {
-    //         ctx.commit('getbg', bg)
-    //     },
-    //     getbgAp(ctx, bgAp) {
-    //         ctx.commit('getbgAp', bgAp)
-    //     },
-    // },
     mutations: {
+        getContinue(state, datas) {
+            state.datas.title = datas.title
+            state.datas.sonTitle = datas.sonTitle
+            state.datas.content = datas.content
+            state.datas.number = datas.number
+            state.datas.passage_id = datas.passage_id
+            console.log(state.datas)
+        },
         getToken(state, token) {
             state.token = token
             localStorage.token_id = token

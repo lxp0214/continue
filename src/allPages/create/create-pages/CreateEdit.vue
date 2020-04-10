@@ -5,20 +5,18 @@
                 <img src='static\icons\middle\组件 47 – 1.png'>
             </router-link>
             创作
-            <router-link to='/readyEdit'>
-                <img src='static\icons\middle\组件 45 – 1.png'>
-            </router-link>
+            <img src='static\icons\middle\组件 45 – 1.png' @click="handleReady">
         </div>
         <div class='wrapper'>
             <div class='body'>
                 <div class='title-wrapper'>
-                    <input class='title' type='text' placeholder="你的标题" >
+                    <input class='title' type='text' placeholder="你的标题" v-model="title">
                 </div>
                 <div class='small-wrapper'>
-                    <input class='small' type='text' placeholder='1 小标题'>
+                    <input class='small' type='text' placeholder='小标题' v-model="sonTitle">
                 </div>
                 <div class='content-wrapper'>
-                    <textarea class='content' placeholder='开始创作……'></textarea>
+                    <textarea class='content' placeholder='开始创作……' v-model="content"></textarea>
                 </div>
             </div>
         </div>
@@ -27,7 +25,43 @@
 
 <script>
 export default {
-    name: 'CreateEdit'
+    name: 'CreateEdit',
+    data: function() {
+        return {
+            title:'',
+            sonTitle:'',
+            content:'',
+            passage_id:0,
+            datas:{
+                title:'',
+                sonTitle:'',
+                content:'',
+                number:0,
+                passage_id:0,
+            }
+        }
+    },
+    mounted() {
+        if(this.$route.query.title) {
+            this.title = this.$route.query.title
+            this.number = this.$route.query.number
+            this.passage_id = this.$route.query.id
+        }
+        else {
+            this.title = '你的标题'
+        }
+    },
+    methods: {
+        handleReady() {
+            this.datas.title = this.title
+            this.datas.sonTitle = this.sonTitle
+            this.datas.content = this.content
+            this.datas.number = this.number;
+            this.datas.passage_id = parseInt(this.passage_id)
+            this.$store.commit('getContinue',this.datas)
+            this.$router.push('/readyEdit')
+        }
+    }
 }
 </script>
 

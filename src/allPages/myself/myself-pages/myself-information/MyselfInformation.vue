@@ -78,7 +78,7 @@
         <div class='foot'>
           <div class='item'>退出登录</div>
           <div class='img-wrapper'>
-            <img src='static\icons\middle\组件 41 – 1.png' class='icon'>
+            <img src='static\icons\middle\组件 41 – 1.png' class='icon' @click="handleExit">
           </div>
         </div>
         <div class='foot'>
@@ -93,6 +93,8 @@
 </template>
 
 <script>
+import { MessageBox } from 'mint-ui'
+import { Indicator } from 'mint-ui'
 export default {
     name: 'MyselfInformation',
     data () {
@@ -108,6 +110,20 @@ export default {
       }
     },
     methods: {
+      handleExit() {
+          MessageBox.confirm('确定要退出吗', '提示').then(action => {
+              var _this = this;
+              Indicator.open({
+                    text: '退出中...',
+                    spinnerType: 'fading-circle'
+                });
+                this.timer = setTimeout(function(){
+                    //console.log(this); // 这里的this指向window对象
+                    _this.$router.push('/');
+                    Indicator.close();
+                }, 500) 
+          })
+      },
       show (val) {
         switch (val) {
           case 'name':

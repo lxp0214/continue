@@ -2,19 +2,17 @@
     <div>
         <div class='head'>
             <div class='head-left'>消息</div>
-            <router-link to='/createAllMessages'>
-                <div class='head-right'>更多</div>
-            </router-link>
+                <div class='head-right' @click="goMore">更多</div>
         </div>
         <ul class='wrapper'>
-            <li class='item' v-for="(item,index) in 8" :key="index">
-                <div class='item-top'>|| 谁偷走了我的昨天</div>
+            <li class='item' v-for="(item,index) in datas" :key="index">
+                <div class='item-top'>|| {{item.passage_title}}</div>
                 <div class='item-bottom'>
                     <div class='bottom-left'>
                         <img src='static/imgs/touxiang/批注 2020-02-10 002238.jpg' class='img'>
-                        <div class='desc'>用户名称</div>
+                        <div class='desc'>{{item.doer_nickname}}</div>
                     </div>
-                    <div class='bottom-right'>3月10日</div>
+                    <div class='bottom-right'>{{new Date().toLocaleDateString(item.create_at)}}</div>
                 </div>
             </li>
         </ul>
@@ -24,7 +22,15 @@
 
 <script>
 export default {
-    name: 'CreateMessage'
+    name: 'CreateMessage',
+    props: {
+        datas:Array
+    },
+    methods: {
+        goMore() {
+            this.$router.push('/createAllMessages')
+        }
+    }
 }
 </script>
 

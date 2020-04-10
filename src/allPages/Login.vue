@@ -89,6 +89,8 @@ export default {
                     text: '登陆成功...',
                     spinnerType: 'fading-circle'
                 });
+                this.phone = '',
+                this.password = '',
                 this.timer = setTimeout(function(){
                     //console.log(this); // 这里的this指向window对象
                     _this.$router.push('/explore');

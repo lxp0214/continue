@@ -1,7 +1,7 @@
 <template>
     <div>
         <div id="app">
-            <keep-alive>
+            <keep-alive :exclude="exclude">
                 <router-view></router-view> 
             </keep-alive>
         </div>
@@ -21,6 +21,11 @@ export default {
   name: 'App',
   components: {
       Navigation:Navigation
+  },
+  data: function() {
+      return {
+          exclude:['CreateEdit']
+      }
   },
   computed: {
       showTab: function() {

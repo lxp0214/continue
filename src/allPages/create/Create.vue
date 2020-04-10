@@ -31,21 +31,23 @@ export default {
     },
     mounted() {
         //记得加一个setInterval 时间是5min
-        fetch('http://api.gxy.ink/v1/hot/creations?page=1',{
-            mode:'cors',
-            method:'GET',
-            headers:
-                new Headers({
-                    'Content-Type':'application/json',
-                    'Authorization':localStorage.token_id
-                })
-        }).then(res => res.json().then(body => {
-            console.log(body)
-            if(body.code === 0) {
-                var result = body.data.slice(0,7)
-                this.datas = result;
-            }
-        })).catch(error => console.log("error: ", error))
+        setInterval(() => {
+            fetch('http://api.gxy.ink/v1/notifications',{
+                mode:'cors',
+                method:'GET',
+                headers:
+                    new Headers({
+                        'Content-Type':'application/json',
+                        'Authorization':localStorage.token_id
+                    })
+                }).then(res => res.json().then(body => {
+                console.log(body)
+                if(body.code === 0) {
+                    var result = body.data.slice(0,5)
+                    this.datas = result;
+                }
+            })).catch(error => console.log("error: ", error))
+        }, 60000);
     },
 }
 </script>

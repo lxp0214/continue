@@ -1,13 +1,24 @@
 <template>
     <div class='search'>
-        <input class='input' type='text' placeholder='搜索ta的创作'>
+        <input class='input' type='text' placeholder='搜索ta的创作' v-model="searchIndex">
         <span class='iconfont icon'>&#xe60a;</span>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'UserDetailsSearch'
+    name: 'UserDetailsSearch',
+    data: function() {
+        return {
+            searchIndex:'',
+        }
+    },
+    watch: {
+        searchIndex() {
+            console.log('ok')
+            this.$emit('getInfo',this.searchIndex)
+        }
+    }
 }
 </script>
 

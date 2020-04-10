@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
+        id: 0,
         token: '', //操作令牌
         artical: [],
         darkImg: true,
@@ -17,9 +18,21 @@ export default new Vuex.Store({
             content: '',
             number: 0,
             passage_id: 0,
-        }
+        },
+        user: '',
+        item: {},
     },
     mutations: {
+        getPerson(state, item) {
+            state.item = item
+        },
+        getId(state, id) {
+            state.id = id
+        },
+        getUser(state, info) {
+            state.user = info
+            console.log(state.user)
+        },
         getContinue(state, datas) {
             state.datas.title = datas.title
             state.datas.sonTitle = datas.sonTitle

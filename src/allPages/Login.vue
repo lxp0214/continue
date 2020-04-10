@@ -84,6 +84,7 @@ export default {
                 localStorage.phone = md5(this.phone);
                 localStorage.password = md5(this.password)
                 this.$store.commit('getToken',body.data.token)
+                this.$store.commit('getId',body.data.id)
                 var _this = this;
                 Indicator.open({
                     text: '登陆成功...',

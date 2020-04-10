@@ -124,6 +124,20 @@ export default {
               MessageBox.alert("两次密码要一致哦~", '提示');
               return
           }
+          if(this.password1.length <6 || this.password1 > 20 || this.password1 == null) {
+                MessageBox.alert("密码应在6~20位哦！", '提示');
+                return
+            }
+            var reg1 = new RegExp(/^[0-9A-Za-z]+$/);
+            if(!reg1.test(this.password1)) {
+                MessageBox.alert("密码只能有数字和字母哦！", '提示');
+                return
+            }
+            var reg = new RegExp(/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/);
+            if (!reg.test(this.password1)) {
+                MessageBox.alert("密码必须有数字和字母哦！", '提示');
+                return
+            }
           let data = {
                 phone:this.phone,
                 password:this.password1,

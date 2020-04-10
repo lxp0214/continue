@@ -120,6 +120,20 @@ export default {
             })).catch(error => console.log("error: ", error))
         },
         handleRegister() {
+            if(this.password.length <6 || this.password > 20 || this.password == null) {
+                MessageBox.alert("密码应在6~20位哦！", '提示');
+                return
+            }
+            var reg1 = new RegExp(/^[0-9A-Za-z]+$/);
+            if(!reg1.test(this.password)) {
+                MessageBox.alert("密码只能有数字和字母哦！", '提示');
+                return
+            }
+            var reg = new RegExp(/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/);
+            if (!reg.test(this.password)) {
+                MessageBox.alert("密码必须有数字和字母哦！", '提示');
+                return
+            }
             let data = {
                 phone:this.phone,
                 password:this.password,

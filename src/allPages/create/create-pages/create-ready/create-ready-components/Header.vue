@@ -64,7 +64,7 @@ export default {
                     content:this.$store.state.datas.content
                 }
                 //记得加上passage_id
-                fetch(url,{
+                fetch('http://api.gxy.ink/v1/passage/:'+this.$store.state.datas.passage_id+'/section',{
                 mode:'cors',
                 method:'POST',
                 body:JSON.stringify(data),
@@ -88,7 +88,7 @@ export default {
                     section_content:this.$store.state.datas.content
                 }
                 //记得修改url
-                fetch(url,{
+                fetch('http://api.gxy.ink/v1/passage',{
                 mode:'cors',
                 method:'POST',
                 body:JSON.stringify(data),

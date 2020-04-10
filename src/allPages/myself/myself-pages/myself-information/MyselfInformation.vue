@@ -18,7 +18,7 @@
             <div class='item'>
               <div class='item-name'>昵称</div>
               <div class='name-wrapper'>
-                <div class='name' ref='name' @click="quxiao('name')">黑凤梨</div>
+                <div class='name' ref='name' @click="quxiao('name')">{{datas.nickname}}</div>
                 <img src='static\icons\middle\组件 41 – 1.png' class='icon' @click="show('name')" v-show='nameImgShow'>
               </div>
             </div>
@@ -60,7 +60,7 @@
             <div class='item'>
               <div class='item-name'>手机号</div>
               <div class='name-wrapper'>
-                <div class='name'>132300000000</div>
+                <div class='name'>{{datas.phone}}</div>
                 <router-link to='/changePhone'>
                   <img src='static\icons\middle\组件 41 – 1.png' class='icon'>
                 </router-link>
@@ -107,7 +107,25 @@ export default {
         introduceImgShow: true,
         username:'',
         usersex:'',
+        datas:[],
       }
+    },
+    mounted() {
+        fetch('http://api.gxy.ink/v1/profile',{
+            mode:'cors',
+            method:'GET',
+            headers:
+                new Headers({
+                    'Content-Type':'application/json',
+                    'Authorization':localStorage.token_id
+                })
+            }).then(res => res.json().then(body => {
+                console.log(body)
+                if(body.code === 0) {
+                    console.log(body.message)
+                    this.datas = body.data
+                }
+        })).catch(error => console.log("error: ", error))
     },
     methods: {
       handleExit() {

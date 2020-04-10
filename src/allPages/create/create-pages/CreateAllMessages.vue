@@ -61,7 +61,7 @@ export default {
     },
     mounted() {
         //记得加一个setInterval 时间是5min
-        fetch('http://api.gxy.ink/v1/hot/creations?page=1',{
+        fetch('http://api.gxy.ink/v1/notifications',{
             mode:'cors',
             method:'GET',
             headers:

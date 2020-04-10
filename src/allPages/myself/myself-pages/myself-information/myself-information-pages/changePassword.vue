@@ -48,27 +48,41 @@ export default {
                 MessageBox.alert("手机号不正确哦！", '提示');
                 return ;
             }
+            if(this.password1.length <6 || this.password1 > 20 || this.password1 == null) {
+                MessageBox.alert("密码应在6~20位哦！", '提示');
+                return
+            }
+            var reg1 = new RegExp(/^[0-9A-Za-z]+$/);
+            if(!reg1.test(this.password1)) {
+                MessageBox.alert("密码只能有数字和字母哦！", '提示');
+                return
+            }
+            var reg = new RegExp(/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/);
+            if (!reg.test(this.password1)) {
+                MessageBox.alert("密码必须有数字和字母哦！", '提示');
+                return
+            }
             if(this.password1 !== this.password2) {
                 MessageBox.alert("新密码两次要保持一致哦！", '提示');
                 return ;
             }
             let data = {
-                phone:this.phone,
-                password:this.password,
-                newpassword:this.password1
+                old_password:this.password,
+                new_password:this.password1
             }
-            fetch(this.url1, {
+            fetch('http://api.gxy.ink/v1/password', {
                 mode:'cors',
                 method:'POST',
                 body:JSON.stringify(data),
                 headers:
                     new Headers({
-                        'Content-Type':'application/json'
+                        'Content-Type':'application/json',
+                        'Authorization':localStorage.token_id
                 })
             }).then(res => res.json().then(body => {
                 console.log(body)
                 //其他code逻辑待确定
-                if(body.code === 0) {
+                if(body.code === 3) {
                     localStorage.password = md5(this.password)
                     var _this = this;
                     Indicator.open({

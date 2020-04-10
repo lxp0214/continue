@@ -1,12 +1,13 @@
 <template>
     <div>
         <div>
-            <myself-header></myself-header>
+            <myself-header :datas="datas"></myself-header>
             <myself-body @changeList="changeList" @changeSearch="searchContent"></myself-body>
-            <create-list v-show='MyselfListShow'></create-list>
-            <!-- <all-navigation></all-navigation> -->
-            <collections-list v-show='CollectionsListShow' ></collections-list>
-            <focus-list v-show='FocusListShow'></focus-list>
+            <!-- ================================================================================== -->
+            <create-list v-show='MyselfListShow' :datas="creations" :user="user"></create-list>
+            <collections-list v-show='CollectionsListShow' :datas="collections"></collections-list>
+            <focus-list v-show='FocusListShow' :datas="persons"></focus-list>
+            <!-- ================================================================================== -->
             <content-list :datas="contents" v-show="disContent"></content-list>
             <person-list :datas="contents" v-show="disPerson"></person-list> 
             <div class="tip" v-show="display">没有找到结果哦~换个词搜索看吧！</div>
@@ -39,7 +40,61 @@ export default {
         PersonList
     },
     mounted() {
-    //   this.scroll = new BScroll(this.$refs.wrapper)
+        //向后端发送请求
+        let data = {
+            Nickname:'',
+            Gender:'',
+            Profile:'',
+        }
+        //获取我的关注
+        fetch('http://api.gxy.ink/v1/followed', {
+        mode:'cors',
+        method:'GET',
+        headers:
+            new Headers({
+                'Content-Type':'application/json',
+                'Authorization':localStorage.token_id
+            })
+        }).then(res => res.json().then(body => {
+          console.log(body)
+          if(body.code === 0){
+              console.log(body.message)
+              this.persons = body.data
+          }
+        })).catch(error => console.log("error: ", error))
+        //获取我的收藏
+        fetch('http://api.gxy.ink/v1/collections', {
+        mode:'cors',
+        method:'GET',
+        headers:
+            new Headers({
+                'Content-Type':'application/json',
+                'Authorization':localStorage.token_id
+            })
+        }).then(res => res.json().then(body => {
+          console.log(body)
+          if(body.code === 0){
+              console.log(body.message)
+              this.collections = body.data
+          }
+        })).catch(error => console.log("error: ", error))
+        //获取我的创作
+        fetch('http://api.gxy.ink/v1/user/:'+this.$store.state.id, {
+        mode:'cors',
+        method:'GET',
+        headers:
+            new Headers({
+                'Content-Type':'application/json',
+                'Authorization':localStorage.token_id
+            })
+        }).then(res => res.json().then(body => {
+          console.log(body)
+          if(body.code === 0){
+              console.log(body.message)
+              this.creations = body.data.user_work
+              this.user = body.data.user_info
+          }
+        })).catch(error => console.log("error: ", error))
     },
     data () {
         return {
@@ -53,8 +108,13 @@ export default {
             contents:[],
             timer:null,
             display:false,
-            disContent:true,
+            disContent:false,
             disPerson:false,
+            datas:[],
+            persons:[],
+            collections:[],
+            creations:[],
+            user:{},
         }
     },
     methods: {
@@ -151,6 +211,8 @@ export default {
                 }
             }
             if(!searchIndex) {
+                this.disContent = false
+                this.disPerson = false
                 if(this.index === 'a') {
                     this.MyselfListShow = true,
                     this.createContent = false

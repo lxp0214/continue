@@ -63,7 +63,8 @@ export default {
 
 <style lang='stylus' scoped>
   .head 
-      background: rgb(174,222,252)
+      //background: rgb(174,222,252)
+      background #ffffff
       height: 1rem 
       line-height: 1rem 
       position: fixed 

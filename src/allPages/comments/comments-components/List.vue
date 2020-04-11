@@ -5,21 +5,23 @@
             <img src='static\icons\middle\组件 56 – 1.png' class='img' @click='addComments'>
             <span ref='quxiao' @click='quxiao'></span>
         </div>
-        <div class='input-wrapper' v-show='commentsInputShow'>
-          <textarea type='text' placeholder='请输入评论' v-model='addcomments'></textarea>
-          <button @click='queren'>确认</button>
-        </div>
+        <transition enter-active-class='animated fadeIn'>
+          <div class='input-wrapper' v-show='commentsInputShow'>
+            <textarea type='text' placeholder='请输入评论' v-model='addcomments'></textarea>
+            <button @click='queren'>确认</button>
+          </div>
+        </transition>
         <ul class='wrapper'>
-            <li class='item' v-for="(item,index) in 3" :key="index">
+            <li class='item' v-for="(item,index) in this.$store.state.comments" :key="index">
                 <div class='top'>
                     <div class='flex-wrapper'>
                         <img src='static\imgs\touxiang\批注 2020-02-10 002238.jpg' class='img'>
-                        <div class='name'>xxx用户</div>
+                        <div class='name'>{{item.user_nickname}}</div>
                         <div class='time'>3月10日16:30</div>
                     </div>
                     <img :src=iconUrl ref='icon' @click='changeIcon()'>
                 </div>
-                <div class='content'>这是个假评论。。。</div>
+                <div class='content'>{{item.content}}</div>
             </li>
             <li class='item'>
                 <div class='top'>
@@ -74,8 +76,11 @@ export default {
       queren () {
         this.commentsInputShow = false
         this.$refs.quxiao.innerHTML = ''
-        var data = this.addcomments
-        fetch('',{
+        var data = {
+          'content': this.addcomments,
+          'passage_id': this.$store.state.artical.sctions[0].passage_id
+        }
+        fetch('http://127.0.0.1:9930/v1/reply',{
                   mode:'cors',
                   method:'POST',
                   body: JSON.stringify(data),
@@ -94,6 +99,7 @@ export default {
       quxiao() {
         this.commentsInputShow = false
         this.$refs.quxiao.innerHTML = ''
+        this.addcomments= ''
       }
     }
 }

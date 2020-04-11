@@ -30,26 +30,30 @@
 import ArticalDetailsTitle from './ArticalDetailsTitle'
 export default {
   name: 'ArticalDetailsChapter',
+  data () {
+    return{
+      comments: []
+    }
+  },
   methods: {
     handleGetComments() {
         this.$router.push('/comments')
-        fetch('',{
+        fetch("http://127.0.0.1:9930/v1/reply/:"+this.$store.state.artical.sections[0].passage_id,{
               mode:'cors',
               method:'GET',
               headers:
                 new Headers({
                     'Content-Type':'application/json',
-                    'Authorization':localStorage.token_id,
-                    'passage_id': this.$store.state.artical.sections[0].passage_id,
-                    'content': '文章评论'
+                    'Authorization':localStorage.token_id
                 })
         }).then(res => res.json().then(body => {
         console.log(body)
         if(body.code===0) {
-            this.comments = body.data.content
+            this.comments = body.data
             console.log(this.contents)
         }
         }))
+        this.$store.commit('getComments',this.comments)
     }
   }
 }

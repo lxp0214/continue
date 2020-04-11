@@ -1,6 +1,6 @@
 <template>
   <div class='wrapper'>
-    <swiper :options="swiperOption" ref="mySwiper">
+    <swiper ref="mySwiper">
       <swiper-slide v-for='(item,index) of contents' :key='index'>
         <!-- <router-link to='/articaldetails'> -->
             <div class='body' @click="handleGetArtical(item)">

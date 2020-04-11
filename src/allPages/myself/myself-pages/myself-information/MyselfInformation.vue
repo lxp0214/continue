@@ -12,7 +12,15 @@
                 <div class='img-text'>头像</div>
                 <div class='icon-wrapper'>
                   <img src='static\imgs\touxiang\批注 2020-02-10 002238.jpg' class='img-img'>
-                  <img src='static\icons\middle\组件 41 – 1.png' class='icon'>
+                  <el-upload
+                    class="avatar-uploader"
+                    action="https://jsonplaceholder.typicode.com/posts/"
+                    :show-file-list="false"
+                    :on-success="handleAvatarSuccess"
+                    :before-upload="beforeAvatarUpload">
+                    <img v-if="imageUrl" :src="imageUrl" class="avatar">
+                    <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                  </el-upload>
                 </div>
             </div>
             <div class='item'>
@@ -20,13 +28,13 @@
               <div class='name-wrapper'>
                 <div class='name' ref='name' @click="quxiao('name')">黑凤梨</div>
                 <img src='static\icons\middle\组件 41 – 1.png' class='icon' @click="show('name')" v-show='nameImgShow'>
+              </div>  
+            </div>
+            <transition enter-active-class='animated fadeIn'>
+              <div class='modifyName' v-show='nameShow'>
+                <input class='input' type='text' value='输入你的新昵称吧' v-model="username">
+                <button class='button' @click="queren('name',' ')">确认</button>
               </div>
-            </div>
-            <transition enter-active-class='animated fadeIn' leave-active-class='animated fadeOut'>
-            <div class='modifyName' v-show='nameShow'>
-              <input class='input' type='text' value='输入你的新昵称吧' v-model="username">
-              <button class='button' @click="queren('name',' ')">确认</button>
-            </div>
             </transition>
             <div class='item'>
               <div class='item-name'>性别</div>
@@ -35,11 +43,13 @@
                 <img src='static\icons\middle\组件 41 – 1.png' class='icon' @click="show('sex')" v-show='sexImgShow'>
               </div>
             </div>
-            <div class='modifySex' v-show='sexShow'>
-              <button class='button' @click="queren('sex','male')">男</button>
-              <button class='button' @click="queren('sex','female')">女</button>
-              <button class='button' @click="queren('sex','unknow')">保密</button>
-            </div>
+            <transition enter-active-class='animated fadeIn'>
+              <div class='modifySex' v-show='sexShow'>
+                <button class='button' @click="queren('sex','male')">男</button>
+                <button class='button' @click="queren('sex','female')">女</button>
+                <button class='button' @click="queren('sex','unknow')">保密</button>
+              </div>
+            </transition>
             <div class='item'>
               <div class='item-name'>简介</div>
               <div class='name-wrapper'>
@@ -47,13 +57,15 @@
                 <img src='static\icons\middle\组件 41 – 1.png' class='icon' @click="show('introduce')" v-show='introduceImgShow'>
               </div>
             </div>
-            <div class='modifyIntroduce' v-show='introduceShow'>
-              <textarea class='input'></textarea>
-              <div class='finishInput'>
-                <span claaa='fontNumber'>0/200字</span>
-                <span class='finish' @click="queren('introduce')">保存</span>
+            <transition enter-active-class='animated fadeIn'>
+              <div class='modifyIntroduce' v-show='introduceShow'>
+                <textarea class='input'></textarea>
+                <div class='finishInput'>
+                  <span claaa='fontNumber'>0/200字</span>
+                  <span class='finish' @click="queren('introduce')">保存</span>
+                </div>
               </div>
-            </div>
+            </transition>
         </div>
         <div class='basic-information'>
             <div class='head'>账户资料</div>
@@ -105,6 +117,7 @@ export default {
         introduceImgShow: true,
         username:'',
         usersex:'',
+        imageUrl: ''
       }
     },
     methods: {
@@ -174,9 +187,24 @@ export default {
             this.$refs.introduce.innerHTML = '&nbsp;'
             break;
         }
+      },
+      handleAvatarSuccess(res, file) {
+        this.imageUrl = URL.createObjectURL(file.raw);
+      },
+      beforeAvatarUpload(file) {
+        const isJPG = file.type === 'image/jpeg';
+        const isLt2M = file.size / 1024 / 1024 < 2;
+        if (!isJPG) {
+          this.$message.error('上传头像图片只能是 JPG 格式!');
+        }
+        if (!isLt2M) {
+          this.$message.error('上传头像图片大小不能超过 2MB!');
+        }
+        return isJPG && isLt2M;
       }
     }
 }
+
 </script>
 
 <style lang='stylus' scoped>
@@ -280,9 +308,22 @@ export default {
           width: 1.2rem
           border-radius: 100%
           background: purple
-        .icon 
-          height: .45rem
-          margin-left: .2rem
+        .avatar-uploader .el-upload 
+          height: 1.6rem
+          width: 1.6rem
+          overflow: hidden
+        .avatar-uploader-icon 
+          height: 1.6rem
+          width: .5rem
+          line-height: 1.6rem
+          font-size: .56rem
+          color: #000000
+          text-align: center
+          margin-left: .1rem
+        .avatar 
+          width: 1.2rem
+          height: 1.2rem
+          display: block
     .item
       height: 1rem
       line-height: 1rem

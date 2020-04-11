@@ -41,6 +41,8 @@ export default {
         height: .86rem
         line-height: .86rem 
         font-size: 1rem
+        img 
+          height: .7rem
     .small 
       margin-left: .4rem
       font-size: .24rem

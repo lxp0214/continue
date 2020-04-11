@@ -73,4 +73,5 @@ export default {
         top:1.3rem
         right:.4rem
         height: .7rem
+
 </style>

@@ -52,6 +52,10 @@ export default new Vuex.Store({
         getbgAp(state, bgAp) {
             state.bgApColor = bgAp
             console.log(state.bgApColor)
+        },
+        getComments(state,comments) {
+            state.comments = comments
+            console.log(comments)
         }
     }
 })

@@ -15,12 +15,12 @@
                     <img src='static\imgs\touxiang\批注 2020-02-10 002238.jpg' class='img'>
                     <span class='name'>{{item.passage.user_nickname}}</span>
                 </div>
-                <span class='time'>3月10日</span>
+                <span class='time'>{{new Date().toLocaleDateString(item.passage.create_at)}}</span>
                 </div>
             </div>
             <div class='bottom'>
-                <div class='smallTitle'>{{item.sections[0].title}}</div>
-                <div class='text'>{{item.sections[0].content}}</div>
+                <div class='smallTitle'>{{(item.sections)[0].title}}</div>
+                <div class='text'>{{(item.sections)[0].content}}</div>
             </div>
             </div>
         <!-- </router-link> -->
@@ -34,8 +34,10 @@
 <script >
 export default({
     name: 'NewAndHot',
-    props:{
-      contents: Array,
+    data:function(){
+      return {
+          contents:[],
+      }
     },
     methods: {
         //监听路由
@@ -45,7 +47,119 @@ export default({
         }
     },
     mounted() {
-        console.log(this.contents)
+        var link = this.$store.state.link
+        if(link == 'newcontinue') {
+            console.log('ok')
+            console.log('这是：',link)
+            //获取最新续作
+            fetch('http://api.gxy.ink/v1/latest/sequels?page=1',{
+              mode:'cors',
+              method:'GET',
+              headers:
+                new Headers({
+                    'Content-Type':'application/json',
+                    'Authorization':localStorage.token_id
+                })
+            }).then(res => res.json().then(body => {
+                console.log(body)
+                if(body.code===0) {
+                    var result = []
+                    let originContent = body.data
+                    console.log(originContent)
+                    originContent.forEach(value => {
+                        if(value.sections) {
+                            result.push(value)
+                        }
+                    })
+                    this.contents = result
+                    console.log(this.contents)
+                }
+            })).catch(error => console.log("error: ", error))
+        }
+        if(link == 'newcreate') {
+            console.log('ok')
+            console.log('这是：',link)
+            //获取最新原创
+            fetch('http://api.gxy.ink/v1/latest/creations?page=1',{
+              mode:'cors',
+              method:'GET',
+              headers:
+                new Headers({
+                    'Content-Type':'application/json',
+                    'Authorization':localStorage.token_id
+                })
+            }).then(res => res.json().then(body => {
+                console.log(body)
+                if(body.code===0) {
+                    var result = []
+                    let originContent = body.data
+                    console.log(originContent)
+                    originContent.forEach(value => {
+                        if(value.sections) {
+                            result.push(value)
+                        }
+                    })
+                    this.contents = result
+                    console.log(this.contents)
+                }
+            })).catch(error => console.log("error: ", error))
+        }
+        if(link == 'hotcreate') {
+            console.log('ok')
+            console.log('这是：',link)
+            //获热门原创
+            fetch('http://api.gxy.ink/v1/hot/creations?page=1',{
+              mode:'cors',
+              method:'GET',
+              headers:
+                new Headers({
+                    'Content-Type':'application/json',
+                    'Authorization':localStorage.token_id
+                })
+            }).then(res => res.json().then(body => {
+                console.log(body)
+                if(body.code===0) {
+                    var result = []
+                    let originContent = body.data
+                    console.log(originContent)
+                    originContent.forEach(value => {
+                        if(value.sections) {
+                            result.push(value)
+                        }
+                    })
+                    this.contents = result
+                    console.log(this.contents)
+                }
+            })).catch(error => console.log("error: ", error))
+        }
+        if(link == 'hotcontinue') {
+            console.log('ok')
+            console.log('这是：',link)
+            //获取热门续作
+            fetch('http://api.gxy.ink/v1/hot/sequels?page=1',{
+              mode:'cors',
+              method:'GET',
+              headers:
+                new Headers({
+                    'Content-Type':'application/json',
+                    'Authorization':localStorage.token_id
+                })
+            }).then(res => res.json().then(body => {
+                console.log(body)
+                if(body.code===0) {
+                    var result = []
+                    let originContent = body.data
+                    console.log(originContent)
+                    originContent.forEach(value => {
+                        if(value.sections) {
+                            result.push(value)
+                        }
+                    })
+                    this.contents = result
+                    console.log(this.contents)
+                }
+            })).catch(error => console.log("error: ", error))
+        }
     }
 })
 </script>>

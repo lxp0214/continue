@@ -1,7 +1,7 @@
 <template>
     <div class="hot-create">
         <hot-create-header class="header"></hot-create-header>
-        <new-and-hot :contents='contents'></new-and-hot>
+        <new-and-hot></new-and-hot>
     </div>
 </template>
 
@@ -19,22 +19,22 @@ export default {
       HotCreateHeader:HotCreateHeader,
       NewAndHot
   },
-  created () {
-    fetch('http://api.gxy.ink/v1/hot/creations?page=1',{
-              mode:'cors',
-              method:'GET',
-              headers:
-                new Headers({
-                    'Content-Type':'application/json',
-                    'Authorization':localStorage.token_id
-                })
-    }).then(res => res.json().then(body => {
-        console.log(body)
-        if(body.code===0) {
-            this.contents = body.data
-            console.log(this.contents)
-        }
-    }))
+  mounted () {
+    // fetch('http://api.gxy.ink/v1/hot/creations?page=1',{
+    //           mode:'cors',
+    //           method:'GET',
+    //           headers:
+    //             new Headers({
+    //                 'Content-Type':'application/json',
+    //                 'Authorization':localStorage.token_id
+    //             })
+    // }).then(res => res.json().then(body => {
+    //     console.log(body)
+    //     if(body.code===0) {
+    //         this.contents = body.data
+    //         console.log(this.contents)
+    //     }
+    // }))
   }
 }
 </script>

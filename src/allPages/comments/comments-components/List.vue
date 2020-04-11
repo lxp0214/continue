@@ -76,25 +76,26 @@ export default {
       queren () {
         this.commentsInputShow = false
         this.$refs.quxiao.innerHTML = ''
+        console.log(this.$store.state.artical)
         var data = {
           'content': this.addcomments,
           'passage_id': this.$store.state.artical.sctions[0].passage_id
         }
-        fetch('http://127.0.0.1:9930/v1/reply',{
-                  mode:'cors',
-                  method:'POST',
-                  body: JSON.stringify(data),
-                  headers:
-                    new Headers({
-                        'Content-Type':'application/json',
-                        'Authorization':localStorage.token_id
-                    })
+        fetch('http://api.gxy.ink/v1/reply',{
+                mode:'cors',
+                method:'POST',
+                body: JSON.stringify(data),
+                headers:
+                new Headers({
+                    'Content-Type':'application/json',
+                    'Authorization':localStorage.token_id
+                })
         }).then(res => res.json().then(body => {
             console.log(body)
             if(body.code===0) {
-                
+                console.log(body.message)
             }
-        }))
+        })).catch(error => console.log("error: ", error))
       },
       quxiao() {
         this.commentsInputShow = false

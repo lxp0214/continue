@@ -7,14 +7,14 @@
                 <div class='foot'>
                     <div class='left'>
                         <div class='img'>
-                            <img src="static\imgs\touxiang\批注 2020-02-10 002238.jpg" alt="" class="img-img">
+                            <img src="static/imgs/touxiang/批注 2020-02-10 002238.jpg" alt="" class="img-img">
                         </div>
                         <span class='desc'>{{item.user_nickname}}</span>
                         <span class='time'>3月10日16:30</span>
                     </div>
                     <div class='right'>
-                        <img src='static\icons\small\组件 57 – 1.png'>
-                        <img src='static\icons\small\组件 60 – 1.png'>
+                        <img src='static/icons/small/组件 57 – 1.png'>
+                        <img src='static/icons/small/组件 60 – 1.png'>
                     </div>
                 </div>
             </li>

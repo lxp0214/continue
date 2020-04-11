@@ -2,7 +2,7 @@
     <div>
         <div class='header'>
             <router-link to='/create'>
-                <img src='static\icons\middle\组件 39 – 1.png'>
+                <img src='static/icons/middle/组件 39 – 1.png'>
             </router-link>
             <div class="allMessage">所有消息</div>
             <img @click='changeShow()' :src=this.rightUrl ref='change'>
@@ -14,7 +14,7 @@
                     <div class='item-content'>{{item.passage_content}}</div>
                     <div class='item-name'>
                         <div class='item-name-left'>
-                            <img src='static\imgs\touxiang\批注 2020-02-10 002238.jpg' class='item-name-img'>
+                            <img src='static/imgs/touxiang/批注 2020-02-10 002238.jpg' class='item-name-img'>
                             <div class='item-name-name'>{{item.doer_nickname}}</div>
                         </div>
                         <div class='item-name-right'>{{new Date().toLocaleDateString(item.create_at)}}</div>

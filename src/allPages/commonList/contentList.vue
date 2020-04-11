@@ -9,7 +9,7 @@
                         <div class='item-name'>
                             <div class='item-name-left'>
                                 <div class='item-name-img'>
-                                    <img src="static\imgs\touxiang\批注 2020-02-10 002238.jpg" alt="">
+                                    <img src="static/imgs/touxiang/批注 2020-02-10 002238.jpg" alt="">
                                 </div>
                                 <div class='item-name-name'>{{user.nickname}}</div>
                             </div>

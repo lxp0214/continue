@@ -1,9 +1,9 @@
 <template>
     <div class='header'>
       <router-link to='/explore'>
-        <img src='static\icons\middle\组件 76 – 1.png'>
+        <img src='static/icons/middle/组件 76 – 1.png'>
       </router-link>
-        <img src='static\icons\middle\组件 75 – 1.png'>
+        <img src='static/icons/middle/组件 75 – 1.png'>
     </div>
 </template>
 

@@ -8,7 +8,7 @@
         <!-- <router-link :to="'/search'+'?name='+'mycreate'"> -->
             <div class='bottom'>
                 <input class='input' type='text' placeholder='搜索我的创作' ref='search' v-model="searchIndex">
-                <img src='static\icons\组件 67 – 1.png'>
+                <img src='static/icons/组件 67 – 1.png'>
             </div>
         <!-- </router-link> -->
     </div>

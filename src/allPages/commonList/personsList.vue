@@ -9,7 +9,7 @@
                         <div class="user-desc">{{item.desc}}</div>
                     </div>
                     <div class="item-last">
-                        <img src='static\icons\middle\组件 63 – 1.png'>
+                        <img src='static/icons/middle/组件 63 – 1.png'>
                     </div>
                 </div>
             </div>

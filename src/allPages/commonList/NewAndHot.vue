@@ -8,11 +8,11 @@
                 <div class='title'>
                 {{item.passage.title}}
                 <span class='number'>{{item.passage.collection}}</span>
-                <img src ='static\icons\middle\组件 69 – 2@3x.png'>
+                <img src ='static/icons/middle/组件 69 – 2@3x.png'>
                 </div>
                 <div class='user'>
                 <div class='left'>
-                    <img src='static\imgs\touxiang\批注 2020-02-10 002238.jpg' class='img'>
+                    <img src='static/imgs/touxiang/批注 2020-02-10 002238.jpg' class='img'>
                     <span class='name'>{{item.passage.user_nickname}}</span>
                 </div>
                 <span class='time'>{{new Date().toLocaleDateString(item.passage.create_at)}}</span>

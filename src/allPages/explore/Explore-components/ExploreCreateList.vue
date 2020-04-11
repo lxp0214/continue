@@ -6,7 +6,7 @@
         </div>
         <ul class="list-item">
             <li class="item-content" v-for="(item,index) in hotCreate" :key="index">
-                <img src='static\imgs\touxiang\批注 2020-02-10 002238.jpg' class="content-img">
+                <img src='static/imgs/touxiang/批注 2020-02-10 002238.jpg' class="content-img">
                 <div class="content-desc">{{item.passage.title}}</div>
                 <div class="content-hot">{{item.passage.collection}} 热度</div>
             </li>

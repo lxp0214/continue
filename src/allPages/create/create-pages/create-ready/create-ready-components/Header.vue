@@ -2,10 +2,10 @@
     <div>
         <div class='header'>
             <router-link to='/createEdit'>
-                <img src='static\icons\middle\组件 39 – 1.png'>
+                <img src='static/icons/middle/组件 39 – 1.png'>
             </router-link>
             创作
-            <img src='static\icons\middle\组件 44 – 1.png' @click="handlePopTop">
+            <img src='static/icons/middle/组件 44 – 1.png' @click="handlePopTop">
         </div>
         <mt-popup v-model="popupVisible" popup-transition="popup-fade" closeOnClickModal="true" position="bottom" class="popTop">
            <mt-picker :slots="items" showToolbar @change="onValuesChange">

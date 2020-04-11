@@ -3,11 +3,11 @@
         <div class='top'>|| {{this.$store.state.artical.passage.title}}</div>
         <div class='bottom'>
             <div class='left'>
-                <img src='static\imgs\touxiang\批注 2020-02-10 002238.jpg' class='img'>
+                <img src='static/imgs/touxiang/批注 2020-02-10 002238.jpg' class='img'>
                 <div class='desc'>由{{this.$store.state.artical.passage.user_nickname}}用户发起</div>
             </div>
             <div class='right'>
-                <img src='static\icons\middle\组件 73 – 1.png'>
+                <img src='static/icons/middle/组件 73 – 1.png'>
                 <img :src=iconUrl @click='changeIcon()' ref='icon'>
             </div>
         </div>

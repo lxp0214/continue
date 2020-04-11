@@ -7,11 +7,11 @@
     <div class="title">不同的灵魂邂逅在同一个故事</div>
     <div class="info">
         <div class="infoName">
-            <img src='static\icons\middle\组件 21 – 1.png'>
+            <img src='static/icons/middle/组件 21 – 1.png'>
             <input type="text" class="infoName-text" placeholder="请输入手机号" v-model="phone">
         </div>
         <div class="infoPass">
-            <img src='static\icons\middle\组件 23 – 1.png'>
+            <img src='static/icons/middle/组件 23 – 1.png'>
             <input type="password" class="infoPass-text" placeholder="请输入密码" v-model="password">
         </div>
         <router-link to='/forget'>

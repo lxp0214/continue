@@ -3,7 +3,7 @@
         <div>
             <div class='header'>
                 <router-link to='/myselfInformation'>
-                    <img src='static\icons\middle\组件 39 – 1.png'>
+                    <img src='static/icons/middle/组件 39 – 1.png'>
                 </router-link>
                 <span>关于</span>
             </div>

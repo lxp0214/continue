@@ -4,14 +4,14 @@
         <div class='bottom'>
             <div class='left'>
                 <div class='img'>
-                    <img src="static\imgs\touxiang\批注 2020-02-10 002238.jpg" alt="" class="img-img">
+                    <img src="static/imgs/touxiang/批注 2020-02-10 002238.jpg" alt="" class="img-img">
                 </div>
                 <div class='desc'>由{{this.$store.state.artical.passage.user_nickname}}发起</div>
             </div>
             <div class='right'>
-                <img src='static\icons\middle\组件 74 – 1.png'>
-                <img src='static\icons\middle\组件 73 – 1.png'>
-                <img src='static\icons\middle\组件 49 – 1.png'>
+                <img src='static/icons/middle/组件 74 – 1.png'>
+                <img src='static/icons/middle/组件 73 – 1.png'>
+                <img src='static/icons/middle/组件 49 – 1.png'>
             </div>
         </div>
     </div>

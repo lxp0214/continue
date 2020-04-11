@@ -6,13 +6,13 @@
                 <div class='content'>{{this.$store.state.datas.content}}</div>
                 <div class='foot'>
                     <div class='left'>
-                        <img src='static\imgs\touxiang\批注 2020-02-10 002238.jpg' class='img'>
+                        <img src='static/imgs/touxiang/批注 2020-02-10 002238.jpg' class='img'>
                         <span class='desc'>{{this.$store.state.nickname}}</span>
                         <span class='time'>{{new Date().toLocaleString()}}</span>
                     </div>
                     <div class='right'>
-                        <img src='static\icons\small\组件 57 – 1.png'>
-                        <img src='static\icons\small\组件 60 – 1.png'>
+                        <img src='static/icons/small/组件 57 – 1.png'>
+                        <img src='static/icons/small/组件 60 – 1.png'>
                     </div>
                 </div>
             </li>

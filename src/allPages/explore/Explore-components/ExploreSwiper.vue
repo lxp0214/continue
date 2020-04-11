@@ -4,16 +4,16 @@
             <swiper :options="swiperOption" ref="mySwiper">
                 <!-- slides -->
                 <swiper-slide>
-                    <img src="static\imgs\touxiang\批注 2020-03-11 002619.jpg" class="slide-img">
+                    <img src="static/imgs/touxiang/批注 2020-03-11 002619.jpg" class="slide-img">
                 </swiper-slide>
                 <swiper-slide>
-                    <img src="static\imgs\touxiang\批注 2020-03-11 002241.jpg" class="slide-img">
+                    <img src="static/imgs/touxiang/批注 2020-03-11 002241.jpg" class="slide-img">
                 </swiper-slide>
                 <swiper-slide>
-                    <img src="static\imgs\touxiang\ile-soniq-day-1-50-of-821-1366x800.jpg" class="slide-img">
+                    <img src="static/imgs/touxiang/ile-soniq-day-1-50-of-821-1366x800.jpg" class="slide-img">
                 </swiper-slide>
                 <swiper-slide>
-                    <img src="static\imgs\touxiang\批注 2020-03-11 002757.jpg" class="slide-img">
+                    <img src="static/imgs/touxiang/批注 2020-03-11 002757.jpg" class="slide-img">
                 </swiper-slide>
                 <!-- Optional controls -->
                 <div class="swiper-pagination"  slot="pagination"></div>

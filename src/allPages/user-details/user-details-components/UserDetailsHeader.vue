@@ -3,9 +3,9 @@
         <div class='header'>
             <div class='top'>
               <router-link to='/myself'>
-                <img src='static\icons\middle\组件 76 – 1.png'>
+                <img src='static/icons/middle/组件 76 – 1.png'>
               </router-link>
-                <img src='static\icons\middle\组件 86 – 1.png'>
+                <img src='static/icons/middle/组件 86 – 1.png'>
             </div>
             <div class='second'>
                 <div class='left'>
@@ -13,7 +13,7 @@
                     <div class='left-bottom'>做不一样的自己</div>
                 </div>
                 <div class='right'>
-                    <img src="static\imgs\touxiang\批注 2020-02-10 002238.jpg" alt="">
+                    <img src="static/imgs/touxiang/批注 2020-02-10 002238.jpg" alt="">
                 </div>
             </div>
             <div class='desc'>{{datas.continue_days}}天，{{item.creation_num}}个原创，{{item.continuation_num}}条续写，{{item.reply_num}}次评论……</div>

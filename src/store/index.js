@@ -23,8 +23,12 @@ export default new Vuex.Store({
         user: '',
         item: {},
         nickname: '',
+        link: '',
     },
     mutations: {
+        getLink(state, link) {
+            state.link = link
+        },
         getNickname(state, nickname) {
             state.nickname = nickname
         },

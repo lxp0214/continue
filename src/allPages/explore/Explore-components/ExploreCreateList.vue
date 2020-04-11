@@ -2,9 +2,7 @@
     <div class="list">
         <div class="title">
             <div class="title-left">热门原创 |</div>
-            <router-link to='/hotCreate'>
-                <div class="title-right">更多</div>
-            </router-link>
+                <div class="title-right" @click="getHotCreate">更多</div>
         </div>
         <ul class="list-item">
             <li class="item-content" v-for="(item,index) in hotCreate" :key="index">
@@ -21,6 +19,14 @@ export default {
     name: 'ExploreCreateList',
     props: {
         hotCreate:Array
+    },
+    methods: {
+        getHotCreate() {
+            console.log('路由跳转成功')
+            this.$router.push('/hotCreate')
+            this.$store.commit('getLink','hotcreate')
+            console.log(this.$store.state.link)
+        }
     }
 }
 </script>

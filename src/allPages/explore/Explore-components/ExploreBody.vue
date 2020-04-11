@@ -2,14 +2,10 @@
     <div class='body'>
         <div class='button'>
             <div class="button-left ">
-                <router-link to='/newContinue'>
-                    <div class="left-desc text">最新续作 ||</div>
-                </router-link>
+                    <div class="left-desc text" @click="getNewContinue">最新续作 ||</div>
             </div>
             <div class="button-right ">
-                <router-link to='/newCreate'>
-                    <div class="right-desc text">最新原创 |</div>
-                </router-link>
+                    <div class="right-desc text" @click="getNewCreate">最新原创 |</div>
             </div>
         </div>
     </div>
@@ -18,6 +14,16 @@
 <script>
 export default {
     name: 'ExploreBody',
+    methods: {
+        getNewContinue() {
+            this.$router.push('/newContinue')
+            this.$store.commit('getLink','newcontinue')
+        },
+        getNewCreate() {
+            this.$router.push('/newCreate')
+            this.$store.commit('getLink','newcreate')
+        }
+    }
 }
 </script>
 

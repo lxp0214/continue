@@ -2,9 +2,7 @@
     <div class="list">
         <div class="title">
             <div class="title-left">热门续作 ||</div>
-            <router-link to='/hotContinue'>
-                <div class="title-right">更多</div>
-            </router-link>
+                <div class="title-right" @click="getHotContinue">更多</div>
         </div>
         <ul class="list-item">
             <li class="item-content" v-for="(item,index) in hotContinue" :key="index">
@@ -21,6 +19,12 @@ export default {
     name: 'ExploreContinueList',
     props: {
         hotContinue:Array
+    },
+    methods: {
+        getHotContinue() {
+            this.$router.push('/hotContinue')
+            this.$store.commit('getLink','hotcontinue')
+        }
     }
 }
 </script>

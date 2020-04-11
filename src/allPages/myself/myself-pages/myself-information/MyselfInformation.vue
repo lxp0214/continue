@@ -39,7 +39,7 @@
             <div class='item'>
               <div class='item-name'>性别</div>
               <div class='name-wrapper'>
-                <div class='name' ref='sex' @click="quxiao('sex')">女</div>
+                <div class='name' ref='sex' @click="quxiao('sex')">{{this.gender}}</div>
                 <img src='static\icons\middle\组件 41 – 1.png' class='icon' @click="show('sex')" v-show='sexImgShow'>
               </div>
             </div>
@@ -121,10 +121,11 @@ export default {
         usersex:'',
         imageUrl: '',
         datas:[],
+        gender:'',
       }
     },
     mounted() {
-        fetch('http://api.gxy.ink/v1/profile',{
+        fetch('http://api.gxy.ink/v1/profile/'+this.$store.state.id,{
             mode:'cors',
             method:'GET',
             headers:
@@ -137,6 +138,16 @@ export default {
                 if(body.code === 0) {
                     console.log(body.message)
                     this.datas = body.data
+                    //判断性别
+                    if(body.data.gender === 'male') {
+                        this.gender = '男'
+                    }
+                    if(body.data.gender === 'female') {
+                        this.gender = '女'
+                    }
+                    if(body.data.gender === 'private') {
+                        this.gender = '保密'
+                    }
                 }
         })).catch(error => console.log("error: ", error))
     },

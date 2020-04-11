@@ -40,6 +40,7 @@
 import axios from 'axios'
 import md5 from 'blueimp-md5'
 import { MessageBox } from 'mint-ui'
+import { Indicator } from 'mint-ui'
 import RegisterHave from './Behavior'
 export default {
   name: 'Login',

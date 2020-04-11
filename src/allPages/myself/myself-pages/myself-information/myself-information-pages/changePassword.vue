@@ -38,7 +38,6 @@ export default {
             password:'',
             password1:'',
             password2:'',
-            url:'' //url待确定
         }
     },
     methods: {
@@ -72,7 +71,7 @@ export default {
             }
             fetch('http://api.gxy.ink/v1/password', {
                 mode:'cors',
-                method:'POST',
+                method:'PUT',
                 body:JSON.stringify(data),
                 headers:
                     new Headers({
@@ -82,6 +81,10 @@ export default {
             }).then(res => res.json().then(body => {
                 console.log(body)
                 //其他code逻辑待确定
+                if(body.code !== 3) {
+                    MessageBox.alert("网络繁忙，请重试", '提示');
+                    return 
+                }
                 if(body.code === 3) {
                     localStorage.password = md5(this.password)
                     var _this = this;

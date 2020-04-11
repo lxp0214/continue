@@ -84,11 +84,14 @@ export default {
                 localStorage.phone = md5(this.phone);
                 localStorage.password = md5(this.password)
                 this.$store.commit('getToken',body.data.token)
+                this.$store.commit('getId',body.data.id)
                 var _this = this;
                 Indicator.open({
                     text: '登陆成功...',
                     spinnerType: 'fading-circle'
                 });
+                this.phone = '',
+                this.password = '',
                 this.timer = setTimeout(function(){
                     //console.log(this); // 这里的this指向window对象
                     _this.$router.push('/explore');

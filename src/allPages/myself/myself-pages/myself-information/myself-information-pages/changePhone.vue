@@ -42,9 +42,8 @@ export default {
             authenticate:'',
             isRun:false,
             runTime:30,
-            timestamp:0,
+            expires_at:0,
             url1:'http://api.gxy.ink/auth/sendMsg',
-            url2:'',//第二个url还需要确定
         }
     },
     methods: {
@@ -91,7 +90,7 @@ export default {
                 })
             }).then(res => res.json().then(body => {
                 console.log(body)
-                this.timestamp = body.data.timestamp
+                this.expires_at = body.data.expires_at
                 if(body.code !== 0) {
                     MessageBox.alert("验证码发送失败，请重试！", '提示');
                     return
@@ -102,7 +101,7 @@ export default {
             let data = {
                 phone:this.phone,
                 code:this.code,
-                timestamp:this.timestamp
+                expires_at:this.expires_at
             }
             console.log(JSON.stringify(data))
             fetch(this.url2,{
@@ -151,7 +150,7 @@ export default {
                     });
                     this.timer = setTimeout(function(){
                         //console.log(this); // 这里的this指向window对象
-                        _this.$router.push('/myself');
+                        _this.$router.push('/');
                         Indicator.close();
                     }, 500) 
                 }

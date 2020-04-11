@@ -9,19 +9,24 @@
             </div>
             <div class='second'>
                 <div class='left'>
-                    <div class='left-top'>黑凤梨</div>
+                    <div class='left-top'>{{datas.nickname}}</div>
                     <div class='left-bottom'>做不一样的自己</div>
                 </div>
-                <div class='right'></div>
+                <div class='right'>
+                    <img src="static\imgs\touxiang\批注 2020-02-10 002238.jpg" alt="">
+                </div>
             </div>
-            <div class='desc'>213天，15个原创，36条续写，79次评论……</div>
+            <div class='desc'>{{datas.continue_days}}天，{{item.creation_num}}个原创，{{item.continuation_num}}条续写，{{item.reply_num}}次评论……</div>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'UserDetailsHeader'
+    name: 'UserDetailsHeader',
+    props: {
+        datas:Object
+    }
 }
 </script>
 
@@ -59,6 +64,10 @@ export default {
         width:1.24rem 
         height: 1.24rem 
         background: red
+        img 
+          width 1.24rem
+          height 1.24rem
+          border-radius 50%
     .desc 
       font-size: .24rem
       color: #ffffff

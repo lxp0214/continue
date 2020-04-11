@@ -2,13 +2,11 @@
     <div>
         <div class="list" ref='wrapper'>
             <div>
-                <div class="list-item border-bottom" v-for="item in 13" :key="item">
-                    <router-link to='/userdetail'>
-                        <img src='static/imgs/touxiang/批注 2020-02-10 002238.jpg' class="item-icon border">
-                    </router-link>
+                <div class="list-item border-bottom" v-for="item in datas" :key="item">
+                    <img src='static/imgs/touxiang/批注 2020-02-10 002238.jpg' class="item-icon border" @click="handleGetPerson(item)">
                     <div class="item-user">
-                        <div class="user-name">晴天娃娃</div>
-                        <div class="user-desc">做不一样的自己</div>
+                        <div class="user-name">{{item.nickname}}</div>
+                        <div class="user-desc">{{item.profile}}</div>
                     </div>
                     <div class="item-last">
                         <img src='static\icons\middle\组件 63 – 1.png'>
@@ -24,9 +22,18 @@ import axios from 'axios'
 import BScroll from 'better-scroll'
 export default {
   name: 'FocusList',
+  props: {
+      datas:Array
+  },
   mounted() {
       this.scroll = new BScroll(this.$refs.wrapper)
   },
+  methods: {
+      handleGetPerson(item) {
+          this.$router.push('/userdetail')
+          this.$store.commit('getPerson',item)
+      }
+  }
 }
 </script>
 

@@ -1,6 +1,6 @@
 <template>
     <div class="body">
-        <div class="body-header">雨打芭蕉湿</div>
+        <div class="body-header">{{this.$store.state.datas.title}}</div>
         <div class="body-foot">
             <div class="foot-left">
                 <img src='static\imgs\touxiang\批注 2020-02-10 002238.jpg' class="icon">

@@ -58,6 +58,7 @@ export default {
     .foot 
       font-size: .22rem
       text-align: center
+      color #ffffff
     .wrapper
       .item
         height: 3rem  

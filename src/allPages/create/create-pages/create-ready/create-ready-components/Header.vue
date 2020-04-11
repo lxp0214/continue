@@ -57,6 +57,53 @@ export default {
                 Indicator.close();
             }, 500)         
             console.log('ok')
+            //向后端传数据
+            if(this.message == '续写') {
+                let data = {
+                    title:this.$store.state.datas.sonTitle,
+                    content:this.$store.state.datas.content
+                }
+                //记得加上passage_id
+                fetch('http://api.gxy.ink/v1/passage/:'+this.$store.state.datas.passage_id+'/section',{
+                mode:'cors',
+                method:'POST',
+                body:JSON.stringify(data),
+                headers:
+                    new Headers({
+                        'Content-Type':'application/json',
+                        'Authorization':localStorage.token_id
+                    })
+                }).then(res => res.json().then(body => {
+                    console.log(body)
+                    if(body.code === 0) {
+                        console.log(body.message)
+                    }
+                })).catch(error => console.log("error: ", error))
+            }
+            if(this.message == '原创') {
+                let data = {
+                    title:this.$store.state.datas.title,
+                    continue_flag:0,
+                    section_title:this.$store.state.datas.sonTitle,
+                    section_content:this.$store.state.datas.content
+                }
+                //记得修改url
+                fetch('http://api.gxy.ink/v1/passage',{
+                mode:'cors',
+                method:'POST',
+                body:JSON.stringify(data),
+                headers:
+                    new Headers({
+                        'Content-Type':'application/json',
+                        'Authorization':localStorage.token_id
+                    })
+                }).then(res => res.json().then(body => {
+                    console.log(body)
+                    if(body.code === 0) {
+                        console.log(body.message)
+                    }
+                })).catch(error => console.log("error: ", error))
+            }
         },
         onValuesChange(picker,values) {
             this.message = values[0]

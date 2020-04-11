@@ -1,18 +1,18 @@
 <template>
     <div class='list' ref='wrapper'>
         <ul class='wrapper'>
-            <li class='item' v-for="(item,index) in 5" :key="index">
+            <li class='item' v-for="(item,index) in datas" :key="index">
                 <div class='item-top'>
-                    <div class='item-title'>|| 谁偷走了我的昨天</div>
+                    <div class='item-title'>|| {{item.title}}</div>
                     <img src='static\icons\small\组件 61 – 1.png'>
                 </div>
-                <div class='item-content'>日本。东京市。练马区。天空中的云层倾轧而下，镇子里逐渐阴下来，寒风萧瑟……</div>
+                <div class='item-content'>{{item.content}}</div>
                 <div class='item-name'>
                     <div class='item-name-left'>
                         <img src='static/imgs/touxiang/批注 2020-02-10 002238.jpg' class='item-name-img'>
-                        <div class='item-name-name'>用户名称</div>
+                        <div class='item-name-name'>{{item.user_nickname}}</div>
                     </div>
-                    <div class='item-name-right'>3月10日</div>
+                    <div class='item-name-right'>{{new Date().toLocaleDateString(item.create_at)}}</div>
                 </div>
             </li>
         </ul>
@@ -25,6 +25,9 @@ import axios from 'axios'
 import BScroll from 'better-scroll'
 export default {
   name: 'CollectionsList',
+  props: {
+      datas:Array
+  },
   mounted() {
       this.scroll = new BScroll(this.$refs.wrapper)
   },
@@ -40,6 +43,7 @@ export default {
       font-size: .22rem
       text-align: center
       margin-bottom: 2rem
+      color #ffffff
     .wrapper
       .item
         height: 2.28rem  

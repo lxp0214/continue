@@ -1,56 +1,19 @@
 <template>
     <div class='list' ref='wrapper'>
         <ul class='wrapper'>
-            <li class='item'>
+            <li class='item' v-for="(item,index) in datas" :key="index">
                 <div class='item-top'>
-                    <div class='item-title'>|| 谁偷走了我的昨天</div>
+                    <div class='item-title'>|| {{item.passage_title}}</div>
                 </div>
-                <div class='item-content'>日本。东京市。练马区。天空中的云层倾轧而下，镇子里逐渐阴下来，寒风萧瑟……</div>
+                <div class='item-content'>{{item.section_content}}</div>
                 <div class='item-name'>
                     <div class='item-name-left'>
-                        <div class='item-name-img'></div>
-                        <div class='item-name-name'>用户名称</div>
+                        <div class='item-name-img'>
+                            <img src="static\imgs\touxiang\批注 2020-02-10 002238.jpg" alt="">
+                        </div>
+                        <div class='item-name-name'>{{data.nickname}}</div>
                     </div>
-                    <div class='item-name-right'>3月10日</div>
-                </div>
-            </li>
-            <li class='item'>
-                <div class='item-top'>
-                    <div class='item-title'>|| 谁偷走了我的昨天</div>
-                </div>
-                <div class='item-content'>日本。东京市。练马区。天空中的云层倾轧而下，镇子里逐渐阴下来，寒风萧瑟……</div>
-                <div class='item-name'>
-                    <div class='item-name-left'>
-                        <div class='item-name-img'></div>
-                        <div class='item-name-name'>用户名称</div>
-                    </div>
-                    <div class='item-name-right'>3月10日</div>
-                </div>
-            </li>
-            <li class='item'>
-                <div class='item-top'>
-                    <div class='item-title'>|| 谁偷走了我的昨天</div>
-                </div>
-                <div class='item-content'>日本。东京市。练马区。天空中的云层倾轧而下，镇子里逐渐阴下来，寒风萧瑟……</div>
-                <div class='item-name'>
-                    <div class='item-name-left'>
-                        <div class='item-name-img'></div>
-                        <div class='item-name-name'>用户名称</div>
-                    </div>
-                    <div class='item-name-right'>3月10日</div>
-                </div>
-            </li>
-            <li class='item'>
-                <div class='item-top'>
-                    <div class='item-title'>|| 谁偷走了我的昨天</div>
-                </div>
-                <div class='item-content'>日本。东京市。练马区。天空中的云层倾轧而下，镇子里逐渐阴下来，寒风萧瑟……</div>
-                <div class='item-name'>
-                    <div class='item-name-left'>
-                        <div class='item-name-img'></div>
-                        <div class='item-name-name'>用户名称</div>
-                    </div>
-                    <div class='item-name-right'>3月10日</div>
+                    <div class='item-name-right'>{{new Date().toLocaleDateString(item.create_at)}}</div>
                 </div>
             </li>
         </ul>
@@ -63,8 +26,14 @@ import axios from 'axios'
 import BScroll from 'better-scroll'
 export default {
   name: 'CollectionsList',
-  mounted() {
-      this.scroll = new BScroll(this.$refs.wrapper)
+  props: {
+      datas:Array,
+      data:Object
+  },
+  data:function() {
+      return {
+          display:true,
+      }
   },
 }
 </script>
@@ -118,6 +87,10 @@ export default {
               height: .4rem
               background: red
               float: left 
+              img 
+                width .4rem
+                height .4rem
+                border-radius 50%
             .item-name-name
               float: right
               height: .56rem

@@ -59,6 +59,7 @@ export default {
     .list {
         .foot {
             text-align center
+            color #ffffff
         }
         margin: 0 .4rem
         .list-item {

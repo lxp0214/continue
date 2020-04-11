@@ -26,7 +26,7 @@
             <div class='item'>
               <div class='item-name'>昵称</div>
               <div class='name-wrapper'>
-                <div class='name' ref='name' @click="quxiao('name')">黑凤梨</div>
+                <div class='name' ref='name' @click="quxiao('name')">{{datas.nickname}}</div>
                 <img src='static\icons\middle\组件 41 – 1.png' class='icon' @click="show('name')" v-show='nameImgShow'>
               </div>  
             </div>
@@ -72,7 +72,7 @@
             <div class='item'>
               <div class='item-name'>手机号</div>
               <div class='name-wrapper'>
-                <div class='name'>132300000000</div>
+                <div class='name'>{{datas.phone}}</div>
                 <router-link to='/changePhone'>
                   <img src='static\icons\middle\组件 41 – 1.png' class='icon'>
                 </router-link>
@@ -90,7 +90,7 @@
         <div class='foot'>
           <div class='item'>退出登录</div>
           <div class='img-wrapper'>
-            <img src='static\icons\middle\组件 41 – 1.png' class='icon'>
+            <img src='static\icons\middle\组件 41 – 1.png' class='icon' @click="handleExit">
           </div>
         </div>
         <div class='foot'>
@@ -105,6 +105,8 @@
 </template>
 
 <script>
+import { MessageBox } from 'mint-ui'
+import { Indicator } from 'mint-ui'
 export default {
     name: 'MyselfInformation',
     data () {
@@ -117,10 +119,42 @@ export default {
         introduceImgShow: true,
         username:'',
         usersex:'',
-        imageUrl: ''
+        imageUrl: '',
+        datas:[],
       }
     },
+    mounted() {
+        fetch('http://api.gxy.ink/v1/profile',{
+            mode:'cors',
+            method:'GET',
+            headers:
+                new Headers({
+                    'Content-Type':'application/json',
+                    'Authorization':localStorage.token_id
+                })
+            }).then(res => res.json().then(body => {
+                console.log(body)
+                if(body.code === 0) {
+                    console.log(body.message)
+                    this.datas = body.data
+                }
+        })).catch(error => console.log("error: ", error))
+    },
     methods: {
+      handleExit() {
+          MessageBox.confirm('确定要退出吗', '提示').then(action => {
+              var _this = this;
+              Indicator.open({
+                    text: '退出中...',
+                    spinnerType: 'fading-circle'
+                });
+                this.timer = setTimeout(function(){
+                    //console.log(this); // 这里的this指向window对象
+                    _this.$router.push('/');
+                    Indicator.close();
+                }, 500) 
+          })
+      },
       show (val) {
         switch (val) {
           case 'name':

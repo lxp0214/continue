@@ -65,7 +65,7 @@ export default {
               return
           }
           this.timer = setTimeout(() => {
-              var url_old = 'http://127.0.0.1:9930/v1/passage?key='+this.keyword
+              var url_old = 'http://api.gxy.ink/v1/passage?key='+this.keyword
               this.url = encodeURI(url_old)
               fetch(this.url, {
                 mode:'cors',

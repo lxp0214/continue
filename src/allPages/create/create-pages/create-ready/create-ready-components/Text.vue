@@ -2,8 +2,8 @@
     <div>
         <ul>
             <li class='item'>
-                <div class='item-title'>1 || 雨停了</div>
-                <div class='content'>日本。东京市。练马区。天空中的云层倾轧而下，镇子里逐渐阴下来，寒风萧瑟，这样的天气恐怕不再适宜户外运动。大雄迷迷糊糊地睁开眼睛，他看了看周边的环境，发觉自己就站在小时候经常玩耍的空地上。那边的三根钢管仍旧横着，堆叠在一起，仿佛会一直持续下去。</div>
+                <div class='item-title'>{{this.$store.state.datas.number}} || {{this.$store.state.datas.sonTitle}}</div>
+                <div class='content'>{{this.$store.state.datas.content}}</div>
                 <div class='foot'>
                     <div class='left'>
                         <img src='static\imgs\touxiang\批注 2020-02-10 002238.jpg' class='img'>

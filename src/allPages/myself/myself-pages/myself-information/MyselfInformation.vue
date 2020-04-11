@@ -13,6 +13,7 @@
                 <div class='icon-wrapper'>
                   <label for="id_avatar"><img src='static\imgs\touxiang\批注 2020-02-10 002238.jpg' class='img-img'></label>
                   <input ref='avatar' @click='handleAvatarSuccess' type="file" id="id_avatar" name="file" style="display:none" accept="image/png, image/jpeg, image/png, image/webp">
+                  
                 </div>
             </div>
             <div class='item'>
@@ -225,10 +226,13 @@ export default {
             break;
         }
       },
-      handleAvatarSuccess(res, file) {
-        this.imageUrl = this.$refs.avatar.value
-        var formdata = new FormData(document.getElementById('id_avatar')[0])
-        fetch('http://api.gxy.ink/v1/avatar', {
+      handleAvatarSuccess() {
+        console.log(this.$refs.avatar.value)
+        var formdata = new FormData()
+        if(this.$refs.avatar.value!==null) {
+          formdata.append('file',this.$refs.avatar.value)
+          console.log(formdata)
+          fetch('http://api.gxy.ink/v1/avatar', {
                 mode:'cors',
                 method:'POST',
                 body:JSON.stringify(formdata),
@@ -240,17 +244,7 @@ export default {
         }).then(res => res.json().then(body => {
                 console.log(body)
         }))
-      },
-      beforeAvatarUpload(file) {
-        const isJPG = file.type!=='image/jpeg' && file.type!=='image/jpg' && file.type!=='image/png' && file.type!=='image/webp'
-        const isLt2M = file.size / 1024 / 1024 < 2;
-        if (isJPG) {
-          this.$message.error('上传头像图片不符合格式!');
         }
-        if (!isLt2M) {
-          this.$message.error('上传头像图片大小不能超过 2MB!');
-        }
-        return !isJPG && isLt2M;
       }
     }
 }

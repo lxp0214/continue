@@ -11,16 +11,8 @@
             <div class='img'>
                 <div class='img-text'>头像</div>
                 <div class='icon-wrapper'>
-                  <img src='static\imgs\touxiang\批注 2020-02-10 002238.jpg' class='img-img'>
-                  <el-upload
-                    class="avatar-uploader"
-                    action=""
-                    :show-file-list="false"
-                    :on-success="handleAvatarSuccess"
-                    :before-upload="beforeAvatarUpload">
-                    <img v-if="imageUrl" :src="imageUrl" class="avatar">
-                    <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-                  </el-upload>
+                  <label for="id_avatar"><img src='static\imgs\touxiang\批注 2020-02-10 002238.jpg' class='img-img'></label>
+                  <input ref='avatar' @click='handleAvatarSuccess' type="file" id="id_avatar" name="file" style="display:none" accept="image/png, image/jpeg, image/png, image/webp">
                 </div>
             </div>
             <div class='item'>
@@ -234,12 +226,12 @@ export default {
         }
       },
       handleAvatarSuccess(res, file) {
-        this.imageUrl = URL.createObjectURL(file.raw)
-        var data = {'avatar': this.imageUrl}
+        this.imageUrl = this.$refs.avatar.value
+        var formdata = new FormData(document.getElementById('id_avatar')[0])
         fetch('http://api.gxy.ink/v1/avatar', {
                 mode:'cors',
                 method:'POST',
-                body:JSON.stringify(data),
+                body:JSON.stringify(formdata),
                 headers:
                     new Headers({
                         'Content-Type':'application/json',
@@ -248,7 +240,6 @@ export default {
         }).then(res => res.json().then(body => {
                 console.log(body)
         }))
-        console.log(data)
       },
       beforeAvatarUpload(file) {
         const isJPG = file.type!=='image/jpeg' && file.type!=='image/jpg' && file.type!=='image/png' && file.type!=='image/webp'
@@ -367,6 +358,8 @@ export default {
           width: 1.2rem
           border-radius: 100%
           background: purple
+        .avatar-uploader >>> .el-upload__input 
+          display: block
         .avatar-uploader .el-upload 
           height: 1.6rem
           width: 1.6rem

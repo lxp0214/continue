@@ -24,7 +24,7 @@ export default {
   },
   data: function() {
       return {
-          exclude:['CreateEdit']
+          exclude:['CreateEdit','Myself']
       }
   },
   computed: {

@@ -7,7 +7,7 @@
                 <div class='item-name'>
                     <div class='item-name-left'>
                         <img src='static/imgs/touxiang/批注 2020-02-10 002238.jpg' class='item-name-img'>
-                        <div class='item-name-name'>{{this.user.nickname}}</div>
+                        <div class='item-name-name'>{{user.nickname}}</div>
                     </div>
                     <div class='item-name-right'>{{new Date().toLocaleDateString(item.create_at)}}</div>
                 </div>
@@ -20,9 +20,41 @@
 <script>
 export default {
     name: 'MyselfList',
-    props: {
-        datas:Array,
-        user:Object
+    // props: {
+    //     datas:Array,
+    //     user:Object
+    // },
+    data: function() {
+        return {
+            datas:[],
+            user:{},
+        }
+    },
+    mounted() {
+        console.log('ok')
+        //获取我的创作
+        fetch('http://api.gxy.ink/v1/user/'+this.$store.state.id, {
+        mode:'cors',
+        method:'GET',
+        headers:
+            new Headers({
+                'Content-Type':'application/json',
+                'Authorization':localStorage.token_id
+            })
+        }).then(res => res.json().then(body => {
+        console.log(body)
+        if(body.code === 0){
+            console.log(body.message)
+            this.$store.commit('getNickname',body.data.user_info.nickname)
+            // this.creations = body.data.user_work
+            // this.user = body.data.user_info
+            // console.log(this.$store.state.id)
+            // console.log(this.creations)
+            this.datas = body.data.user_work,
+            this.user = body.data.user_info
+            console.log('子组件',this.datas)
+        }
+        })).catch(error => console.log("error: ", error))
     }
 }
 </script>

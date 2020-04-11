@@ -181,6 +181,27 @@ export default {
                     console.log(body.message)
                     localStorage.phone = md5(this.phone);
                     localStorage.password = md5(this.password)
+                    //发送登录请求，获取token_id
+                    let data_login = {
+                        phone:this.phone,
+                        password:this.password
+                    }
+                    fetch('http://api.gxy.ink/auth/login',{
+                        mode:'cors',
+                        method:'POST',
+                        body: JSON.stringify(data_login),
+                        headers:
+                            new Headers({
+                                'Content-Type':'application/json'
+                            })
+                    }).then(res => res.json.then(body => {
+                        console.log(body)
+                        if(body.code === 0) {
+                            this.$store.commit('getId',body.data.id)
+                            console.log('注册过程中发送登录请求获取toke_id成功')
+                        }
+                    }))
+                    //页面跳转
                     var _this = this;
                     Indicator.open({
                         text: '注册成功.',

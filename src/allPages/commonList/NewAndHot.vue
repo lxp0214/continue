@@ -43,6 +43,9 @@ export default({
             this.$store.commit('getArtical',item)
             this.$router.push('/articaldetails')
         }
+    },
+    mounted() {
+        console.log(this.contents)
     }
 })
 </script>>

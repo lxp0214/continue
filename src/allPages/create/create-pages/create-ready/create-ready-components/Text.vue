@@ -7,8 +7,8 @@
                 <div class='foot'>
                     <div class='left'>
                         <img src='static\imgs\touxiang\批注 2020-02-10 002238.jpg' class='img'>
-                        <span class='desc'>xxx用户</span>
-                        <span class='time'>3月10日16:30</span>
+                        <span class='desc'>{{this.$store.state.nickname}}</span>
+                        <span class='time'>{{new Date().toLocaleString()}}</span>
                     </div>
                     <div class='right'>
                         <img src='static\icons\small\组件 57 – 1.png'>

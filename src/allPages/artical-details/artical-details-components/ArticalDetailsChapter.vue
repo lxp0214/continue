@@ -39,7 +39,7 @@ export default {
   methods: {
     handleGetComments() {
         this.$router.push('/comments')
-        fetch("http://127.0.0.1:9930/v1/reply/:"+this.$store.state.artical.sections[0].passage_id,{
+        fetch("http://api.gxy.ink/v1/reply/"+this.$store.state.artical.passage.id,{
               mode:'cors',
               method:'GET',
               headers:

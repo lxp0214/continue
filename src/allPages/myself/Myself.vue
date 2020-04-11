@@ -8,8 +8,8 @@
             <collections-list v-show='CollectionsListShow'></collections-list>
             <focus-list v-show='FocusListShow'></focus-list>
             <!-- ================================================================================== -->
-            <content-list :datas="contents" v-show="disContent"></content-list>
-            <person-list :datas="contents" v-show="disPerson"></person-list> 
+            <content-list :datas="contents" :user="user" v-show="disContent"></content-list>
+            <person-list :datas="people" v-show="disPerson"></person-list> 
             <div class="tip" v-show="display">没有找到结果哦~换个词搜索看吧！</div>
         </div>
     </div>
@@ -37,16 +37,42 @@ export default {
         CollectionsList,
         FocusList,
         ContentList,
-        PersonList
+        PersonList,
     },
     mounted() {
-        // setInterval(() => {
-        //向后端发送请求
-        let data = {
-            Nickname:'',
-            Gender:'',
-            Profile:'',
+        //获取我的收藏
+        fetch('http://api.gxy.ink/v1/collections', {
+        mode:'cors',
+        method:'GET',
+        headers:
+            new Headers({
+                'Content-Type':'application/json',
+                'Authorization':localStorage.token_id
+            })
+        }).then(res => res.json().then(body => {
+        console.log(body)
+        if(body.code === 0){
+            console.log(body.message)
+            this.collections = body.data
         }
+        })).catch(error => console.log("error: ", error))
+        //获取我的关注
+        fetch('http://api.gxy.ink/v1/followed', {
+        mode:'cors',
+        method:'GET',
+        headers:
+            new Headers({
+                'Content-Type':'application/json',
+                'Authorization':localStorage.token_id
+            })
+        }).then(res => res.json().then(body => {
+        console.log(body)
+        if(body.code === 0){
+            console.log(body.message)
+            this.persons = body.data
+        }
+        })).catch(error => console.log("error: ", error))
+
         //获取用户主页
         fetch('http://api.gxy.ink/v1/user/'+this.$store.state.id, {
         mode:'cors',
@@ -67,7 +93,6 @@ export default {
             console.log(this.creations)
         }
         })).catch(error => console.log("error: ", error))
-            // }, 10000);
     },
     data () {
         return {
@@ -88,7 +113,8 @@ export default {
             collections:[],
             creations:[],
             user:{},
-            info:{}
+            info:{},
+            people:[]
         }
     },
     methods: {
@@ -96,92 +122,68 @@ export default {
             console.log('ok')
             if(searchIndex) {
                 if(this.index === 'a') {
+                    console.log(this.creations)
                     this.MyselfListShow = false,
                     this.createContent = true,
                     this.disContent = true,
                     this.disPerson = false
-                    axios.get('static/mock/collection.json').then(res => {
-                        res = res.data;
-                        if(res.ret && res.data) {
-                            const data = res.data;
-                            console.log(data);
-                            //改了 记得同步到下面的两个if
-                            var List = data.collections;
-                            if(this.timer) {
-                                clearTimeout(this.timer);
+                    if(this.timer) {
+                        clearTimeout(this.timer);
+                    }
+                    this.timer = setTimeout(() => {
+                        let result = []
+                        this.creations.forEach(value => {
+                            if(value.passage_title.indexOf(searchIndex) > -1 || value.section_content.indexOf(searchIndex) > -1) {
+                                result.push(value)
                             }
-                            this.timer = setTimeout(() => {
-                                const result = [];
-                                List.forEach(value => {
-                                    if(value.name.indexOf(searchIndex) > -1) {
-                                        result.push(value);
-                                    }
-                                })
-                                this.contents = result;
-                                if(!this.contents.length) {
-                                    this.display = true
-                                }
-                            },100)
-                        }
-                    })
+                            this.contents = result;
+                            if(!this.contents.length) {
+                                this.display = true
+                            }
+                        })
+                    },100)
                 }
                 if(this.index === 'b') {
                     this.CollectionsListShow = false
                     this.CollectionsContent = true
                     this.disContent = true,
                     this.disPerson = false
-                    axios.get('static/mock/collection.json').then(res => {
-                        res = res.data;
-                        if(res.ret && res.data) {
-                            const data = res.data;
-                            console.log(data);
-                            var List = data.collections;
-                            if(this.timer) {
-                                clearTimeout(this.timer);
+                    if(this.timer) {
+                        clearTimeout(this.timer);
+                    }
+                    this.timer = setTimeout(() => {
+                        let result = []
+                        this.collections.forEach(value => {
+                            if(value.title.indexOf(searchIndex) > -1 || value.content.indexOf(searchIndex) > -1) {
+                                result.push(value)
                             }
-                            this.timer = setTimeout(() => {
-                                const result = [];
-                                List.forEach(value => {
-                                    if(value.name.indexOf(searchIndex) > -1) {
-                                        result.push(value);
-                                    }
-                                })
-                                this.contents = result;
-                                if(!this.contents.length) {
-                                    this.display = true
-                                }
-                            },100)
-                        }
-                    })
+                            this.contents = result;
+                            if(!this.contents.length) {
+                                this.display = true
+                            }
+                        })
+                    },100)
                 }
                 if(this.index === 'c') {
                     this.FocusListShow = false
                     this.FocusContent = true
                     this.disContent = false,
                     this.disPerson = true
-                    axios.get('static/mock/focus.json').then(res => {
-                        res = res.data;
-                        if(res.ret && res.data) {
-                            const data = res.data;
-                            console.log(data);
-                            var List = data.persons;
-                            if(this.timer) {
-                                clearTimeout(this.timer);
+                    if(this.timer) {
+                        clearTimeout(this.timer);
+                    }
+                    this.timer = setTimeout(() => {
+                        let result = []
+                        this.persons.forEach(value => {
+                            if(value.nickname.indexOf(searchIndex) > -1) {
+                                result.push(value)
                             }
-                            this.timer = setTimeout(() => {
-                                const result = [];
-                                List.forEach(value => {
-                                    if(value.name.indexOf(searchIndex) > -1) {
-                                        result.push(value);
-                                    }
-                                })
-                                this.contents = result;
-                                if(!this.contents.length) {
-                                    this.display = true
-                                }
-                            },100)
-                        }
-                    })
+                            this.people = result;
+                            if(!this.people.length) {
+                                this.display = true
+                            }
+                        })
+                    },100)
                 }
             }
             if(!searchIndex) {

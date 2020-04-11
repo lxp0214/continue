@@ -19,8 +19,8 @@
                 </div>
             </div>
             <div class='bottom'>
-                <div class='smallTitle'>{{item.sections.title}}</div>
-                <div class='text'>{{item.sections.content}}</div>
+                <div class='smallTitle'>{{(item.sections)[0].title}}</div>
+                <div class='text'>{{(item.sections)[0].content}}</div>
             </div>
             </div>
         <!-- </router-link> -->

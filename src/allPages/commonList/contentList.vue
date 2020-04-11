@@ -4,14 +4,14 @@
             <div>
                 <ul class='wrapper'>
                     <li class='item' v-for="(item,index) in datas" :key="index" @click="handleGetArtical(item)">
-                        <div class='item-title'>|| {{item.title}}</div>
-                        <div class='item-content'>{{item.content}}</div>
+                        <div class='item-title'>|| {{item.passage_title}}</div>
+                        <div class='item-content'>{{section_content}}</div>
                         <div class='item-name'>
                             <div class='item-name-left'>
                                 <div class='item-name-img'>
                                     <img src="static\imgs\touxiang\批注 2020-02-10 002238.jpg" alt="">
                                 </div>
-                                <div class='item-name-name'>{{item.user_nickname}}</div>
+                                <div class='item-name-name'>{{user.nickname}}</div>
                             </div>
                             <div class='item-name-right'>{{new Date().toLocaleDateString(item.create_at)}}</div>
                         </div>
@@ -28,7 +28,8 @@ import BScroll from 'better-scroll'
 export default {
     name: 'MyselfList',
     props: {
-        datas:Array
+        datas:Array,
+        user:Object
     },
     mounted() {
       this.scroll = new BScroll(this.$refs.wrapper)

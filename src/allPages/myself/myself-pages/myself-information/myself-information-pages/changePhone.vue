@@ -27,6 +27,7 @@
 <script>
 import RegisterHave from '@/allPages/Behavior'
 import { MessageBox } from 'mint-ui'
+import { Indicator } from 'mint-ui'
 import md5 from 'blueimp-md5'
 export default {
     name: 'changePassword',
@@ -43,7 +44,7 @@ export default {
             isRun:false,
             runTime:30,
             expires_at:0,
-            url1:'http://api.gxy.ink/auth/sendMsg',
+            url1:'http://api.gxy.ink/v1/sms/phone',
         }
     },
     methods: {
@@ -86,7 +87,8 @@ export default {
                 body:JSON.stringify(data),
                 headers:
                     new Headers({
-                        'Content-Type':'application/json'
+                        'Content-Type':'application/json',
+                        'Authorization':localStorage.token_id
                 })
             }).then(res => res.json().then(body => {
                 console.log(body)
@@ -104,13 +106,14 @@ export default {
                 expires_at:this.expires_at
             }
             console.log(JSON.stringify(data))
-            fetch(this.url2,{
+            fetch('http://api.gxy.ink/v1/phone',{
                 mode:'cors',
-                method:'POST',
+                method:'PUT',
                 body:JSON.stringify(data),
                 headers:
                     new Headers({
-                        'Content-Type':'application/json'
+                        'Content-Type':'application/json',
+                        'Authorization':localStorage.token_id
                 })
             }).then(res => res.json().then(body => {
                 console.log(body)

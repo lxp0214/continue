@@ -1,5 +1,5 @@
 <template>
-  <div class="found" :style="createStyle">
+  <div class="found">
     <div class="header">
         <div class="icon">
             <router-link to='/'>
@@ -40,6 +40,7 @@
 import axios from 'axios'
 import RegisterHave from './Behavior'
 import { MessageBox } from 'mint-ui'
+import { Indicator } from 'mint-ui'
 export default {
   name: 'Login',
   components: {
@@ -55,17 +56,9 @@ export default {
           authenticate:'',
           isRun:false,
           runTime:30,
-          timestamp:0,
-          url1:'http://sim.gxy.ink/auth/login',
-          url2:'http://api.gxy.ink/auth/register',
-          createStyle: {
-                backgroundImage:"url('static/imgs/创作页动态背景1.gif')",
-                backgroundRepeat:"no-repeat",
-                backgroundSize:"100% 100%",
-                width:"100%",
-                height:"100%",
-                position:"fixed"
-          }
+          expires_at:0,
+          url1:'http://api.gxy.ink/auth/sms/forget_pwd',
+          url2:'http://api.gxy.ink/auth/forget_pwd',
       }
   },
   methods: {
@@ -112,7 +105,7 @@ export default {
                 })
             }).then(res => res.json().then(body => {
                 console.log(body)
-                this.timestamp = body.data.timestamp
+                this.expires_at = body.data.expires_at
                 if(body.code !== 0) {
                     MessageBox.alert("验证码发送失败，请重试！", '提示');
                     return
@@ -142,12 +135,12 @@ export default {
                 phone:this.phone,
                 password:this.password1,
                 code:this.code,
-                timestamp:this.timestamp
+                expires_at:this.expires_at
             }
             console.log(data)
-            fetch(this.ur2,{
+            fetch(this.url2,{
                 mode:'cors',
-                method:'GET',
+                method:'PUT',
                 body:JSON.stringify(data),
                 headers:
                     new Headers({

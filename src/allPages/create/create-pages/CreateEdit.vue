@@ -13,12 +13,7 @@
                     <input class='title' type='text' placeholder="你的标题" v-model="title">
                 </div>
                 <div class='small-wrapper'>
-<<<<<<< HEAD
-                    <div>1&nbsp;</div>
-                    <input class='small' type='text' placeholder='小标题'>
-=======
                     <input class='small' type='text' placeholder='小标题' v-model="sonTitle">
->>>>>>> 728e3f109501344c572e345223c9c81de0526ee0
                 </div>
                 <div class='content-wrapper'>
                     <textarea class='content' placeholder='开始创作……' v-model="content"></textarea>

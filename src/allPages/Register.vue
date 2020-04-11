@@ -40,6 +40,7 @@
 import axios from 'axios'
 import md5 from 'blueimp-md5'
 import { MessageBox } from 'mint-ui'
+import { Indicator } from 'mint-ui'
 import RegisterHave from './Behavior'
 export default {
   name: 'Login',
@@ -55,7 +56,7 @@ export default {
           authenticate:'',
           isRun:false,
           runTime:30,
-          url1:'http://api.gxy.ink/auth/sendMsg',
+          url1:'http://api.gxy.ink/auth/sms/register',
           url2:'http://api.gxy.ink/auth/register',
           expires_at:0,
           createStyle: {

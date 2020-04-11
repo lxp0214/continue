@@ -3,8 +3,8 @@
     <div class='header'>
         <div class='left'>
             <router-link to='/myselfInformation'>
-                <div class='left-top'>黑凤梨</div>
-                <div class='left-bottom'>213天,5个原创,36条续写,79次评论……</div>
+                <div class='left-top'>{{user.nickname}}</div>
+                <div class='left-bottom'>{{user.continue_days}}天,{{user.creation_num}}个原创,{{user.continuation_num}}条续写,{{user.reply_num}}次评论……</div>
             </router-link>
         </div>
         <router-link to='/myselfInformation'>
@@ -17,6 +17,9 @@
 <script>
 export default {
     name: 'MyselfHeader',
+    props: {
+        user:Object
+    },
     activated () {
         window.addEventListener('scroll', this.handleScroll)
     }

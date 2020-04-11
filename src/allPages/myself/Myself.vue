@@ -1,12 +1,12 @@
 <template>
     <div>
         <div>
-            <myself-header :datas="datas"></myself-header>
+            <myself-header :user="user"></myself-header>
             <myself-body @changeList="changeList" @changeSearch="searchContent"></myself-body>
             <!-- ================================================================================== -->
-            <create-list v-show='MyselfListShow' :datas="creations" :user="user"></create-list>
-            <collections-list v-show='CollectionsListShow' :datas="collections"></collections-list>
-            <focus-list v-show='FocusListShow' :datas="persons"></focus-list>
+            <create-list v-show='MyselfListShow'></create-list>
+            <collections-list v-show='CollectionsListShow'></collections-list>
+            <focus-list v-show='FocusListShow'></focus-list>
             <!-- ================================================================================== -->
             <content-list :datas="contents" v-show="disContent"></content-list>
             <person-list :datas="contents" v-show="disPerson"></person-list> 
@@ -40,14 +40,15 @@ export default {
         PersonList
     },
     mounted() {
+        // setInterval(() => {
         //向后端发送请求
         let data = {
             Nickname:'',
             Gender:'',
             Profile:'',
         }
-        //获取我的关注
-        fetch('http://api.gxy.ink/v1/followed', {
+        //获取用户主页
+        fetch('http://api.gxy.ink/v1/user/'+this.$store.state.id, {
         mode:'cors',
         method:'GET',
         headers:
@@ -56,45 +57,17 @@ export default {
                 'Authorization':localStorage.token_id
             })
         }).then(res => res.json().then(body => {
-          console.log(body)
-          if(body.code === 0){
-              console.log(body.message)
-              this.persons = body.data
-          }
+        console.log(body)
+        if(body.code === 0){
+            console.log(body.message)
+            this.$store.commit('getNickname',body.data.user_info.nickname)
+            this.creations = body.data.user_work
+            this.user = body.data.user_info
+            console.log(this.$store.state.id)
+            console.log(this.creations)
+        }
         })).catch(error => console.log("error: ", error))
-        //获取我的收藏
-        fetch('http://api.gxy.ink/v1/collections', {
-        mode:'cors',
-        method:'GET',
-        headers:
-            new Headers({
-                'Content-Type':'application/json',
-                'Authorization':localStorage.token_id
-            })
-        }).then(res => res.json().then(body => {
-          console.log(body)
-          if(body.code === 0){
-              console.log(body.message)
-              this.collections = body.data
-          }
-        })).catch(error => console.log("error: ", error))
-        //获取我的创作
-        fetch('http://api.gxy.ink/v1/user/:'+this.$store.state.id, {
-        mode:'cors',
-        method:'GET',
-        headers:
-            new Headers({
-                'Content-Type':'application/json',
-                'Authorization':localStorage.token_id
-            })
-        }).then(res => res.json().then(body => {
-          console.log(body)
-          if(body.code === 0){
-              console.log(body.message)
-              this.creations = body.data.user_work
-              this.user = body.data.user_info
-          }
-        })).catch(error => console.log("error: ", error))
+            // }, 10000);
     },
     data () {
         return {
@@ -115,6 +88,7 @@ export default {
             collections:[],
             creations:[],
             user:{},
+            info:{}
         }
     },
     methods: {
@@ -213,6 +187,7 @@ export default {
             if(!searchIndex) {
                 this.disContent = false
                 this.disPerson = false
+                this.display = false
                 if(this.index === 'a') {
                     this.MyselfListShow = true,
                     this.createContent = false

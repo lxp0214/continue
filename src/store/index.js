@@ -22,8 +22,12 @@ export default new Vuex.Store({
         },
         user: '',
         item: {},
+        nickname: '',
     },
     mutations: {
+        getNickname(state, nickname) {
+            state.nickname = nickname
+        },
         getPerson(state, item) {
             state.item = item
         },
@@ -64,7 +68,7 @@ export default new Vuex.Store({
             state.bgApColor = bgAp
             console.log(state.bgApColor)
         },
-        getComments(state,comments) {
+        getComments(state, comments) {
             state.comments = comments
             console.log(comments)
         }

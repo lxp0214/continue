@@ -19,7 +19,7 @@ export default {
       HotCreateHeader:HotCreateHeader,
       NewAndHot
   },
-  mounted () {
+  created () {
     fetch('http://api.gxy.ink/v1/hot/creations?page=1',{
               mode:'cors',
               method:'GET',

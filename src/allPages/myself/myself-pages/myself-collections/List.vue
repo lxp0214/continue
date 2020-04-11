@@ -25,11 +25,30 @@ import axios from 'axios'
 import BScroll from 'better-scroll'
 export default {
   name: 'CollectionsList',
-  props: {
-      datas:Array
+  data: function(){
+      return {
+          datas:[],
+      }
   },
   mounted() {
       this.scroll = new BScroll(this.$refs.wrapper)
+        //获取我的收藏
+        fetch('http://api.gxy.ink/v1/collections', {
+        mode:'cors',
+        method:'GET',
+        headers:
+            new Headers({
+                'Content-Type':'application/json',
+                'Authorization':localStorage.token_id
+            })
+        }).then(res => res.json().then(body => {
+        console.log(body)
+        if(body.code === 0){
+            console.log(body.message)
+            this.datas = body.data
+        }
+        })).catch(error => console.log("error: ", error))
+
   },
 }
 </script>

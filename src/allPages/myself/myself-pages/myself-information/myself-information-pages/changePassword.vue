@@ -2,10 +2,10 @@
     <div>
        <div class='header'>
            <router-link to='/myselfInformation'>
-                <img src='static/icons/middle/组件 39 – 1.png'>
+                <img src='static/icons/middle/39 – 1.png'>
            </router-link>
            <span>密码</span>
-           <img src='static/icons/middle/组件 44 – 1.png' @click="handleChangePassword">
+           <img src='static/icons/middle/44 – 1.png' @click="handleChangePassword">
         </div>
         <div class='desc'>用户确认</div>
         <div class='wrapper'>

@@ -5,7 +5,7 @@
             <div class='left-top'>探索</div>
             <div class='left-bottom'>多少人的思维，一笔笔勾勒出来的华章...</div>
             <!-- <router-link to='/search'> -->
-                <img src='static/icons/big/组件 67 – 2.png' @click="handleShowSearch">
+                <img src='static/icons/big/67 – 2.png' @click="handleShowSearch">
             <!-- </router-link> -->
             <fade-animation>
                 <search v-show="showSearch" @close="handleCloseSearch" :point="param" :param="link"></search>

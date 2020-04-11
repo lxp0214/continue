@@ -2,10 +2,10 @@
     <div>
         <div class='header'>
             <router-link to='/create'>
-                <img src='static/icons/middle/组件 47 – 1.png'>
+                <img src='static/icons/middle/47 – 1.png'>
             </router-link>
             创作
-            <img src='static/icons/middle/组件 45 – 1.png' @click="handleReady">
+            <img src='static/icons/middle/45 – 1.png' @click="handleReady">
         </div>
         <div class='wrapper'>
             <div class='body'>

@@ -7,9 +7,9 @@
                 <div class="desc">由{{this.$store.state.nickname}}用户发起</div>
             </div>
             <div class="foot-right">
-                <img src='static/icons/middle/组件 74 – 1.png'>
-                <img src='static/icons/middle/组件 73 – 1.png'>
-                <img src='static/icons/middle/组件 49 – 1.png'>
+                <img src='static/icons/middle/74 – 1.png'>
+                <img src='static/icons/middle/73 – 1.png'>
+                <img src='static/icons/middle/49 – 1.png'>
             </div>
         </div>
     </div>

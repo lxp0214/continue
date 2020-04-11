@@ -2,7 +2,7 @@
     <div class="information">
         <div class='header'>
             <router-link to='/myself'>
-                <img src='static/icons/middle/组件 39 – 1.png'>
+                <img src='static/icons/middle/39 – 1.png'>
             </router-link>
             <div class='desc'>个人资料</div>
         </div>
@@ -20,7 +20,7 @@
               <div class='item-name'>昵称</div>
               <div class='name-wrapper'>
                 <div class='name' ref='name' @click="quxiao('name')">{{datas.nickname}}</div>
-                <img src='static/icons/middle/组件 41 – 1.png' class='icon' @click="show('name')" v-show='nameImgShow'>
+                <img src='static/icons/middle/41 – 1.png' class='icon' @click="show('name')" v-show='nameImgShow'>
               </div>  
             </div>
             <transition enter-active-class='animated fadeIn'>
@@ -33,7 +33,7 @@
               <div class='item-name'>性别</div>
               <div class='name-wrapper'>
                 <div class='name' ref='sex' @click="quxiao('sex')">{{this.gender}}</div>
-                <img src='static/icons/middle/组件 41 – 1.png' class='icon' @click="show('sex')" v-show='sexImgShow'>
+                <img src='static/icons/middle/41 – 1.png' class='icon' @click="show('sex')" v-show='sexImgShow'>
               </div>
             </div>
             <transition enter-active-class='animated fadeIn'>
@@ -47,7 +47,7 @@
               <div class='item-name'>简介</div>
               <div class='name-wrapper'>
                 <div ref='introduce' @click="quxiao('introduce',' ')">&nbsp;</div>
-                <img src='static/icons/middle/组件 41 – 1.png' class='icon' @click="show('introduce')" v-show='introduceImgShow'>
+                <img src='static/icons/middle/41 – 1.png' class='icon' @click="show('introduce')" v-show='introduceImgShow'>
               </div>
             </div>
             <transition enter-active-class='animated fadeIn'>
@@ -67,7 +67,7 @@
               <div class='name-wrapper'>
                 <div class='name'>{{datas.phone}}</div>
                 <router-link to='/changePhone'>
-                  <img src='static/icons/middle/组件 41 – 1.png' class='icon'>
+                  <img src='static/icons/middle/41 – 1.png' class='icon'>
                 </router-link>
               </div>
             </div>
@@ -75,7 +75,7 @@
               <div class='item-name'>密码</div>
               <div class='name-wrapper'>
                 <router-link to='/changePassword'>
-                  <img src='static/icons/middle/组件 41 – 1.png' class='icon'>
+                  <img src='static/icons/middle/41 – 1.png' class='icon'>
                 </router-link>
               </div>
             </div>
@@ -83,14 +83,14 @@
         <div class='foot'>
           <div class='item'>退出登录</div>
           <div class='img-wrapper'>
-            <img src='static/icons/middle/组件 41 – 1.png' class='icon' @click="handleExit">
+            <img src='static/icons/middle/41 – 1.png' class='icon' @click="handleExit">
           </div>
         </div>
         <div class='foot'>
           <div class='item'>关于</div>
           <router-link to='/about'>
             <div class='img-wrapper'>
-              <img src='static/icons/middle/组件 41 – 1.png' class='icon'>
+              <img src='static/icons/middle/41 – 1.png' class='icon'>
             </div>
           </router-link>
         </div>

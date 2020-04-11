@@ -13,8 +13,8 @@
                         <span class='time'>3月10日16:30</span>
                     </div>
                     <div class='right'>
-                        <img src='static/icons/small/组件 57 – 1.png'>
-                        <img src='static/icons/small/组件 60 – 1.png'>
+                        <img src='static/icons/small/57 – 1.png'>
+                        <img src='static/icons/small/60 – 1.png'>
                     </div>
                 </div>
             </li>

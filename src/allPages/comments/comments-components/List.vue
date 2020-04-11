@@ -2,7 +2,7 @@
     <div>
         <div class='head'>
             | 添加评论
-            <img src='static/icons/middle/组件 56 – 1.png' class='img' @click='addComments'>
+            <img src='static/icons/middle/56 – 1.png' class='img' @click='addComments'>
             <span ref='quxiao' @click='quxiao'></span>
         </div>
         <transition enter-active-class='animated fadeIn'>
@@ -30,7 +30,7 @@
                         <div class='name'>xxx用户</div>
                         <div class='time'>3月10日16:30</div>
                     </div>
-                    <img src='static/icons/small/组件 60 – 1.png'>
+                    <img src='static/icons/small/60 – 1.png'>
                 </div>
                 <div class='content'>评论功能暂时没写出来。。。</div>
             </li>
@@ -41,7 +41,7 @@
                         <div class='name'>xxx用户</div>
                         <div class='time'>3月10日16:30</div>
                     </div>
-                    <img src='static/icons/small/组件 60 – 1.png'>
+                    <img src='static/icons/small/60 – 1.png'>
                 </div>
                 <div class='content'>后续会改进哦~</div>
             </li>

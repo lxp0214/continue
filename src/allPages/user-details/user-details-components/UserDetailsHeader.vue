@@ -3,9 +3,9 @@
         <div class='header'>
             <div class='top'>
               <router-link to='/myself'>
-                <img src='static/icons/middle/组件 76 – 1.png'>
+                <img src='static/icons/middle/76 – 1.png'>
               </router-link>
-                <img src='static/icons/middle/组件 86 – 1.png'>
+                <img src='static/icons/middle/86 – 1.png'>
             </div>
             <div class='second'>
                 <div class='left'>

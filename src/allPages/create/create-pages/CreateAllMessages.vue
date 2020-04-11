@@ -2,7 +2,7 @@
     <div>
         <div class='header'>
             <router-link to='/create'>
-                <img src='static/icons/middle/组件 39 – 1.png'>
+                <img src='static/icons/middle/39 – 1.png'>
             </router-link>
             <div class="allMessage">所有消息</div>
             <img @click='changeShow()' :src=this.rightUrl ref='change'>
@@ -45,7 +45,7 @@ export default {
     data () {
         return {
             messageShow: true,
-            rightUrl:'static'+'/'+'icons'+'/'+'middle'+'/'+'组件 36 – 1.png',
+            rightUrl:'static'+'/'+'icons'+'/'+'middle'+'/'+'36 – 1.png',
             datas:[],
         }
     },
@@ -53,9 +53,9 @@ export default {
         changeShow () {
             this.messageShow = !this.messageShow 
             if(!this.messageShow) {
-                this.$refs.change.src='static'+'/'+'icons'+'/'+'middle'+'/'+'组件 35 – 1.png'
+                this.$refs.change.src='static'+'/'+'icons'+'/'+'middle'+'/'+'35 – 1.png'
             } else {
-                this.$refs.change.src = 'static'+'/'+'icons'+'/'+'middle'+'/'+'组件 36 – 1.png'
+                this.$refs.change.src = 'static'+'/'+'icons'+'/'+'middle'+'/'+'36 – 1.png'
             }
         }
     },

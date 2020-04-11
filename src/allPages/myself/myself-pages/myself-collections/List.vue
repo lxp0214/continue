@@ -4,7 +4,7 @@
             <li class='item' v-for="(item,index) in datas" :key="index">
                 <div class='item-top'>
                     <div class='item-title'>|| {{item.title}}</div>
-                    <img src='static/icons/small/组件 61 – 1.png'>
+                    <img src='static/icons/small/61 – 1.png'>
                 </div>
                 <div class='item-content'>{{item.content}}</div>
                 <div class='item-name'>

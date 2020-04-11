@@ -3,9 +3,9 @@
     <div class="header">
         <div class="icon">
             <router-link to='/'>
-                <img src='static/icons/middle/组件 76 – 1.png' class='left'>
+                <img src='static/icons/middle/76 – 1.png' class='left'>
             </router-link>
-            <img src='static/icons/middle/组件 84 – 1.png' class='right'>
+            <img src='static/icons/middle/84 – 1.png' class='right'>
         </div>
         <div class="desc">
             <div class="desc-top">找回您的密码</div>
@@ -14,20 +14,20 @@
     </div>
     <div class="info">
         <div class="infoPhone">
-            <img src='static/icons/middle/组件 29 – 1.png'>
+            <img src='static/icons/middle/29 – 1.png'>
             <input type="text" class="infoPhone-text" placeholder="请输入手机号" v-model="phone">
         </div>
         <div class="infoCode">
-            <img src='static/icons/middle/组件 28 – 1.png'>
+            <img src='static/icons/middle/28 – 1.png'>
             <input type="password" class="infoCode-text" placeholder="请输入验证码" v-model="code">
             <span class="send-code" @click="handleGetCode">{{isRun?`${this.runTime}s后重获取`:`获取验证码`}}</span>
         </div>
         <div class="infoNewPass">
-            <img src='static/icons/middle/组件 23 – 1.png'>
+            <img src='static/icons/middle/23 – 1.png'>
             <input type="password" class="infoNewPass-text" placeholder="请设置新密码" v-model="password1">
         </div>
         <div class="infoPass">
-            <img src='static/icons/middle/组件 23 – 1.png'>
+            <img src='static/icons/middle/23 – 1.png'>
             <input type="password" class="infoPass-text" placeholder="请再次输入密码" v-model="password2">
         </div>
     </div>

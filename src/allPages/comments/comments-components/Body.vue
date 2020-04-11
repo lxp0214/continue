@@ -7,7 +7,7 @@
                 <div class='desc'>由{{this.$store.state.artical.passage.user_nickname}}用户发起</div>
             </div>
             <div class='right'>
-                <img src='static/icons/middle/组件 73 – 1.png'>
+                <img src='static/icons/middle/73 – 1.png'>
                 <img :src=iconUrl @click='changeIcon()' ref='icon'>
             </div>
         </div>

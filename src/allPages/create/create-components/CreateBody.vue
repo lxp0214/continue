@@ -4,7 +4,7 @@
             <div class='header-left'>创作</div>
             <router-link to='/createEdit'>
                 <div class='header-right'>
-                    <img src="static/icons/big/组件 82 – 1.png" alt="">
+                    <img src="static/icons/big/82 – 1.png" alt="">
                 </div>
             </router-link>
         </div>

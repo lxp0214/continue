@@ -14,7 +14,7 @@
                   <img src='static\imgs\touxiang\批注 2020-02-10 002238.jpg' class='img-img'>
                   <el-upload
                     class="avatar-uploader"
-                    action="https://jsonplaceholder.typicode.com/posts/"
+                    action=""
                     :show-file-list="false"
                     :on-success="handleAvatarSuccess"
                     :before-upload="beforeAvatarUpload">
@@ -223,18 +223,32 @@ export default {
         }
       },
       handleAvatarSuccess(res, file) {
-        this.imageUrl = URL.createObjectURL(file.raw);
+        this.imageUrl = URL.createObjectURL(file.raw)
+        var data = {'avatar': this.imageUrl}
+        fetch('http://api.gxy.ink/v1/avatar', {
+                mode:'cors',
+                method:'POST',
+                body:JSON.stringify(data),
+                headers:
+                    new Headers({
+                        'Content-Type':'application/json',
+                        'Authorization':localStorage.token_id
+                })
+        }).then(res => res.json().then(body => {
+                console.log(body)
+        }))
+        console.log(data)
       },
       beforeAvatarUpload(file) {
-        const isJPG = file.type === 'image/jpeg';
+        const isJPG = file.type!=='image/jpeg' && file.type!=='image/jpg' && file.type!=='image/png' && file.type!=='image/webp'
         const isLt2M = file.size / 1024 / 1024 < 2;
-        if (!isJPG) {
-          this.$message.error('上传头像图片只能是 JPG 格式!');
+        if (isJPG) {
+          this.$message.error('上传头像图片不符合格式!');
         }
         if (!isLt2M) {
           this.$message.error('上传头像图片大小不能超过 2MB!');
         }
-        return isJPG && isLt2M;
+        return !isJPG && isLt2M;
       }
     }
 }

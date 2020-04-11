@@ -55,7 +55,7 @@ export default {
           authenticate:'',
           isRun:false,
           runTime:30,
-          url1:'http://api.gxy.ink/auth/sendMsg',
+          url1:'http://api.gxy.ink/auth/sms/register',
           url2:'http://api.gxy.ink/auth/register',
           expires_at:0,
           createStyle: {
